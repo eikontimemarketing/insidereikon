@@ -1,0 +1,2293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Eikon Insider — Manual de Meta Ads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul-forte:#285bfa;
+  --azul-medio:#5a82ff;
+  --azul-claro:#e8eeff;
+  --azul-pastel:#79aee6;
+  --branco:#ffffff;
+  --cinza-papel:#f4f3f1;
+  --cinza-claro:#f1f1f1;
+  --tinta:#0a0a23;
+  --tinta-suave:#3a3a5c;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--branco);
+  color:var(--tinta);
+  line-height:1.7;
+  font-size:16px;
+}
+
+/* === SIDEBAR === */
+.layout{display:flex}
+.side{
+  width:280px;
+  background:linear-gradient(180deg,#0a0a23 0%, #16164d 100%);
+  color:#c5c5e0;
+  padding:32px 0;
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow-y:auto;
+  flex-shrink:0;
+}
+.side::-webkit-scrollbar{width:6px}
+.side::-webkit-scrollbar-thumb{background:#3a3a5c;border-radius:3px}
+
+.side .brand{padding:0 28px 24px;border-bottom:1px solid #2a2a55}
+.side .brand .small{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:500;
+  font-size:11px;
+  color:var(--azul-medio);
+  letter-spacing:2.5px;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+.side .brand .logo{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:28px;
+  font-weight:300;
+  line-height:1;
+  color:#fff;
+  letter-spacing:-1px;
+}
+.side .brand .logo em{
+  font-style:normal;
+  font-weight:800;
+  background:linear-gradient(180deg,#ffffff 0%, #79aee6 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.side .brand .tagline{font-size:10px;color:#7a7aa3;margin-top:8px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500}
+
+.side ul{list-style:none;padding:14px 0}
+.side .mod{
+  padding:16px 28px 8px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:700;
+  font-size:11px;
+  color:var(--azul-medio);
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  border-top:1px solid #2a2a55;
+  margin-top:14px;
+}
+.side .mod:first-of-type{border-top:none;margin-top:0}
+.side li a{
+  display:block;
+  padding:9px 28px;
+  color:#a8a8c8;
+  text-decoration:none;
+  font-size:13px;
+  border-left:3px solid transparent;
+  transition:all .15s;
+}
+.side li a:hover{color:#fff;background:rgba(40,91,250,0.15);border-left-color:var(--azul-medio)}
+
+/* === MAIN === */
+.main{flex:1;max-width:920px;margin:0 auto}
+
+/* === CAPA === */
+.cover{
+  min-height:100vh;
+  background:linear-gradient(180deg, #285bfa 0%, #5a82ff 35%, #e8eeff 75%, #ffffff 100%);
+  padding:60px 60px 80px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+}
+.cover::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2), transparent 50%);
+  pointer-events:none;
+}
+.cover .badge{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:3px;
+  color:rgba(255,255,255,0.85);
+  text-transform:uppercase;
+  margin-bottom:32px;
+  position:relative;
+  z-index:2;
+}
+.cover h1{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:96px;
+  line-height:0.92;
+  letter-spacing:-3px;
+  margin-bottom:24px;
+  position:relative;
+  z-index:2;
+}
+.cover h1 .ek{
+  font-style:normal;
+  font-weight:300;
+  font-size:52px;
+  color:rgba(255,255,255,0.85);
+  display:block;
+  letter-spacing:-1.5px;
+  margin-bottom:-8px;
+  text-transform:lowercase;
+}
+.cover h1 .insider{
+  font-weight:800;
+  background:linear-gradient(180deg, #ffffff 0%, #ffffff 35%, #b0d0ff 70%, #79aee6 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  display:block;
+  letter-spacing:-4px;
+}
+.cover .sub{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-size:24px;
+  color:rgba(0,0,40,0.75);
+  max-width:640px;
+  line-height:1.45;
+  margin-top:40px;
+  font-weight:400;
+  position:relative;
+  z-index:2;
+}
+.cover .sub strong{font-style:normal;font-weight:700;color:#0a0a23}
+.cover .micro{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:13px;
+  color:var(--azul-forte);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-top:48px;
+  padding-top:24px;
+  border-top:2px solid rgba(40,91,250,0.3);
+  max-width:640px;
+  position:relative;
+  z-index:2;
+}
+.cover .meta-cover{
+  display:flex;
+  gap:48px;
+  margin-top:24px;
+  position:relative;
+  z-index:2;
+}
+.cover .meta-cover div{font-family:'Plus Jakarta Sans',sans-serif;font-style:normal;font-weight:500;font-size:13px;color:var(--tinta-suave);text-transform:uppercase;letter-spacing:1.5px}
+.cover .meta-cover strong{
+  display:block;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  color:var(--azul-forte);
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:2px;
+  letter-spacing:-1px;
+}
+
+/* === MÓDULOS === */
+.module{position:relative;padding:0 60px}
+.module-cover{
+  background:linear-gradient(180deg, #285bfa 0%, #5a82ff 60%, #e8eeff 100%);
+  margin:0 -60px;
+  padding:120px 60px 100px;
+  position:relative;
+  overflow:hidden;
+}
+.module-cover::before{
+  content:"";
+  position:absolute;
+  top:-100px;
+  right:-100px;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,0.2), transparent 60%);
+}
+.module-cover .num{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:600;
+  font-size:12px;
+  color:rgba(255,255,255,0.8);
+  letter-spacing:3.5px;
+  margin-bottom:16px;
+  position:relative;z-index:2;
+  text-transform:uppercase;
+}
+.module-cover h2{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:84px;
+  font-weight:800;
+  line-height:0.95;
+  color:#fff;
+  letter-spacing:-3.5px;
+  margin-bottom:24px;
+  position:relative;z-index:2;
+}
+.module-cover h2 .gradient-text{
+  background:linear-gradient(180deg, #ffffff 30%, #b0d0ff 80%, #79aee6 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  font-style:normal;
+  font-weight:800;
+}
+.module-cover .desc{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:400;
+  font-size:21px;
+  color:rgba(255,255,255,0.92);
+  max-width:620px;
+  line-height:1.55;
+  position:relative;z-index:2;
+}
+
+/* === SEÇÕES === */
+section{margin:64px 0;scroll-margin-top:16px}
+section .cap-num{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:700;
+  font-size:12px;
+  color:var(--azul-forte);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+section h3{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:46px;
+  font-weight:800;
+  line-height:1.08;
+  letter-spacing:-1.8px;
+  margin-bottom:32px;
+  color:var(--tinta);
+}
+section h3 .em{
+  font-style:normal;
+  font-weight:800;
+  background:linear-gradient(180deg, var(--azul-forte) 0%, var(--azul-medio) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+section h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:23px;
+  font-weight:700;
+  margin:40px 0 16px;
+  color:var(--tinta);
+  letter-spacing:-0.5px;
+}
+
+p{margin-bottom:18px;color:#1a1a3a;font-size:16px}
+p strong{color:var(--tinta);font-weight:700}
+p em{font-style:italic;font-weight:500}
+
+/* === DROP CAP === */
+.dropcap::first-letter{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:78px;
+  font-weight:800;
+  float:left;
+  line-height:0.9;
+  padding:6px 16px 0 0;
+  background:linear-gradient(180deg, var(--azul-forte), var(--azul-medio));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  letter-spacing:-3px;
+}
+
+/* === TAREFA NUMERADA (estilo print) === */
+.tarefas{margin:32px 0}
+.tarefa{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:24px;
+  align-items:flex-start;
+  padding:18px 0;
+}
+.tarefa .num-circle{
+  width:64px;height:64px;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, #ffffff, #e8eeff 60%, #c4d4ff);
+  box-shadow:0 4px 16px rgba(40,91,250,0.25), inset 0 -2px 4px rgba(40,91,250,0.15);
+  display:flex;
+  align-items:center;justify-content:center;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:26px;
+  font-weight:700;
+  color:var(--azul-forte);
+}
+.tarefa .conteudo{padding-top:14px}
+.tarefa .conteudo p{font-size:16px;line-height:1.6;color:var(--azul-forte);margin:0;font-weight:500}
+.tarefa .conteudo p strong{color:var(--azul-forte);font-weight:700}
+.tarefa .conteudo .lbl{
+  color:var(--azul-forte);
+  font-weight:800;
+  letter-spacing:0.5px;
+}
+
+/* === ANALOGIA === */
+.analogia{
+  background:linear-gradient(135deg, #e8eeff 0%, #f4f3f1 100%);
+  border-left:5px solid var(--azul-forte);
+  padding:32px 36px;
+  margin:32px 0;
+  border-radius:0 12px 12px 0;
+  position:relative;
+}
+.analogia::before{
+  content:"ANALOGIA";
+  position:absolute;
+  top:-12px;
+  left:24px;
+  background:var(--azul-forte);
+  color:#fff;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+  padding:5px 14px;
+  border-radius:3px;
+}
+.analogia p{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:400;
+  font-size:18px;
+  line-height:1.65;
+  color:var(--tinta);
+  margin:0;
+}
+.analogia p strong{font-style:normal;color:var(--azul-forte);font-weight:700}
+
+/* === INSIGHT === */
+.insight{
+  background:linear-gradient(135deg, #0a0a23 0%, #1a1a4d 100%);
+  color:#fff;
+  padding:36px 40px;
+  margin:32px 0;
+  border-radius:12px;
+  position:relative;
+  overflow:hidden;
+}
+.insight::before{
+  content:"";
+  position:absolute;
+  top:-40px;right:-40px;
+  width:200px;height:200px;
+  background:radial-gradient(circle, rgba(40,91,250,0.4), transparent 70%);
+}
+.insight .tag{
+  display:inline-block;
+  background:var(--azul-forte);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2.5px;
+  padding:6px 14px;
+  border-radius:3px;
+  margin-bottom:14px;
+  position:relative;z-index:2;
+  text-transform:uppercase;
+}
+.insight h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  color:#fff;
+  font-size:24px;
+  font-weight:800;
+  margin:0 0 12px;
+  letter-spacing:-0.6px;
+  position:relative;z-index:2;
+}
+.insight p{
+  color:#c5c5e0;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:400;
+  font-size:17px;
+  line-height:1.65;
+  margin:0;
+  position:relative;z-index:2;
+}
+.insight p strong{color:#79aee6;font-style:normal;font-weight:700}
+
+/* === BOXES === */
+.box{
+  padding:24px 28px;
+  margin:24px 0;
+  border-radius:10px;
+  border-left:4px solid;
+}
+.box.danger{background:#fff0f0;border-color:#dc2626}
+.box.success{background:#f0fdf4;border-color:#15803d}
+.box.warn{background:#fffbeb;border-color:#d97706}
+.box.info{background:var(--azul-claro);border-color:var(--azul-forte)}
+.box h5{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:16px;
+  font-weight:800;
+  margin-bottom:10px;
+  letter-spacing:-0.3px;
+}
+.box.danger h5{color:#991b1b}
+.box.success h5{color:#14532d}
+.box.warn h5{color:#92400e}
+.box.info h5{color:var(--azul-forte)}
+.box p{font-size:15px;line-height:1.6;color:#2a2a4a}
+.box p:last-child{margin-bottom:0}
+
+/* === VISUALIZAÇÃO HORMOZI/BRUNSON === */
+.viz{
+  background:#fff;
+  border:2px solid #e5e7eb;
+  border-radius:16px;
+  padding:36px;
+  margin:36px 0;
+  position:relative;
+}
+.viz.azul{
+  background:linear-gradient(135deg, #f4f6ff 0%, #e8eeff 100%);
+  border-color:var(--azul-medio);
+}
+.viz .viz-lbl{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:3px;
+  color:var(--azul-forte);
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.viz h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:22px;
+  font-weight:700;
+  margin:0 0 4px;
+  color:var(--tinta);
+  letter-spacing:-0.5px;
+}
+.viz .leg{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:400;
+  font-size:14.5px;
+  color:var(--tinta-suave);
+  margin-bottom:24px;
+}
+.viz svg{display:block;margin:0 auto;max-width:100%;height:auto}
+
+/* === TABELAS === */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:24px 0;
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 2px 8px rgba(0,0,40,0.06);
+  font-size:14.5px;
+}
+th{
+  background:var(--tinta);
+  color:#fff;
+  padding:16px 20px;
+  text-align:left;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;
+  font-size:12.5px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+td{
+  padding:14px 20px;
+  border-bottom:1px solid #e5e7eb;
+  vertical-align:top;
+  color:#2a2a4a;
+}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:#fafafa}
+
+/* === GRIDS === */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:28px 0}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:28px 0}
+
+/* === CARDS === */
+.card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:24px;
+  transition:all 0.2s;
+}
+.card.azul{
+  background:linear-gradient(135deg, var(--azul-forte) 0%, var(--azul-medio) 100%);
+  color:#fff;
+  border:none;
+}
+.card.azul h5{color:#fff}
+.card.azul p{color:rgba(255,255,255,0.9)}
+.card h5{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:19px;
+  font-weight:700;
+  margin-bottom:8px;
+  letter-spacing:-0.4px;
+  color:var(--tinta);
+}
+.card p{font-size:14.5px;line-height:1.6;color:#3a3a5c}
+
+/* === FÓRMULA === */
+.formula{
+  background:linear-gradient(135deg, var(--tinta) 0%, #16164d 100%);
+  color:#fff;
+  padding:36px 44px;
+  margin:32px 0;
+  text-align:center;
+  border-radius:12px;
+  position:relative;
+  overflow:hidden;
+}
+.formula::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 100%, rgba(40,91,250,0.3), transparent 70%);
+}
+.formula .eq{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:26px;
+  font-weight:600;
+  margin-bottom:14px;
+  position:relative;z-index:2;
+  font-style:normal;
+  letter-spacing:-0.4px;
+}
+.formula .eq strong{
+  font-weight:800;
+  color:#79aee6;
+  background:linear-gradient(180deg, #ffffff, #79aee6);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.formula .nota{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:400;
+  font-size:14px;
+  color:#a8a8c8;
+  position:relative;z-index:2;
+}
+
+/* === CITAÇÃO === */
+.cite{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:500;
+  font-size:24px;
+  line-height:1.45;
+  text-align:center;
+  margin:56px auto;
+  max-width:720px;
+  color:var(--azul-forte);
+  padding:0 24px;
+  position:relative;
+  letter-spacing:-0.4px;
+}
+.cite::before{
+  content:"";
+  display:block;
+  width:60px;
+  height:2px;
+  background:linear-gradient(90deg, var(--azul-forte), var(--azul-medio));
+  margin:0 auto 24px;
+}
+.cite::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:2px;
+  background:linear-gradient(90deg, var(--azul-medio), var(--azul-forte));
+  margin:24px auto 0;
+}
+
+/* === LISTAS === */
+ul.styled{list-style:none;padding:0;margin:18px 0}
+ul.styled li{
+  padding:10px 0 10px 36px;
+  position:relative;
+  color:#2a2a4a;
+  font-size:15.5px;
+}
+ul.styled li::before{
+  content:"→";
+  position:absolute;
+  left:0;top:8px;
+  color:var(--azul-forte);
+  font-weight:700;
+  font-size:20px;
+}
+
+ol.book{
+  list-style:none;
+  counter-reset:bk;
+  padding:0;
+  margin:24px 0;
+}
+ol.book li{
+  counter-increment:bk;
+  padding:14px 0 14px 60px;
+  position:relative;
+  border-bottom:1px solid #e5e7eb;
+  font-size:15.5px;
+  color:#2a2a4a;
+}
+ol.book li:last-child{border-bottom:none}
+ol.book li::before{
+  content:counter(bk,upper-roman);
+  position:absolute;
+  left:0;top:16px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-size:18px;
+  color:var(--azul-forte);
+  font-weight:800;
+  letter-spacing:0.5px;
+}
+
+/* === COMPARATIVO === */
+.compare{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  margin:32px 0;
+  border-radius:16px;
+  overflow:hidden;
+}
+.compare .col{padding:32px 36px;color:#fff}
+.compare .col.agencia{background:linear-gradient(135deg, var(--azul-forte) 0%, var(--azul-medio) 100%)}
+.compare .col.info{background:linear-gradient(135deg, var(--tinta) 0%, #2a2a55 100%)}
+.compare .col h5{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+  opacity:0.7;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.compare .col h6{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:30px;
+  font-weight:800;
+  margin-bottom:18px;
+  letter-spacing:-1px;
+}
+.compare .col ul{list-style:none;padding:0}
+.compare .col li{
+  padding:8px 0 8px 22px;
+  position:relative;
+  font-size:14.5px;
+  line-height:1.5;
+}
+.compare .col li::before{
+  content:"▸";
+  position:absolute;
+  left:0;
+  opacity:0.8;
+}
+
+/* === FIM MÓDULO === */
+.fim-mod{
+  text-align:center;
+  margin:64px 0 0;
+  padding-top:32px;
+  border-top:1px solid #e5e7eb;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-style:normal;
+  font-weight:700;
+  font-size:12px;
+  color:var(--azul-forte);
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+.fim-mod::before, .fim-mod::after{content:"❦";margin:0 16px;color:var(--azul-medio)}
+
+/* === HIGHLIGHT INLINE === */
+.hl{
+  background:linear-gradient(180deg, transparent 50%, #fff1a3 50%);
+  padding:0 4px;
+  font-weight:600;
+}
+
+/* === RESPONSIVO === */
+@media(max-width:980px){
+  .side{display:none}
+  .module{padding:0 24px}
+  .main{padding:24px;max-width:100%}
+  .cover{padding:32px 24px;min-height:auto}
+  .cover h1{font-size:54px}
+  .cover h1 .ek{font-size:32px}
+  .cover .sub{font-size:22px}
+  .module-cover h2{font-size:48px}
+  .module-cover{margin:0 -24px;padding:80px 24px}
+  section h3{font-size:32px}
+  .grid-2,.grid-3,.compare{grid-template-columns:1fr}
+}
+
+@media print{
+  .side{display:none}
+  .main{max-width:100%}
+  section{page-break-inside:avoid}
+  .module-cover{page-break-before:always}
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="side">
+  <div class="brand">
+    <div class="small">— EDIÇÃO 2026 —</div>
+    <div class="logo">Eikon <em>Insider</em></div>
+    <div class="tagline">Manual de Meta Ads</div>
+  </div>
+
+  <div class="mod">Apresentação</div>
+  <ul><li><a href="#prefacio">Prefácio</a></li></ul>
+
+  <div class="mod">Módulo I · Fundamentos</div>
+  <ul>
+    <li><a href="#cap-1">1 · O que é tráfego pago</a></li>
+    <li><a href="#cap-2">2 · Ecossistema Meta</a></li>
+    <li><a href="#cap-3">3 · O Pixel</a></li>
+    <li><a href="#cap-4">4 · Vocabulário</a></li>
+  </ul>
+
+  <div class="mod">Módulo II · Arquitetura</div>
+  <ul>
+    <li><a href="#cap-5">5 · Estrutura de conta</a></li>
+    <li><a href="#cap-6">6 · Hierarquia: Camp/Adset/Ad</a></li>
+    <li><a href="#cap-7">7 · Audiências: fria/morna/quente</a></li>
+    <li><a href="#cap-8">8 · CBO vs ABO</a></li>
+  </ul>
+
+  <div class="mod">Módulo III · Estratégia</div>
+  <ul>
+    <li><a href="#cap-9">9 · Os dois mundos</a></li>
+    <li><a href="#cap-10">10 · Funil de Agência</a></li>
+    <li><a href="#cap-11">11 · Funil de Infoproduto</a></li>
+    <li><a href="#cap-12">12 · Oferta e Copy</a></li>
+    <li><a href="#cap-13">13 · Criativos</a></li>
+  </ul>
+
+  <div class="mod">Módulo IV · Escala</div>
+  <ul>
+    <li><a href="#cap-14">14 · Métricas reais</a></li>
+    <li><a href="#cap-15">15 · Aprendizagem</a></li>
+    <li><a href="#cap-16">16 · Scaling</a></li>
+    <li><a href="#cap-17">17 · Os 12 erros mortais</a></li>
+    <li><a href="#cap-18">18 · Mentalidade</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- =========================================== -->
+<!-- CAPA -->
+<!-- =========================================== -->
+<div class="cover">
+  <div class="badge">— Edição 2026 · Manual Eikon —</div>
+  <h1>
+    <span class="ek">Eikon</span>
+    <span class="insider">Insider</span>
+  </h1>
+  <div class="sub">O <strong>Manual de Meta Ads</strong><br>do básico ao avançado, para escalar funis de agência e funis de infoproduto.</div>
+  <div class="micro">4 Módulos · 18 Capítulos · 12 Visualizações</div>
+  <div class="meta-cover">
+    <div><strong>04</strong>Módulos</div>
+    <div><strong>18</strong>Capítulos</div>
+    <div><strong>2026</strong>Atualizado</div>
+  </div>
+</div>
+
+<!-- =========================================== -->
+<!-- PREFÁCIO -->
+<!-- =========================================== -->
+<div class="module">
+<section id="prefacio">
+  <div class="cap-num">— Prefácio —</div>
+  <h3>Antes de começar,<br><span class="em">leia isto.</span></h3>
+
+  <p class="dropcap">Existe uma diferença abissal entre <em>rodar anúncio</em> e <em>fazer tráfego pago</em>. A primeira é uma atividade mecânica que qualquer adolescente faz no celular. A segunda é uma disciplina que combina psicologia do consumidor, estatística aplicada, gestão de risco financeiro e direção criativa. Este manual existe para te tirar do primeiro e te entregar no segundo.</p>
+
+  <p>Quem aprende tráfego pago lendo posts soltos de Instagram nunca vai escalar. Não porque os posts estão errados — muitos estão certos — mas porque <strong>tráfego pago é um sistema</strong>, e sistemas não funcionam quando você aprende as peças sem entender como elas se conectam. É como tentar montar um relógio só lendo descrições isoladas de cada engrenagem.</p>
+
+  <div class="tarefas">
+    <div class="tarefa">
+      <div class="num-circle">1</div>
+      <div class="conteudo"><p><span class="lbl">MÓDULO I:</span> <strong>Fundamentos</strong> — o que é tráfego, como o ecossistema Meta funciona, vocabulário e anatomia básica.</p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">2</div>
+      <div class="conteudo"><p><span class="lbl">MÓDULO II:</span> <strong>Arquitetura</strong> — como estruturar uma conta de anúncios que escala, audiências e a decisão CBO vs ABO.</p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">3</div>
+      <div class="conteudo"><p><span class="lbl">MÓDULO III:</span> <strong>Estratégia</strong> — funis de agência (lead → call → fechamento) vs funis de infoproduto (lead → checkout).</p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">4</div>
+      <div class="conteudo"><p><span class="lbl">MÓDULO IV:</span> <strong>Escala</strong> — métricas reais, aprendizagem do algoritmo, scaling, os 12 erros mortais e mentalidade.</p></div>
+    </div>
+  </div>
+
+  <p>Cada módulo tem <em>analogias</em> para fixar o conceito, <em>insights raros</em> que você não acha em curso de R$ 297, e <em>visualizações didáticas</em> no estilo de Alex Hormozi e Russell Brunson — porque o cérebro humano lembra de imagens, não de definições. Vamos.</p>
+</section>
+</div>
+
+<!-- =========================================== -->
+<!-- MÓDULO I · CAPA -->
+<!-- =========================================== -->
+<div class="module">
+<div class="module-cover">
+  <div class="num">— Módulo I —</div>
+  <h2>Fundamentos</h2>
+  <div class="desc">O que é tráfego pago de verdade, como o ecossistema Meta funciona, e o vocabulário que separa amador de profissional.</div>
+</div>
+
+<!-- CAP 1 -->
+<section id="cap-1">
+  <div class="cap-num">— Capítulo 1 —</div>
+  <h3>O que é tráfego pago,<br><span class="em">de verdade</span></h3>
+
+  <p class="dropcap">Tráfego pago não é "pagar pro Instagram mostrar seu anúncio". Essa é a definição que circula no mercado e ela está errada por omissão. Tráfego pago é, na verdade, <strong>comprar atenção qualificada em escala</strong>. A palavra-chave aqui não é "comprar" — é "qualificada".</p>
+
+  <p>Quando você roda um anúncio, você não está pagando pela impressão. Está pagando pra que <em>a pessoa certa</em>, em <em>um momento receptivo</em>, veja <em>a mensagem certa</em> sobre o <em>seu produto certo</em>. Quatro vetores precisam acertar ao mesmo tempo.</p>
+
+  <!-- VIZ: Funil de atenção estilo Hormozi -->
+  <div class="viz">
+    <div class="viz-lbl">— Visualização 01 —</div>
+    <h4>A anatomia da atenção qualificada</h4>
+    <div class="leg">Dos milhões de pessoas que rolam o feed, apenas algumas são SUA cliente. Tráfego pago é a arte de afunilar isso.</div>
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- Topo: bagunça de pessoas -->
+      <text x="350" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#0a0a23" letter-spacing="2">10 MILHÕES DE PESSOAS NO FEED</text>
+      <!-- Pessoinhas espalhadas -->
+      <g stroke="#0a0a23" stroke-width="2" fill="none" stroke-linecap="round">
+        <!-- linha 1 -->
+        <circle cx="80" cy="65" r="6"/><line x1="80" y1="71" x2="80" y2="85"/><line x1="80" y1="76" x2="73" y2="82"/><line x1="80" y1="76" x2="87" y2="82"/>
+        <circle cx="140" cy="60" r="6"/><line x1="140" y1="66" x2="140" y2="80"/><line x1="140" y1="71" x2="133" y2="77"/><line x1="140" y1="71" x2="147" y2="77"/>
+        <circle cx="200" cy="68" r="6"/><line x1="200" y1="74" x2="200" y2="88"/><line x1="200" y1="79" x2="193" y2="85"/><line x1="200" y1="79" x2="207" y2="85"/>
+        <circle cx="260" cy="62" r="6"/><line x1="260" y1="68" x2="260" y2="82"/><line x1="260" y1="73" x2="253" y2="79"/><line x1="260" y1="73" x2="267" y2="79"/>
+        <circle cx="320" cy="68" r="6"/><line x1="320" y1="74" x2="320" y2="88"/><line x1="320" y1="79" x2="313" y2="85"/><line x1="320" y1="79" x2="327" y2="85"/>
+        <circle cx="380" cy="62" r="6"/><line x1="380" y1="68" x2="380" y2="82"/><line x1="380" y1="73" x2="373" y2="79"/><line x1="380" y1="73" x2="387" y2="79"/>
+        <circle cx="440" cy="68" r="6"/><line x1="440" y1="74" x2="440" y2="88"/><line x1="440" y1="79" x2="433" y2="85"/><line x1="440" y1="79" x2="447" y2="85"/>
+        <circle cx="500" cy="62" r="6"/><line x1="500" y1="68" x2="500" y2="82"/><line x1="500" y1="73" x2="493" y2="79"/><line x1="500" y1="73" x2="507" y2="79"/>
+        <circle cx="560" cy="68" r="6"/><line x1="560" y1="74" x2="560" y2="88"/><line x1="560" y1="79" x2="553" y2="85"/><line x1="560" y1="79" x2="567" y2="85"/>
+        <circle cx="620" cy="62" r="6"/><line x1="620" y1="68" x2="620" y2="82"/><line x1="620" y1="73" x2="613" y2="79"/><line x1="620" y1="73" x2="627" y2="79"/>
+      </g>
+      <!-- Setas para baixo -->
+      <g stroke="#285bfa" stroke-width="3" fill="none" stroke-linecap="round">
+        <line x1="350" y1="100" x2="350" y2="135"/>
+        <polyline points="340,128 350,138 360,128"/>
+      </g>
+      <!-- Camada 2: segmentação algorítmica -->
+      <rect x="180" y="145" width="340" height="50" rx="6" fill="#e8eeff" stroke="#285bfa" stroke-width="2"/>
+      <text x="350" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#285bfa">ANDROMEDA filtra por COMPORTAMENTO</text>
+      <text x="350" y="186" text-anchor="middle" font-size="11" fill="#3a3a5c" font-style="italic">~50 mil pessoas com perfil potencial</text>
+      <!-- Seta -->
+      <g stroke="#285bfa" stroke-width="3" fill="none" stroke-linecap="round">
+        <line x1="350" y1="200" x2="350" y2="225"/>
+        <polyline points="340,218 350,228 360,218"/>
+      </g>
+      <!-- Camada 3: seu criativo -->
+      <rect x="220" y="235" width="260" height="50" rx="6" fill="#5a82ff" stroke="#285bfa" stroke-width="2"/>
+      <text x="350" y="259" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">SEU CRIATIVO segura a atenção</text>
+      <text x="350" y="277" text-anchor="middle" font-size="11" fill="#e8eeff" font-style="italic">~5 mil pessoas param e assistem</text>
+      <!-- Seta final -->
+      <g stroke="#285bfa" stroke-width="3" fill="none" stroke-linecap="round">
+        <line x1="350" y1="295" x2="350" y2="320"/>
+        <polyline points="340,313 350,323 360,313"/>
+      </g>
+      <!-- Cliente final -->
+      <g>
+        <circle cx="350" cy="345" r="14" fill="#285bfa"/>
+        <circle cx="350" cy="340" r="5" fill="#fff"/>
+        <line x1="350" y1="345" x2="350" y2="360" stroke="#fff" stroke-width="2"/>
+        <line x1="350" y1="350" x2="342" y2="358" stroke="#fff" stroke-width="2"/>
+        <line x1="350" y1="350" x2="358" y2="358" stroke="#fff" stroke-width="2"/>
+      </g>
+      <text x="390" y="350" font-size="14" font-weight="700" fill="#0a0a23">SEU CLIENTE</text>
+      <text x="390" y="365" font-size="11" fill="#3a3a5c" font-style="italic">~50 conversões</text>
+    </svg>
+  </div>
+
+  <div class="analogia">
+    <p><strong>Imagine uma feira de rua aos domingos.</strong> Você é um vendedor de café gourmet de R$ 25 a xícara. Tem duas opções: gritar pra todo mundo que passa ("compre meu café!") ou colocar uma placa elegante na entrada da feira que diga "Para quem sabe que café é experiência, não combustível". A primeira atrai curiosos que pedem desconto. A segunda atrai sua persona ideal — e ela paga sem questionar. Tráfego pago é a placa elegante na entrada certa da feira certa.</p>
+  </div>
+
+  <h4>Por que a Meta entrega tráfego barato</h4>
+  <p>A Meta não vende anúncios — vende <em>atenção</em>. E a regra é simples: quanto melhor seu anúncio prende as pessoas, mais barato ela cobra de você. Por quê? Porque anúncio chato faz a pessoa fechar o aplicativo. Aplicativo fechado = receita perdida pra Meta. Então a Meta literalmente <strong>subsidia anunciantes bons</strong> com CPM mais baixo.</p>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>O preço do clique nunca é "o preço do clique"</h4>
+    <p>Quando você vê CPC de R$ 3 na sua conta, o que está vendo não é o que a Meta cobrou, é <strong>o que ela achou justo cobrar dado quanto seu criativo conseguiu segurar a atenção</strong>. Dois anunciantes vendendo o mesmo produto pra mesma audiência podem ter CPCs completamente diferentes — não porque um pagou mais, mas porque um produziu um criativo que a Meta gostou de exibir.</p>
+  </div>
+
+  <h4>O que tráfego pago NÃO é</h4>
+  <ul class="styled">
+    <li><strong>Não é marketing</strong> — marketing é o todo; tráfego é só o canal</li>
+    <li><strong>Não é vendas</strong> — anúncio gera oportunidade; venda acontece depois</li>
+    <li><strong>Não é solução pra produto ruim</strong> — anúncio acelera o que funciona; não conserta o que está quebrado</li>
+    <li><strong>Não é "promover post"</strong> — esse botão é a versão "pra leigo" do Gerenciador</li>
+  </ul>
+
+  <div class="cite">"Anúncio é o megafone. Se sua mensagem é fraca, gritar mais alto só faz mais gente saber que ela é fraca."</div>
+</section>
+
+<!-- CAP 2 -->
+<section id="cap-2">
+  <div class="cap-num">— Capítulo 2 —</div>
+  <h3>O ecossistema <span class="em">Meta</span></h3>
+
+  <p>A Meta opera 4 plataformas conectadas: <strong>Facebook, Instagram, Messenger e WhatsApp</strong>. Todas compartilham o mesmo banco de dados de usuários, o mesmo sistema de leilão, o mesmo algoritmo de entrega. Quando você roda um anúncio "Meta", você não escolhe "rodar no Instagram" — você diz o objetivo e o algoritmo decide onde aparece.</p>
+
+  <div class="analogia">
+    <p><strong>Pense em um restaurante com 4 portas de entrada.</strong> A do Facebook é a porta da rua larga (mais gente passa, mais distração). A do Instagram é a porta lateral do shopping (público segmentado, modo "olhando vitrines"). A do Messenger é a entrada VIP pra quem já te conhece. A do WhatsApp é a mesa reservada onde você fala um-pra-um. <strong>O algoritmo Meta é o maître</strong> que decide por qual porta cada pessoa entra.</p>
+  </div>
+
+  <h4>Os 6 posicionamentos do anúncio</h4>
+  <table>
+    <tr><th>Posicionamento</th><th>O que é</th><th>Quando converte mais</th></tr>
+    <tr><td><strong>Feed do Instagram</strong></td><td>Posts no feed principal</td><td>Produtos visuais, fashion, lifestyle</td></tr>
+    <tr><td><strong>Stories Instagram</strong></td><td>Tela cheia entre stories</td><td>Promoções rápidas, urgência</td></tr>
+    <tr><td><strong>Reels Instagram</strong></td><td>Entre reels orgânicos</td><td>Conteúdo educativo, viral, demos</td></tr>
+    <tr><td><strong>Feed Facebook</strong></td><td>Timeline do FB</td><td>Audiência 40+, B2B local</td></tr>
+    <tr><td><strong>Marketplace</strong></td><td>Aba de vendas do FB</td><td>Produto físico, classificados</td></tr>
+    <tr><td><strong>Rede de Audiência</strong></td><td>Outros apps fora da Meta</td><td>Quase nunca — desligar</td></tr>
+  </table>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>A regra dos 95%: deixe o posicionamento automático</h4>
+    <p>Iniciantes adoram "controlar onde aparece". É um instinto compreensível mas custa caro. <strong>O algoritmo escolhe melhor que você</strong> em 95% dos casos, porque ele tem dado de milhões de usuários e você tem dado de centenas. Só selecione posicionamento manualmente quando você TIVER motivo numérico. Antes disso, deixe automático.</p>
+  </div>
+</section>
+
+<!-- CAP 3 -->
+<section id="cap-3">
+  <div class="cap-num">— Capítulo 3 —</div>
+  <h3>O Pixel:<br><span class="em">a peça mais subestimada</span></h3>
+
+  <p>O Pixel é um pedacinho de código que você coloca no seu site. Ele faz uma coisa: <em>observa o que os visitantes fazem e manda essa informação de volta pra Meta</em>. Quem visitou, quem viu produto, quem adicionou ao carrinho, quem comprou.</p>
+
+  <p>Sem Pixel funcionando, você é cego. Roda anúncio mas não sabe quem comprou, não consegue retargeting, não consegue otimização. <strong>A maior parte das contas que "não escalam" tem problema de Pixel mal instalado</strong>, mas o anunciante culpa o "algoritmo".</p>
+
+  <!-- VIZ: Pixel como fofoqueiro -->
+  <div class="viz">
+    <div class="viz-lbl">— Visualização 02 —</div>
+    <h4>O Pixel é o fofoqueiro fiel da Meta</h4>
+    <div class="leg">Ele observa tudo que acontece no seu site e corre pra contar pra Meta. Quanto mais ele fofoca, mais a Meta entende.</div>
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- Site -->
+      <rect x="40" y="60" width="220" height="220" rx="8" fill="#fff" stroke="#0a0a23" stroke-width="2"/>
+      <rect x="40" y="60" width="220" height="32" rx="8" fill="#0a0a23"/>
+      <circle cx="58" cy="76" r="4" fill="#ff5a5a"/>
+      <circle cx="74" cy="76" r="4" fill="#ffba5a"/>
+      <circle cx="90" cy="76" r="4" fill="#5aff8e"/>
+      <text x="150" y="80" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">seusite.com</text>
+      
+      <!-- Conteúdo do site -->
+      <rect x="60" y="110" width="180" height="14" rx="2" fill="#e5e7eb"/>
+      <rect x="60" y="132" width="140" height="14" rx="2" fill="#e5e7eb"/>
+      <rect x="60" y="160" width="80" height="40" rx="4" fill="#285bfa"/>
+      <text x="100" y="184" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">COMPRAR</text>
+      <rect x="60" y="220" width="180" height="14" rx="2" fill="#e5e7eb"/>
+      <rect x="60" y="240" width="120" height="14" rx="2" fill="#e5e7eb"/>
+
+      <!-- Pessoa visitando -->
+      <g stroke="#0a0a23" stroke-width="2" fill="none" stroke-linecap="round">
+        <circle cx="150" cy="320" r="10" fill="#fff"/>
+        <line x1="150" y1="330" x2="150" y2="350"/>
+        <line x1="150" y1="338" x2="138" y2="348"/>
+        <line x1="150" y1="338" x2="162" y2="348"/>
+        <line x1="150" y1="350" x2="142" y2="365"/>
+        <line x1="150" y1="350" x2="158" y2="365"/>
+      </g>
+      <text x="150" y="378" text-anchor="middle" font-size="11" fill="#0a0a23" font-weight="600">Visitante</text>
+
+      <!-- Pixel - personagem com lupa -->
+      <g>
+        <circle cx="350" cy="180" r="22" fill="#285bfa"/>
+        <text x="350" y="186" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">P</text>
+      </g>
+      <!-- Lupa -->
+      <g stroke="#0a0a23" stroke-width="2.5" fill="none">
+        <circle cx="332" cy="162" r="8" fill="#fff"/>
+        <line x1="326" y1="156" x2="320" y2="150"/>
+      </g>
+      <text x="350" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#285bfa">PIXEL</text>
+      <text x="350" y="234" text-anchor="middle" font-size="10" fill="#3a3a5c" font-style="italic">observa tudo</text>
+
+      <!-- Seta de fofoca -->
+      <g stroke="#285bfa" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="6 4">
+        <path d="M 380 175 Q 470 130 540 145"/>
+        <polyline points="528,135 545,145 535,158" fill="#285bfa"/>
+      </g>
+      <text x="460" y="125" font-size="11" font-style="italic" fill="#285bfa" font-weight="600">"hoje 847 pessoas..."</text>
+
+      <!-- Meta servidor -->
+      <rect x="540" y="140" width="120" height="100" rx="8" fill="#0a0a23"/>
+      <text x="600" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">META</text>
+      <text x="600" y="188" text-anchor="middle" font-size="10" fill="#79aee6">SERVIDORES</text>
+      <!-- Detalhes do servidor -->
+      <line x1="555" y1="200" x2="645" y2="200" stroke="#5a82ff" stroke-width="1"/>
+      <line x1="555" y1="210" x2="635" y2="210" stroke="#5a82ff" stroke-width="1"/>
+      <line x1="555" y1="220" x2="640" y2="220" stroke="#5a82ff" stroke-width="1"/>
+      <line x1="555" y1="230" x2="630" y2="230" stroke="#5a82ff" stroke-width="1"/>
+
+      <!-- Eventos rastreados -->
+      <text x="600" y="270" text-anchor="middle" font-size="10" font-weight="700" fill="#0a0a23" letter-spacing="1">EVENTOS</text>
+      <g font-size="10" fill="#3a3a5c">
+        <text x="600" y="290" text-anchor="middle">✓ PageView</text>
+        <text x="600" y="306" text-anchor="middle">✓ ViewContent</text>
+        <text x="600" y="322" text-anchor="middle">✓ AddToCart</text>
+        <text x="600" y="338" text-anchor="middle">✓ Purchase</text>
+      </g>
+    </svg>
+  </div>
+
+  <h4>Os 7 eventos que TODA conta precisa ter</h4>
+  <ol class="book">
+    <li><strong>PageView</strong> — visitou qualquer página</li>
+    <li><strong>ViewContent</strong> — viu uma página específica de produto/oferta</li>
+    <li><strong>AddToCart</strong> — adicionou ao carrinho (e-commerce) ou clicou em checkout (info)</li>
+    <li><strong>InitiateCheckout</strong> — começou checkout</li>
+    <li><strong>Lead</strong> — preencheu formulário</li>
+    <li><strong>CompleteRegistration</strong> — confirmou cadastro</li>
+    <li><strong>Purchase</strong> — comprou (o evento mais importante de todos)</li>
+  </ol>
+
+  <div class="box info">
+    <h5>O número 50 que você precisa saber</h5>
+    <p>A Meta precisa de <strong>50 conversões por semana</strong> no evento que você está otimizando para "aprender" direito. Abaixo disso, o algoritmo está chutando. Se você está rodando otimização "Purchase" mas só tem 10 compras/semana, o algoritmo nunca vai aprender. <strong>Solução:</strong> otimize para um evento mais alto no funil (AddToCart, Lead) até bater 50/semana de Purchase.</p>
+  </div>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>O Pixel demora 14 dias pra ficar "esperto"</h4>
+    <p>Quem instala o Pixel hoje e roda anúncio amanhã esperando milagre não entendeu como machine learning funciona. <strong>O algoritmo precisa de ~14 dias de dado limpo</strong> pra começar a otimizar bem. Por isso conta nova performa MAL nos primeiros 7-14 dias mesmo com criativo bom — não é o criativo, é o Pixel ainda aprendendo. Não desista no dia 5.</p>
+  </div>
+</section>
+
+<!-- CAP 4 -->
+<section id="cap-4">
+  <div class="cap-num">— Capítulo 4 —</div>
+  <h3>Vocabulário que separa<br><span class="em">amador de profissional</span></h3>
+
+  <p>Falar errado o vocabulário do mercado é como aparecer numa reunião de médicos chamando bisturi de faquinha. Não te tira credibilidade só com clientes — te tira credibilidade contigo mesmo, porque quem usa palavra errada pensa errado.</p>
+
+  <table>
+    <tr><th>Sigla</th><th>Nome completo</th><th>O que mede</th></tr>
+    <tr><td><strong>CPM</strong></td><td>Custo Por Mil impressões</td><td>Quanto a Meta cobra por mil exibições. Bom: R$ 8-30.</td></tr>
+    <tr><td><strong>CPC</strong></td><td>Custo Por Clique</td><td>Custo de cada clique. Bom: abaixo de R$ 2.</td></tr>
+    <tr><td><strong>CTR</strong></td><td>Click-Through Rate</td><td>% que clicou ÷ % que viu. Bom: 1,5%+.</td></tr>
+    <tr><td><strong>CPL</strong></td><td>Custo Por Lead</td><td>Métrica central de agência. Bom: R$ 50-150.</td></tr>
+    <tr><td><strong>CAC</strong></td><td>Custo de Aquisição de Cliente</td><td>Quanto custou trazer UM cliente real (não lead).</td></tr>
+    <tr><td><strong>LTV</strong></td><td>Lifetime Value</td><td>Quanto cliente gasta no total. Define seu CAC máximo.</td></tr>
+    <tr><td><strong>ROAS</strong></td><td>Return on Ad Spend</td><td>Receita ÷ Gasto. ROAS 3 = pra cada R$ 1, voltou R$ 3.</td></tr>
+    <tr><td><strong>CPA</strong></td><td>Custo Por Ação</td><td>Termo genérico — pode ser lead, compra, qualquer evento.</td></tr>
+    <tr><td><strong>ATC</strong></td><td>Add to Cart</td><td>Adicionou ao carrinho. Quem chegou aqui é 4-7x mais propenso a comprar com retargeting.</td></tr>
+    <tr><td><strong>CVR</strong></td><td>Conversion Rate</td><td>% que entrou na página e comprou. Métrica do SITE, não do anúncio.</td></tr>
+  </table>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>O erro que TODO iniciante faz com ROAS</h4>
+    <p>Iniciante olha ROAS e celebra ROAS 5x. Profissional olha ROAS, <strong>desconta o custo do produto, frete, taxa de plataforma, salário do time</strong> — e descobre que o ROAS 5x na verdade rendeu 12% de margem líquida. Não é o ROAS que paga sua conta de luz. É a margem que sobra DEPOIS dele. Aprenda a calcular <em>ROAS de equilíbrio</em>: o ROAS mínimo pra você não dar prejuízo. Tudo abaixo disso é hemorragia.</p>
+  </div>
+
+  <div class="fim-mod">fim do Módulo I</div>
+</section>
+</div>
+
+<!-- =========================================== -->
+<!-- MÓDULO II -->
+<!-- =========================================== -->
+<div class="module">
+<div class="module-cover">
+  <div class="num">— Módulo II —</div>
+  <h2><span class="gradient-text">Arquitetura</span></h2>
+  <div class="desc">A anatomia de uma conta de anúncios que escala. Estrutura, audiências, decisões fundamentais.</div>
+</div>
+
+<!-- CAP 5 -->
+<section id="cap-5">
+  <div class="cap-num">— Capítulo 5 —</div>
+  <h3>Estrutura de conta espelha<br><span class="em">a estrutura do negócio</span></h3>
+
+  <p class="dropcap">Existe um mito caro nesse mercado: o de que existe uma "estrutura ideal de conta". Influencers vendem cursos com "a estrutura que faturou X milhões". A verdade é que <strong>estrutura de conta tem que espelhar a complexidade do negócio</strong>, nem mais, nem menos.</p>
+
+  <p>Se você tem 1 produto e fatura R$ 30 mil/mês, sua conta precisa ter 1-2 campanhas. Se tem 50 SKUs e fatura R$ 5 milhões/mês, precisa de uma arquitetura complexa. <strong>Copiar estrutura de quem tem realidade diferente da sua é receita de problema.</strong></p>
+
+  <div class="analogia">
+    <p><strong>Estrutura de conta é como o sistema de pastas do seu computador.</strong> Se você é estudante e só tem uns trabalhos, uma pasta "Faculdade" basta. Se você é arquiteto com 200 projetos ativos, precisa de pastas por cliente, projeto, fase. <strong>Estrutura demais para complexidade pequena é overhead inútil; estrutura de menos para complexidade grande é caos.</strong> Comece simples e adicione camadas SÓ quando o negócio exigir.</p>
+  </div>
+</section>
+
+<!-- CAP 6 -->
+<section id="cap-6">
+  <div class="cap-num">— Capítulo 6 —</div>
+  <h3>Campanha, Adset e Ad:<br><span class="em">o que cada um controla</span></h3>
+
+  <p>Confundir o que cada nível controla é o erro de execução mais comum. Quem entende a divisão de poderes nunca mais perde tempo "ajustando coisa errada no lugar errado".</p>
+
+  <!-- VIZ: Hierarquia árvore -->
+  <div class="viz azul">
+    <div class="viz-lbl">— Visualização 03 —</div>
+    <h4>A árvore do Gerenciador de Anúncios</h4>
+    <div class="leg">Toda conta funciona em 3 níveis. Cada um tem sua função. Entender isso é metade da batalha.</div>
+    <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- Conta -->
+      <rect x="270" y="20" width="160" height="56" rx="8" fill="#0a0a23"/>
+      <text x="350" y="44" text-anchor="middle" font-size="11" fill="#79aee6" font-weight="700" letter-spacing="2">NÍVEL 0</text>
+      <text x="350" y="62" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">CONTA</text>
+
+      <!-- Linhas para campanhas -->
+      <g stroke="#285bfa" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M 350 76 Q 350 100 130 110"/>
+        <path d="M 350 76 L 350 110"/>
+        <path d="M 350 76 Q 350 100 570 110"/>
+      </g>
+
+      <!-- Campanhas -->
+      <rect x="60" y="110" width="160" height="60" rx="8" fill="#285bfa"/>
+      <text x="140" y="132" text-anchor="middle" font-size="10" fill="#bdd0ff" font-weight="700" letter-spacing="2">CAMPANHA</text>
+      <text x="140" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">OBJETIVO</text>
+      <text x="140" y="162" text-anchor="middle" font-size="10" fill="#bdd0ff" font-style="italic">+ budget global</text>
+
+      <rect x="270" y="110" width="160" height="60" rx="8" fill="#285bfa"/>
+      <text x="350" y="132" text-anchor="middle" font-size="10" fill="#bdd0ff" font-weight="700" letter-spacing="2">CAMPANHA</text>
+      <text x="350" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">OBJETIVO</text>
+      <text x="350" y="162" text-anchor="middle" font-size="10" fill="#bdd0ff" font-style="italic">+ budget global</text>
+
+      <rect x="480" y="110" width="160" height="60" rx="8" fill="#285bfa"/>
+      <text x="560" y="132" text-anchor="middle" font-size="10" fill="#bdd0ff" font-weight="700" letter-spacing="2">CAMPANHA</text>
+      <text x="560" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">OBJETIVO</text>
+      <text x="560" y="162" text-anchor="middle" font-size="10" fill="#bdd0ff" font-style="italic">+ budget global</text>
+
+      <!-- Linhas para adsets -->
+      <g stroke="#5a82ff" stroke-width="2" fill="none" stroke-linecap="round">
+        <line x1="140" y1="170" x2="80" y2="200"/>
+        <line x1="140" y1="170" x2="200" y2="200"/>
+        <line x1="350" y1="170" x2="350" y2="200"/>
+        <line x1="560" y1="170" x2="500" y2="200"/>
+        <line x1="560" y1="170" x2="620" y2="200"/>
+      </g>
+
+      <!-- Adsets -->
+      <g>
+        <rect x="30" y="200" width="100" height="50" rx="6" fill="#5a82ff"/>
+        <text x="80" y="218" text-anchor="middle" font-size="9" fill="#fff" font-weight="700" letter-spacing="1">ADSET</text>
+        <text x="80" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Audiência A</text>
+      </g>
+      <g>
+        <rect x="150" y="200" width="100" height="50" rx="6" fill="#5a82ff"/>
+        <text x="200" y="218" text-anchor="middle" font-size="9" fill="#fff" font-weight="700" letter-spacing="1">ADSET</text>
+        <text x="200" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Audiência B</text>
+      </g>
+      <g>
+        <rect x="300" y="200" width="100" height="50" rx="6" fill="#5a82ff"/>
+        <text x="350" y="218" text-anchor="middle" font-size="9" fill="#fff" font-weight="700" letter-spacing="1">ADSET</text>
+        <text x="350" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Audiência C</text>
+      </g>
+      <g>
+        <rect x="450" y="200" width="100" height="50" rx="6" fill="#5a82ff"/>
+        <text x="500" y="218" text-anchor="middle" font-size="9" fill="#fff" font-weight="700" letter-spacing="1">ADSET</text>
+        <text x="500" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Audiência D</text>
+      </g>
+      <g>
+        <rect x="570" y="200" width="100" height="50" rx="6" fill="#5a82ff"/>
+        <text x="620" y="218" text-anchor="middle" font-size="9" fill="#fff" font-weight="700" letter-spacing="1">ADSET</text>
+        <text x="620" y="234" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Audiência E</text>
+      </g>
+
+      <!-- Linhas para ads -->
+      <g stroke="#79aee6" stroke-width="1.5" fill="none" stroke-linecap="round">
+        <line x1="80" y1="250" x2="80" y2="285"/>
+        <line x1="200" y1="250" x2="200" y2="285"/>
+        <line x1="350" y1="250" x2="350" y2="285"/>
+        <line x1="500" y1="250" x2="500" y2="285"/>
+        <line x1="620" y1="250" x2="620" y2="285"/>
+      </g>
+
+      <!-- Ads (criativos) -->
+      <g>
+        <rect x="42" y="285" width="76" height="44" rx="4" fill="#e8eeff" stroke="#285bfa" stroke-width="1.5"/>
+        <text x="80" y="305" text-anchor="middle" font-size="9" font-weight="700" fill="#285bfa">AD · AD · AD</text>
+        <text x="80" y="318" text-anchor="middle" font-size="9" fill="#3a3a5c" font-style="italic">criativos</text>
+      </g>
+      <g>
+        <rect x="162" y="285" width="76" height="44" rx="4" fill="#e8eeff" stroke="#285bfa" stroke-width="1.5"/>
+        <text x="200" y="305" text-anchor="middle" font-size="9" font-weight="700" fill="#285bfa">AD · AD · AD</text>
+        <text x="200" y="318" text-anchor="middle" font-size="9" fill="#3a3a5c" font-style="italic">criativos</text>
+      </g>
+      <g>
+        <rect x="312" y="285" width="76" height="44" rx="4" fill="#e8eeff" stroke="#285bfa" stroke-width="1.5"/>
+        <text x="350" y="305" text-anchor="middle" font-size="9" font-weight="700" fill="#285bfa">AD · AD · AD</text>
+        <text x="350" y="318" text-anchor="middle" font-size="9" fill="#3a3a5c" font-style="italic">criativos</text>
+      </g>
+      <g>
+        <rect x="462" y="285" width="76" height="44" rx="4" fill="#e8eeff" stroke="#285bfa" stroke-width="1.5"/>
+        <text x="500" y="305" text-anchor="middle" font-size="9" font-weight="700" fill="#285bfa">AD · AD · AD</text>
+        <text x="500" y="318" text-anchor="middle" font-size="9" fill="#3a3a5c" font-style="italic">criativos</text>
+      </g>
+      <g>
+        <rect x="582" y="285" width="76" height="44" rx="4" fill="#e8eeff" stroke="#285bfa" stroke-width="1.5"/>
+        <text x="620" y="305" text-anchor="middle" font-size="9" font-weight="700" fill="#285bfa">AD · AD · AD</text>
+        <text x="620" y="318" text-anchor="middle" font-size="9" fill="#3a3a5c" font-style="italic">criativos</text>
+      </g>
+
+      <!-- Legendas laterais -->
+      <text x="15" y="362" font-size="11" fill="#0a0a23" font-weight="600" font-style="italic">Campanha →</text>
+      <text x="15" y="378" font-size="11" fill="#3a3a5c">define o OBJETIVO e o budget total</text>
+      <text x="15" y="395" font-size="11" fill="#0a0a23" font-weight="600" font-style="italic">Adset →</text>
+      <text x="15" y="411" font-size="11" fill="#3a3a5c">define AUDIÊNCIA, posicionamento, otimização</text>
+      <text x="380" y="362" font-size="11" fill="#0a0a23" font-weight="600" font-style="italic">Ad →</text>
+      <text x="380" y="378" font-size="11" fill="#3a3a5c">o CRIATIVO (vídeo, imagem, copy)</text>
+      <text x="380" y="395" font-size="11" fill="#0a0a23" font-weight="600" font-style="italic">Cada nível tem sua função.</text>
+      <text x="380" y="411" font-size="11" fill="#3a3a5c">Misturar funções gera caos.</text>
+    </svg>
+  </div>
+
+  <div class="analogia">
+    <p><strong>É como uma rede de pizzarias.</strong> A <em>Campanha</em> é a diretoria — decide se vai vender pizza ou hambúrguer (objetivo) e quanto investir no ano (budget). O <em>Adset</em> é cada filial — escolhe o bairro (audiência), o horário (posicionamento), o budget local. O <em>Ad</em> é o cardápio na mesa — qual sabor está em destaque hoje (criativo), qual preço aparece (copy). <strong>Cada nível tem sua função; misturar funções gera caos.</strong></p>
+  </div>
+
+  <h4>Os 7 objetivos de campanha (e quando usar cada um)</h4>
+  <table>
+    <tr><th>Objetivo</th><th>Quando usar</th><th>Quando NÃO usar</th></tr>
+    <tr><td><strong>Vendas</strong></td><td>E-commerce, infoproduto com checkout</td><td>Quando não tem Pixel ou tem &lt; 50 vendas/semana</td></tr>
+    <tr><td><strong>Lead</strong></td><td>Agência, serviço B2B, captação de email</td><td>E-commerce de produto físico</td></tr>
+    <tr><td><strong>Tráfego</strong></td><td>Quase nunca — só pra teste de criativo</td><td>Quando quer conversão real</td></tr>
+    <tr><td><strong>Engajamento</strong></td><td>Construção de marca em fase inicial</td><td>Quando precisa de venda agora</td></tr>
+    <tr><td><strong>Reconhecimento</strong></td><td>Marca lançamento, branding puro</td><td>99% dos casos</td></tr>
+    <tr><td><strong>App Promotion</strong></td><td>Quem tem aplicativo</td><td>Quem não tem aplicativo</td></tr>
+    <tr><td><strong>Vídeo</strong></td><td>Aquecimento de audiência pra retargeting</td><td>Quando quer conversão direta</td></tr>
+  </table>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>A regra de ouro do objetivo de campanha</h4>
+    <p>Sempre escolha o objetivo MAIS PRÓXIMO da venda que você consegue alimentar com volume. Se você tem 5 vendas/dia, otimize pra Purchase. Se tem 0,5 venda/dia, otimize pra AddToCart. Se nem isso, otimize pra ViewContent. <strong>Otimizar pra um evento sem volume é como pedir pra um GPS te levar a um endereço inexistente</strong> — ele vai te entregar em qualquer lugar.</p>
+  </div>
+</section>
+
+<!-- CAP 7 -->
+<section id="cap-7">
+  <div class="cap-num">— Capítulo 7 —</div>
+  <h3>Audiências:<br><span class="em">fria, morna, quente</span></h3>
+
+  <p>A maior confusão de iniciante é tratar todo mundo igual. Pessoa que nunca ouviu falar de você e cliente que comprou 3 vezes não recebem a mesma mensagem. <strong>Profissional sabe que existem temperaturas de audiência</strong>, e cada uma quer ouvir coisa diferente.</p>
+
+  <!-- VIZ: Termômetro de audiências -->
+  <div class="viz">
+    <div class="viz-lbl">— Visualização 04 —</div>
+    <h4>O termômetro da audiência</h4>
+    <div class="leg">Cada temperatura responde a um tipo diferente de mensagem. Errar isso = queimar dinheiro.</div>
+    <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- Termômetro central -->
+      <g>
+        <rect x="320" y="40" width="60" height="220" rx="30" fill="#fff" stroke="#0a0a23" stroke-width="3"/>
+        <circle cx="350" cy="290" r="40" fill="#0a0a23"/>
+        <line x1="350" y1="60" x2="350" y2="260" stroke="#e5e7eb" stroke-width="2"/>
+        <!-- gradiente termômetro -->
+        <defs>
+          <linearGradient id="thermo" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#dc2626"/>
+            <stop offset="0.5" stop-color="#d97706"/>
+            <stop offset="1" stop-color="#285bfa"/>
+          </linearGradient>
+        </defs>
+        <rect x="335" y="60" width="30" height="200" fill="url(#thermo)"/>
+        <circle cx="350" cy="290" r="25" fill="#285bfa"/>
+      </g>
+
+      <!-- AUDIÊNCIA FRIA - topo direito do termômetro -->
+      <g>
+        <rect x="430" y="40" width="240" height="80" rx="10" fill="#e8eeff" stroke="#285bfa" stroke-width="2"/>
+        <text x="450" y="62" font-size="11" font-weight="700" fill="#285bfa" letter-spacing="2">🥶 FRIA</text>
+        <text x="450" y="80" font-size="13" font-weight="700" fill="#0a0a23">"Primeiro encontro"</text>
+        <text x="450" y="98" font-size="11" fill="#3a3a5c" font-style="italic">Nunca ouviu falar de você</text>
+        <text x="450" y="112" font-size="10" fill="#285bfa" font-weight="600">→ Storytelling, curiosidade</text>
+      </g>
+      <line x1="380" y1="80" x2="430" y2="80" stroke="#285bfa" stroke-width="2" stroke-dasharray="4 3"/>
+
+      <!-- AUDIÊNCIA MORNA - meio -->
+      <g>
+        <rect x="30" y="135" width="240" height="80" rx="10" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+        <text x="50" y="157" font-size="11" font-weight="700" fill="#d97706" letter-spacing="2">🌡️ MORNA</text>
+        <text x="50" y="175" font-size="13" font-weight="700" fill="#0a0a23">"Quinto encontro"</text>
+        <text x="50" y="193" font-size="11" fill="#3a3a5c" font-style="italic">Já visitou seu site, viu vídeo</text>
+        <text x="50" y="207" font-size="10" fill="#d97706" font-weight="600">→ Prova social, cases</text>
+      </g>
+      <line x1="270" y1="175" x2="320" y2="170" stroke="#d97706" stroke-width="2" stroke-dasharray="4 3"/>
+
+      <!-- AUDIÊNCIA QUENTE - base -->
+      <g>
+        <rect x="430" y="220" width="240" height="80" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+        <text x="450" y="242" font-size="11" font-weight="700" fill="#dc2626" letter-spacing="2">🔥 QUENTE</text>
+        <text x="450" y="260" font-size="13" font-weight="700" fill="#0a0a23">"Pedido de noivado"</text>
+        <text x="450" y="278" font-size="11" fill="#3a3a5c" font-style="italic">Carrinho abandonado, ex-cliente</text>
+        <text x="450" y="292" font-size="10" fill="#dc2626" font-weight="600">→ Oferta direta, urgência</text>
+      </g>
+      <line x1="380" y1="260" x2="430" y2="260" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 3"/>
+
+      <!-- Linha do tempo -->
+      <line x1="60" y1="335" x2="640" y2="335" stroke="#0a0a23" stroke-width="1.5"/>
+      <text x="60" y="350" font-size="10" font-style="italic" fill="#3a3a5c">Distante (1° contato)</text>
+      <text x="640" y="350" text-anchor="end" font-size="10" font-style="italic" fill="#3a3a5c">Próximo (cliente recorrente)</text>
+    </svg>
+  </div>
+
+  <div class="analogia">
+    <p><strong>Pense em três tipos de relacionamento.</strong> <em>Audiência fria</em> é a pessoa do primeiro encontro — você não pode chegar pedindo casamento (compra direta). <em>Audiência morna</em> é o quinto encontro — já tem confiança, você pode falar de planos juntos (prova social). <em>Audiência quente</em> é o noivado — você pode pedir o casamento (oferta direta). <strong>Mandar mensagem de noivado pra quem está no primeiro encontro só faz a pessoa fugir.</strong></p>
+  </div>
+
+  <h4>Os 4 tipos de audiência que você precisa configurar</h4>
+  <ol class="book">
+    <li><strong>Audiência aberta (Broad)</strong> — Idade + localização + gênero. Sem interesses. Em 2026, o Andromeda decide melhor que você. Use em 80% dos adsets.</li>
+    <li><strong>Audiência Custom (CA)</strong> — Listas que você criou: visitou site, viu vídeos, interagiu com Instagram, base de email. Use pra retargeting de morna e quente.</li>
+    <li><strong>Audiência Lookalike (LAL)</strong> — Meta encontra pessoas parecidas com quem JÁ converteu. Funciona melhor com base de 1.000+ e LAL 1-3%.</li>
+    <li><strong>Audiência de interesse</strong> — Cada vez menos relevante em 2026 — o Andromeda incorpora automaticamente.</li>
+  </ol>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>O segredo das Audiências Custom que ninguém te conta</h4>
+    <p>Toda Audiência Custom <strong>precisa ser refrescada</strong>. Quem visitou seu site há 6 meses não é mais a mesma pessoa. Use sempre <strong>90 dias para morna e 30 dias para quente</strong>. Audiência antiga polui o pool e degrada performance silenciosamente. A maior parte das contas tem retargeting morto e o anunciante nem percebe.</p>
+  </div>
+</section>
+
+<!-- CAP 8 -->
+<section id="cap-8">
+  <div class="cap-num">— Capítulo 8 —</div>
+  <h3>CBO vs ABO:<br><span class="em">a escolha que mais divide</span></h3>
+
+  <p>CBO (Campaign Budget Optimization) e ABO (Adset Budget Optimization) são duas formas de distribuir o dinheiro dentro de uma campanha. Parece detalhe técnico mas é decisão estratégica de gestão de risco.</p>
+
+  <!-- VIZ: CBO vs ABO -->
+  <div class="viz">
+    <div class="viz-lbl">— Visualização 05 —</div>
+    <h4>Dois jeitos de distribuir o dinheiro</h4>
+    <div class="leg">CBO concentra no vencedor (maior ROI, maior risco). ABO diversifica (menor ROI, menor risco).</div>
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- CBO esquerda -->
+      <g>
+        <text x="155" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="#285bfa" letter-spacing="2">CBO</text>
+        <text x="155" y="48" text-anchor="middle" font-size="11" fill="#3a3a5c" font-style="italic">Algoritmo decide</text>
+        
+        <!-- Saco de dinheiro -->
+        <circle cx="155" cy="90" r="32" fill="#285bfa"/>
+        <text x="155" y="96" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">R$ 500</text>
+        
+        <!-- Setas distribuindo -->
+        <g stroke="#285bfa" stroke-width="2" fill="none">
+          <path d="M 130 115 Q 80 145 65 175"/>
+          <polyline points="55,168 65,180 75,170" fill="#285bfa"/>
+          <path d="M 155 122 L 155 175"/>
+          <polyline points="148,170 155,180 162,170" fill="#285bfa"/>
+          <path d="M 180 115 Q 230 145 245 175"/>
+          <polyline points="235,168 245,180 255,170" fill="#285bfa"/>
+        </g>
+        
+        <!-- Adsets (1 grande - vencedor) -->
+        <rect x="40" y="180" width="50" height="40" rx="4" fill="#bdd0ff" stroke="#285bfa"/>
+        <text x="65" y="205" text-anchor="middle" font-size="11" font-weight="700" fill="#285bfa">R$ 50</text>
+        
+        <rect x="125" y="180" width="60" height="80" rx="4" fill="#285bfa"/>
+        <text x="155" y="218" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">R$ 400</text>
+        <text x="155" y="234" text-anchor="middle" font-size="9" fill="#fff" font-style="italic">winner</text>
+        
+        <rect x="220" y="180" width="50" height="40" rx="4" fill="#bdd0ff" stroke="#285bfa"/>
+        <text x="245" y="205" text-anchor="middle" font-size="11" font-weight="700" fill="#285bfa">R$ 50</text>
+        
+        <!-- Etiqueta resultado -->
+        <rect x="35" y="290" width="240" height="60" rx="8" fill="#e8eeff" stroke="#285bfa" stroke-width="1.5"/>
+        <text x="155" y="312" text-anchor="middle" font-size="12" font-weight="700" fill="#285bfa">✓ MAIOR ROI</text>
+        <text x="155" y="332" text-anchor="middle" font-size="11" fill="#3a3a5c">Mas se o "winner" fatigar,</text>
+        <text x="155" y="346" text-anchor="middle" font-size="11" fill="#3a3a5c">a campanha sangra.</text>
+      </g>
+
+      <!-- Linha divisória -->
+      <line x1="350" y1="20" x2="350" y2="360" stroke="#e5e7eb" stroke-width="2" stroke-dasharray="6 4"/>
+
+      <!-- ABO direita -->
+      <g>
+        <text x="540" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="#0a0a23" letter-spacing="2">ABO</text>
+        <text x="540" y="48" text-anchor="middle" font-size="11" fill="#3a3a5c" font-style="italic">Você define cada um</text>
+        
+        <!-- Saco de dinheiro -->
+        <circle cx="540" cy="90" r="32" fill="#0a0a23"/>
+        <text x="540" y="96" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">R$ 500</text>
+        
+        <!-- Setas distribuindo -->
+        <g stroke="#0a0a23" stroke-width="2" fill="none">
+          <path d="M 515 115 Q 450 150 430 175"/>
+          <polyline points="420,168 430,180 440,170" fill="#0a0a23"/>
+          <path d="M 530 122 Q 500 145 490 175"/>
+          <polyline points="480,168 490,180 500,170" fill="#0a0a23"/>
+          <path d="M 550 122 Q 580 145 590 175"/>
+          <polyline points="580,168 590,180 600,170" fill="#0a0a23"/>
+          <path d="M 565 115 Q 630 150 650 175"/>
+          <polyline points="640,168 650,180 660,170" fill="#0a0a23"/>
+        </g>
+        
+        <!-- Adsets iguais (diversificação) -->
+        <rect x="405" y="180" width="50" height="60" rx="4" fill="#5a82ff"/>
+        <text x="430" y="215" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">R$ 125</text>
+        
+        <rect x="465" y="180" width="50" height="60" rx="4" fill="#5a82ff"/>
+        <text x="490" y="215" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">R$ 125</text>
+        
+        <rect x="565" y="180" width="50" height="60" rx="4" fill="#5a82ff"/>
+        <text x="590" y="215" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">R$ 125</text>
+        
+        <rect x="625" y="180" width="50" height="60" rx="4" fill="#5a82ff"/>
+        <text x="650" y="215" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">R$ 125</text>
+        
+        <!-- Etiqueta resultado -->
+        <rect x="400" y="290" width="280" height="60" rx="8" fill="#f4f3f1" stroke="#0a0a23" stroke-width="1.5"/>
+        <text x="540" y="312" text-anchor="middle" font-size="12" font-weight="700" fill="#0a0a23">✓ MAIS RESISTENTE</text>
+        <text x="540" y="332" text-anchor="middle" font-size="11" fill="#3a3a5c">Menos ROI, mas mantém</text>
+        <text x="540" y="346" text-anchor="middle" font-size="11" fill="#3a3a5c">portfolio de vencedores vivos.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="analogia">
+    <p><strong>CBO é o gerente de banca de feira.</strong> Olha tudo do alto e decide: "hoje a abóbora vende bem, joga mais grana pra abóbora; a beterraba não tá saindo, tira da abóbora". Eficiente, mas se a abóbora azedar de repente, a banca toda sofre.</p>
+    <p style="margin-top:14px"><strong>ABO é o feirante experiente que vende 5 produtos.</strong> Sabe que precisa ter 5 ofertas vivas porque cliente é imprevisível. Cada produto tem sua banquinha. Menos eficiente no curto prazo, mais resistente quando a abóbora azeda.</p>
+  </div>
+
+  <table>
+    <tr><th>Use CBO quando…</th><th>Use ABO quando…</th></tr>
+    <tr><td>Você já tem criativos vencedores conhecidos</td><td>Está testando criativos novos</td></tr>
+    <tr><td>Precisa de eficiência máxima agora</td><td>Precisa de aprendizado por adset</td></tr>
+    <tr><td>Tem inventário pra vender rápido</td><td>Está mapeando qual audiência converte</td></tr>
+    <tr><td>Já passou da fase de descoberta</td><td>Está na fase de descoberta</td></tr>
+  </table>
+
+  <div class="fim-mod">fim do Módulo II</div>
+</section>
+</div>
+
+<!-- =========================================== -->
+<!-- MÓDULO III -->
+<!-- =========================================== -->
+<div class="module">
+<div class="module-cover">
+  <div class="num">— Módulo III —</div>
+  <h2><span class="gradient-text">Estratégia</span></h2>
+  <div class="desc">A diferença entre funil de agência e funil de infoproduto. Oferta, copy, criativo — o trio que ganha ou perde a campanha.</div>
+</div>
+
+<!-- CAP 9 -->
+<section id="cap-9">
+  <div class="cap-num">— Capítulo 9 —</div>
+  <h3>Os dois mundos<br><span class="em">do tráfego pago</span></h3>
+
+  <p class="dropcap">Existem dois mundos do tráfego pago e quase ninguém separa direito: <strong>funil de agência/serviço B2B</strong> e <strong>funil de infoproduto/e-commerce B2C</strong>. Mesmas ferramentas, lógicas opostas. Quem confunde os dois aplica táticas de um no outro e quebra a cara.</p>
+
+  <div class="compare">
+    <div class="col agencia">
+      <h5>MUNDO 1</h5>
+      <h6>Funil de Agência</h6>
+      <ul>
+        <li>Vende serviço com ticket alto (R$ 1k-30k)</li>
+        <li>Decisão racional, multi-stakeholder</li>
+        <li>Ciclo de venda 3-30 dias</li>
+        <li>Anúncio gera lead, não venda</li>
+        <li>Venda acontece em call humana</li>
+        <li>Sucesso = qualidade do lead, não quantidade</li>
+        <li>CPL alto (R$ 80-300) é aceitável</li>
+        <li>Operação: SDR + Closer + Gestor de tráfego</li>
+      </ul>
+    </div>
+    <div class="col info">
+      <h5>MUNDO 2</h5>
+      <h6>Funil de Infoproduto</h6>
+      <ul>
+        <li>Vende produto digital ou físico (R$ 47-2.997)</li>
+        <li>Decisão emocional, rápida</li>
+        <li>Ciclo de venda minutos a 7 dias</li>
+        <li>Anúncio gera venda direta (ou via página)</li>
+        <li>Venda acontece sem humano</li>
+        <li>Sucesso = volume × ticket × margem</li>
+        <li>CAC precisa ser baixo (R$ 30-200)</li>
+        <li>Operação: Copy + Gestor + Editor de vídeo</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="analogia">
+    <p><strong>Funil de agência é como vender consultoria jurídica.</strong> Você não convence ninguém a contratar um advogado pelo Instagram em 30 segundos. O processo é longo: confiança, reunião, química, proposta, negociação. O papel do anúncio é trazer a pessoa pra REUNIÃO. Não é vender ali.</p>
+    <p style="margin-top:14px"><strong>Funil de infoproduto é como vender um livro numa banca de aeroporto.</strong> A pessoa tá com 20 minutos antes do voo, vê a capa, lê a sinopse, paga. Decisão em segundos, emoção dominante, ticket que cabe no impulso. O anúncio É a banca. Tem que vender ali, naquela tela, ou perde a venda pra sempre.</p>
+  </div>
+
+  <div class="box danger">
+    <h5>O erro fatal: misturar as lógicas</h5>
+    <p><strong>Agência tentando vender no anúncio</strong> → CPL baixo, mas SDR atende ninguém qualificado. "Marketing tá ruim". Não, a estratégia é que tá errada — quem vê o preço cheio antes de saber o valor recusa.</p>
+    <p style="margin-top:10px"><strong>Infoproduto tentando gerar lead</strong> → Vira email de gente curiosa. Lead não vira venda porque o produto era pra ser comprado no calor, não em frio. CAC fica imenso.</p>
+  </div>
+</section>
+
+<!-- CAP 10 -->
+<section id="cap-10">
+  <div class="cap-num">— Capítulo 10 —</div>
+  <h3>Funil de Agência:<br><span class="em">a anatomia completa</span></h3>
+
+  <p>Um funil de agência bem estruturado tem 5 etapas e cada uma tem sua função. Pular etapa = quebrar o sistema. Esse é o modelo que a Eikon usa com 109 clientes ativos e está validado em 4 anos de operação.</p>
+
+  <!-- VIZ: Funil agência estilo Brunson -->
+  <div class="viz azul">
+    <div class="viz-lbl">— Visualização 06 —</div>
+    <h4>O Funil de Agência em 5 etapas</h4>
+    <div class="leg">Cada etapa filtra mais. No topo, 10.000 pessoas. No fundo, 30 clientes pagantes. Esse é o ofício.</div>
+    <svg viewBox="0 0 700 460" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- Funil shapes -->
+      <!-- Etapa 1 TOFU -->
+      <polygon points="80,30 620,30 580,90 120,90" fill="#285bfa" opacity="0.9"/>
+      <text x="350" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" letter-spacing="2">TOFU · TOPO</text>
+      <text x="350" y="75" text-anchor="middle" font-size="11" fill="#bdd0ff" font-style="italic">10.000 impressões · audiência fria</text>
+      <!-- Conector -->
+      <line x1="120" y1="90" x2="120" y2="100" stroke="#285bfa" stroke-width="2"/>
+      <line x1="580" y1="90" x2="580" y2="100" stroke="#285bfa" stroke-width="2"/>
+
+      <!-- Etapa 2 MOFU -->
+      <polygon points="120,100 580,100 540,160 160,160" fill="#5a82ff"/>
+      <text x="350" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" letter-spacing="2">MOFU · MEIO</text>
+      <text x="350" y="145" text-anchor="middle" font-size="11" fill="#e8eeff" font-style="italic">1.500 visitas · retargeting + prova social</text>
+      <line x1="160" y1="160" x2="160" y2="170" stroke="#5a82ff" stroke-width="2"/>
+      <line x1="540" y1="160" x2="540" y2="170" stroke="#5a82ff" stroke-width="2"/>
+
+      <!-- Etapa 3 Formulário -->
+      <polygon points="160,170 540,170 500,230 200,230" fill="#79aee6"/>
+      <text x="350" y="195" text-anchor="middle" font-size="13" font-weight="700" fill="#0a0a23" letter-spacing="2">FORMULÁRIO COM FILTRO</text>
+      <text x="350" y="215" text-anchor="middle" font-size="11" fill="#1a1a3a" font-style="italic">200 leads · filtra sub-ICP</text>
+      <line x1="200" y1="230" x2="200" y2="240" stroke="#79aee6" stroke-width="2"/>
+      <line x1="500" y1="230" x2="500" y2="240" stroke="#79aee6" stroke-width="2"/>
+
+      <!-- Etapa 4 SDR -->
+      <polygon points="200,240 500,240 460,300 240,300" fill="#d97706"/>
+      <text x="350" y="265" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" letter-spacing="2">SDR QUALIFICA</text>
+      <text x="350" y="285" text-anchor="middle" font-size="11" fill="#fff7ed" font-style="italic">120 MQL → 80 SQL · liga em 5 min</text>
+      <line x1="240" y1="300" x2="240" y2="310" stroke="#d97706" stroke-width="2"/>
+      <line x1="460" y1="300" x2="460" y2="310" stroke="#d97706" stroke-width="2"/>
+
+      <!-- Etapa 5 Closer -->
+      <polygon points="240,310 460,310 420,370 280,370" fill="#15803d"/>
+      <text x="350" y="335" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" letter-spacing="2">CLOSER FECHA</text>
+      <text x="350" y="355" text-anchor="middle" font-size="11" fill="#dcfce7" font-style="italic">60 reuniões · 30-40% taxa</text>
+      <line x1="280" y1="370" x2="280" y2="380" stroke="#15803d" stroke-width="2"/>
+      <line x1="420" y1="370" x2="420" y2="380" stroke="#15803d" stroke-width="2"/>
+
+      <!-- Resultado final -->
+      <polygon points="280,380 420,380 400,420 300,420" fill="#0a0a23"/>
+      <text x="350" y="402" text-anchor="middle" font-size="14" font-weight="800" fill="#79aee6" letter-spacing="2">CLIENTE PAGANTE</text>
+      <text x="350" y="418" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">~25-30 clientes/mês</text>
+
+      <!-- Anotações laterais -->
+      <text x="640" y="60" text-anchor="end" font-size="10" fill="#3a3a5c" font-style="italic">storytelling</text>
+      <text x="640" y="135" text-anchor="end" font-size="10" fill="#3a3a5c" font-style="italic">cases reais</text>
+      <text x="640" y="205" text-anchor="end" font-size="10" fill="#3a3a5c" font-style="italic">qualifica</text>
+      <text x="640" y="275" text-anchor="end" font-size="10" fill="#3a3a5c" font-style="italic">+5 min!</text>
+      <text x="640" y="345" text-anchor="end" font-size="10" fill="#3a3a5c" font-style="italic">PASTOR</text>
+
+      <!-- Setas laterais -->
+      <text x="40" y="60" font-size="14" font-weight="700" fill="#285bfa">1</text>
+      <text x="40" y="135" font-size="14" font-weight="700" fill="#5a82ff">2</text>
+      <text x="40" y="205" font-size="14" font-weight="700" fill="#79aee6">3</text>
+      <text x="40" y="275" font-size="14" font-weight="700" fill="#d97706">4</text>
+      <text x="40" y="345" font-size="14" font-weight="700" fill="#15803d">5</text>
+      
+      <!-- Taxa de fechamento total -->
+      <rect x="80" y="445" width="540" height="0" rx="0" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="tarefas">
+    <div class="tarefa">
+      <div class="num-circle">1</div>
+      <div class="conteudo"><p><span class="lbl">TOFU:</span> Storytelling, problema-agitação, "blue ocean". <strong>NÃO pede formulário aqui.</strong> Objetivo é gerar consciência. CTA: "saiba mais" pra vídeo ou conteúdo educativo.</p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">2</div>
+      <div class="conteudo"><p><span class="lbl">MOFU:</span> Retargeting com prova social, cases reais, depoimentos em vídeo. Só aqui você convida pra "saber mais" via formulário. <strong>Lead que entra aqui é 3-5x melhor que lead direto do TOFU.</strong></p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">3</div>
+      <div class="conteudo"><p><span class="lbl">FORMULÁRIO:</span> 4-6 perguntas que <strong>filtram sub-ICP na entrada</strong>: faturamento, tempo de mercado, capacidade de investir, dor principal.</p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">4</div>
+      <div class="conteudo"><p><span class="lbl">SDR:</span> Liga em até 5 min (cada minuto a mais reduz 7% a conversão). Qualifica MQL → SQL via script de 5 passos. <strong>NÃO vende</strong> — decide se o lead vai pro Closer.</p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">5</div>
+      <div class="conteudo"><p><span class="lbl">CLOSER:</span> Reunião 30-50 min. Diagnóstico + apresentação de método + proposta. Boa operação tem <strong>30-40% de taxa SQL → cliente.</strong></p></div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>O lead que parece ruim mas é OURO</h4>
+    <p>Existe um tipo de lead que iniciantes descartam mas profissional valoriza: <strong>o lead que diz "já tentei e não funcionou"</strong>. Quem nunca tentou tem objeção de "será que funciona?". Quem JÁ tentou e queimou dinheiro tem dor real, urgência real, e está procurando ALGUÉM que entenda o que deu errado. Dados da Eikon mostram que esse perfil fecha 23% mais que lead novo, e paga ticket maior.</p>
+  </div>
+</section>
+
+<!-- CAP 11 -->
+<section id="cap-11">
+  <div class="cap-num">— Capítulo 11 —</div>
+  <h3>Funil de Infoproduto:<br><span class="em">a anatomia completa</span></h3>
+
+  <p>Infoproduto não tem o luxo do tempo. O cliente não vai voltar amanhã. Tem que vender AGORA, no calor, no impulso. Por isso o funil é mais curto, mais agressivo, mais emocional.</p>
+
+  <!-- VIZ: Funil infoproduto -->
+  <div class="viz">
+    <div class="viz-lbl">— Visualização 07 —</div>
+    <h4>O Funil de Infoproduto em 5 etapas</h4>
+    <div class="leg">O cliente decide em minutos. Não dá tempo de nutrir. A VSL faz 90% do trabalho.</div>
+    <svg viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- Anúncio -->
+      <rect x="240" y="20" width="220" height="60" rx="8" fill="#0a0a23"/>
+      <text x="350" y="42" text-anchor="middle" font-size="11" fill="#79aee6" font-weight="700" letter-spacing="2">ETAPA 1</text>
+      <text x="350" y="62" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Anúncio com HOOK forte</text>
+      <text x="350" y="76" text-anchor="middle" font-size="10" fill="#bdd0ff" font-style="italic">só rouba 15 min da pessoa</text>
+
+      <!-- seta -->
+      <g stroke="#285bfa" stroke-width="3" fill="none" stroke-linecap="round">
+        <line x1="350" y1="84" x2="350" y2="105"/>
+        <polyline points="340,98 350,108 360,98" fill="#285bfa"/>
+      </g>
+
+      <!-- VSL -->
+      <rect x="180" y="115" width="340" height="90" rx="8" fill="#285bfa"/>
+      <text x="350" y="138" text-anchor="middle" font-size="11" fill="#bdd0ff" font-weight="700" letter-spacing="2">ETAPA 2</text>
+      <text x="350" y="160" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">VSL ou Carta de Vendas</text>
+      <text x="350" y="178" text-anchor="middle" font-size="11" fill="#e8eeff" font-style="italic">8-25 min · onde acontece 90% da venda</text>
+      <text x="350" y="195" text-anchor="middle" font-size="10" fill="#bdd0ff">Hook → Problema → Mecanismo → Oferta → Fechamento</text>
+
+      <!-- seta -->
+      <g stroke="#285bfa" stroke-width="3" fill="none" stroke-linecap="round">
+        <line x1="350" y1="209" x2="350" y2="230"/>
+        <polyline points="340,223 350,233 360,223" fill="#285bfa"/>
+      </g>
+
+      <!-- Checkout -->
+      <rect x="240" y="240" width="220" height="60" rx="8" fill="#5a82ff"/>
+      <text x="350" y="262" text-anchor="middle" font-size="11" fill="#e8eeff" font-weight="700" letter-spacing="2">ETAPA 3</text>
+      <text x="350" y="282" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">CHECKOUT otimizado</text>
+      <text x="350" y="296" text-anchor="middle" font-size="10" fill="#e8eeff" font-style="italic">+ order bump (oferta adicional)</text>
+
+      <!-- seta para upsell -->
+      <g stroke="#15803d" stroke-width="3" fill="none" stroke-linecap="round">
+        <line x1="350" y1="304" x2="350" y2="325"/>
+        <polyline points="340,318 350,328 360,318" fill="#15803d"/>
+      </g>
+
+      <!-- Upsell -->
+      <rect x="180" y="335" width="340" height="60" rx="8" fill="#15803d"/>
+      <text x="350" y="357" text-anchor="middle" font-size="11" fill="#dcfce7" font-weight="700" letter-spacing="2">ETAPA 4 · ONDE ESTÁ O LUCRO</text>
+      <text x="350" y="378" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">UPSELL pós-compra (One-Click)</text>
+      <text x="350" y="392" text-anchor="middle" font-size="10" fill="#dcfce7" font-style="italic">aumenta ticket médio 30-60%</text>
+
+      <!-- Retargeting parallel -->
+      <g>
+        <rect x="20" y="240" width="140" height="160" rx="8" fill="#fff7ed" stroke="#d97706" stroke-width="2" stroke-dasharray="5 3"/>
+        <text x="90" y="265" text-anchor="middle" font-size="10" fill="#d97706" font-weight="700" letter-spacing="2">ETAPA 5</text>
+        <text x="90" y="285" text-anchor="middle" font-size="13" font-weight="700" fill="#0a0a23">RETARGETING</text>
+        <text x="90" y="302" text-anchor="middle" font-size="10" fill="#3a3a5c">de quem viu a VSL</text>
+        <text x="90" y="318" text-anchor="middle" font-size="10" fill="#3a3a5c">mas não comprou</text>
+        <text x="90" y="345" text-anchor="middle" font-size="20" font-weight="700" fill="#d97706">15-25%</text>
+        <text x="90" y="365" text-anchor="middle" font-size="10" fill="#3a3a5c" font-style="italic">das vendas vem</text>
+        <text x="90" y="378" text-anchor="middle" font-size="10" fill="#3a3a5c" font-style="italic">daqui — não do</text>
+        <text x="90" y="391" text-anchor="middle" font-size="10" fill="#3a3a5c" font-style="italic">tráfego inicial</text>
+      </g>
+
+      <!-- Cifrão final -->
+      <g>
+        <circle cx="600" cy="365" r="35" fill="#15803d"/>
+        <text x="600" y="376" text-anchor="middle" font-size="32" font-weight="800" fill="#fff">$</text>
+      </g>
+      <text x="600" y="416" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">RECEITA</text>
+      <text x="600" y="430" text-anchor="middle" font-size="9" fill="#3a3a5c" font-style="italic">venda + upsell</text>
+    </svg>
+  </div>
+
+  <div class="analogia">
+    <p><strong>O funil de infoproduto é como um show de stand-up.</strong> O comediante (a VSL) tem que prender você do primeiro segundo, te fazer rir, te fazer pensar, criar montanha-russa emocional, e no fim — quando você está envolvido — vender o "meet & greet" (oferta). <strong>Anúncio de stand-up bom não vende o ingresso, vende o TRAILER do show.</strong> Se o trailer é bom, a pessoa compra. Se o show é ruim, ela sai antes do fim e ninguém comprou nada.</p>
+  </div>
+
+  <h4>A estrutura clássica de VSL que mais converte</h4>
+  <ol class="book">
+    <li><strong>Hook (0-15s)</strong> — Promessa específica + curiosidade. "Se você é X faturando entre Y e Z há mais de 1 ano sem passar disso..."</li>
+    <li><strong>Problema (15s-3min)</strong> — Agitação da dor. Por que dói, por que não foi resolvido, qual a consequência de não resolver.</li>
+    <li><strong>Mecanismo (3-8min)</strong> — A causa-raiz que ninguém te contou. Aqui você apresenta o "vilão" novo (algoritmo, sistema, crença errada).</li>
+    <li><strong>Solução (8-12min)</strong> — Seu método, sistema, produto. Como funciona, por que funciona, prova social.</li>
+    <li><strong>Oferta (12-18min)</strong> — Preço, bônus, garantia, urgência. Tudo o que reduz risco.</li>
+    <li><strong>Fechamento (18-25min)</strong> — Recap, escassez, último CTA.</li>
+  </ol>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>O segredo do CAC negativo em infoproduto</h4>
+    <p>Profissional de infoproduto não tenta ter ROAS positivo no front-end. Ele <strong>aceita perder dinheiro na primeira venda</strong> porque sabe que o lucro vem no upsell, downsell, recorrência. Quem fatura R$ 100 mil/mês em infoproduto frequentemente roda no zero ou prejuízo no front-end. <strong>O ativo são as 30-50% que compram o upsell.</strong> Quem olha só o ROAS do anúncio nunca vai entender por que o concorrente "escala mais" com aparente prejuízo.</p>
+  </div>
+</section>
+
+<!-- CAP 12 -->
+<section id="cap-12">
+  <div class="cap-num">— Capítulo 12 —</div>
+  <h3>Oferta e Copy:<br><span class="em">o que vende não é o anúncio</span></h3>
+
+  <p>O segredo mais mal compreendido do tráfego pago: <strong>oferta vence anúncio</strong>. Um anúncio mediano com uma oferta excelente bate um anúncio espetacular com uma oferta sem graça. Toda vez.</p>
+
+  <div class="cite">"Você pode ser o melhor copywriter do mundo vendendo gelo pra esquimó — vai vender pouco. Pode ser copywriter mediano vendendo aquecedor pra esquimó — vai vender muito. A oferta é tudo."</div>
+
+  <!-- VIZ: Anatomia da oferta -->
+  <div class="viz azul">
+    <div class="viz-lbl">— Visualização 08 —</div>
+    <h4>Os 6 ingredientes de uma oferta forte</h4>
+    <div class="leg">Falta um → a oferta enfraquece. Tem os 6 → praticamente irresistível.</div>
+    <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- Caixa central -->
+      <rect x="260" y="140" width="180" height="100" rx="12" fill="#285bfa"/>
+      <text x="350" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" letter-spacing="2">OFERTA</text>
+      <text x="350" y="200" text-anchor="middle" font-size="11" fill="#bdd0ff" font-style="italic">irresistível</text>
+      <text x="350" y="220" text-anchor="middle" font-size="11" fill="#bdd0ff">+</text>
+
+      <!-- 6 ingredientes ao redor -->
+      <!-- 1. Promessa específica -->
+      <g>
+        <circle cx="120" cy="60" r="35" fill="#fff" stroke="#285bfa" stroke-width="2"/>
+        <text x="120" y="55" text-anchor="middle" font-size="20" font-weight="700" fill="#285bfa">1</text>
+        <text x="120" y="73" text-anchor="middle" font-size="9" fill="#3a3a5c">Promessa</text>
+        <text x="120" y="86" text-anchor="middle" font-size="9" fill="#3a3a5c">específica</text>
+        <line x1="148" y1="80" x2="265" y2="155" stroke="#285bfa" stroke-width="1.5" stroke-dasharray="4 3"/>
+      </g>
+
+      <!-- 2. Mecanismo único -->
+      <g>
+        <circle cx="350" cy="50" r="35" fill="#fff" stroke="#285bfa" stroke-width="2"/>
+        <text x="350" y="45" text-anchor="middle" font-size="20" font-weight="700" fill="#285bfa">2</text>
+        <text x="350" y="63" text-anchor="middle" font-size="9" fill="#3a3a5c">Mecanismo</text>
+        <text x="350" y="76" text-anchor="middle" font-size="9" fill="#3a3a5c">único</text>
+        <line x1="350" y1="85" x2="350" y2="140" stroke="#285bfa" stroke-width="1.5" stroke-dasharray="4 3"/>
+      </g>
+
+      <!-- 3. Bônus -->
+      <g>
+        <circle cx="580" cy="60" r="35" fill="#fff" stroke="#285bfa" stroke-width="2"/>
+        <text x="580" y="55" text-anchor="middle" font-size="20" font-weight="700" fill="#285bfa">3</text>
+        <text x="580" y="73" text-anchor="middle" font-size="9" fill="#3a3a5c">Bônus que</text>
+        <text x="580" y="86" text-anchor="middle" font-size="9" fill="#3a3a5c">removem objeção</text>
+        <line x1="552" y1="80" x2="435" y2="155" stroke="#285bfa" stroke-width="1.5" stroke-dasharray="4 3"/>
+      </g>
+
+      <!-- 4. Garantia -->
+      <g>
+        <circle cx="120" cy="320" r="35" fill="#fff" stroke="#285bfa" stroke-width="2"/>
+        <text x="120" y="315" text-anchor="middle" font-size="20" font-weight="700" fill="#285bfa">4</text>
+        <text x="120" y="333" text-anchor="middle" font-size="9" fill="#3a3a5c">Garantia</text>
+        <text x="120" y="346" text-anchor="middle" font-size="9" fill="#3a3a5c">inteligente</text>
+        <line x1="148" y1="300" x2="265" y2="225" stroke="#285bfa" stroke-width="1.5" stroke-dasharray="4 3"/>
+      </g>
+
+      <!-- 5. Urgência -->
+      <g>
+        <circle cx="350" cy="335" r="35" fill="#fff" stroke="#285bfa" stroke-width="2"/>
+        <text x="350" y="330" text-anchor="middle" font-size="20" font-weight="700" fill="#285bfa">5</text>
+        <text x="350" y="348" text-anchor="middle" font-size="9" fill="#3a3a5c">Urgência</text>
+        <text x="350" y="361" text-anchor="middle" font-size="9" fill="#3a3a5c">ou escassez</text>
+        <line x1="350" y1="300" x2="350" y2="240" stroke="#285bfa" stroke-width="1.5" stroke-dasharray="4 3"/>
+      </g>
+
+      <!-- 6. Preço âncora -->
+      <g>
+        <circle cx="580" cy="320" r="35" fill="#fff" stroke="#285bfa" stroke-width="2"/>
+        <text x="580" y="315" text-anchor="middle" font-size="20" font-weight="700" fill="#285bfa">6</text>
+        <text x="580" y="333" text-anchor="middle" font-size="9" fill="#3a3a5c">Preço com</text>
+        <text x="580" y="346" text-anchor="middle" font-size="9" fill="#3a3a5c">âncora visual</text>
+        <line x1="552" y1="300" x2="435" y2="225" stroke="#285bfa" stroke-width="1.5" stroke-dasharray="4 3"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <h5>1. Promessa específica</h5>
+      <p>Não "ficar em forma" — "perder 6 kg em 90 dias sem cortar pasta". Específico vence vago, sempre.</p>
+    </div>
+    <div class="card">
+      <h5>2. Mecanismo único</h5>
+      <p>"Como" você entrega — método VPE, fórmula F.A.S.T., sistema CRP. Dá nome ao seu jeito de fazer.</p>
+    </div>
+    <div class="card">
+      <h5>3. Bônus que removem objeção</h5>
+      <p>Cada bônus deve atacar uma objeção: "e se eu não tiver tempo?", "e se não der certo comigo?".</p>
+    </div>
+    <div class="card">
+      <h5>4. Garantia inteligente</h5>
+      <p>"Em 90 dias rodamos o sistema. Se faturamento não subir 30%, devolvemos tudo." Tira risco do cliente.</p>
+    </div>
+    <div class="card">
+      <h5>5. Urgência ou escassez real</h5>
+      <p>"Só 8 vagas para junho". Falsa escassez queima reputação — só use o que é verdade.</p>
+    </div>
+    <div class="card">
+      <h5>6. Preço com âncora visual</h5>
+      <p>"R$ 12.000 → R$ 2.997". Cérebro humano compara, não avalia em absoluto.</p>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>O melhor copy não parece copy</h4>
+    <p>Os melhores anúncios de 2026 não parecem anúncios. Parecem post de amigo, fofoca de WhatsApp, story de bastidores. <strong>Copy bom esconde a venda na conversa</strong>. Você só percebe que era anúncio quando bate o CTA. Quanto mais "produzido" parece, menos converte. Use o iPhone do fundador. Pare de tentar ter "comercial de TV" no Instagram — perde pra reels de bastidor todos os dias.</p>
+  </div>
+</section>
+
+<!-- CAP 13 -->
+<section id="cap-13">
+  <div class="cap-num">— Capítulo 13 —</div>
+  <h3>Criativos:<br><span class="em">o motor real de 2026</span></h3>
+
+  <p>Em 2026, criativo virou o único diferencial competitivo de verdade no tráfego pago. Targeting automatizou-se. Algoritmos comoditizaram-se. <strong>A única coisa que separa quem escala de quem trava é a qualidade e volume de criativos.</strong></p>
+
+  <h4>A regra dos 3 segundos</h4>
+  <p>Você tem 3 segundos. Não 5, não 10. Três. Se nesses 3 segundos não acontecer ALGO que segure o dedo no scroll, 80% das pessoas vão embora.</p>
+
+  <!-- VIZ: Hook como placa de trânsito -->
+  <div class="viz">
+    <div class="viz-lbl">— Visualização 09 —</div>
+    <h4>O Hook é a placa de trânsito do feed</h4>
+    <div class="leg">Você está dirigindo o feed a 100km/h. O hook tem 2-3 segundos para te fazer reagir.</div>
+    <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- Estrada -->
+      <rect x="0" y="240" width="760" height="120" fill="#3a3a5c"/>
+      <line x1="0" y1="300" x2="760" y2="300" stroke="#fff" stroke-width="3" stroke-dasharray="20 15"/>
+      <rect x="0" y="235" width="760" height="6" fill="#15803d"/>
+
+      <!-- Carro -->
+      <g>
+        <rect x="110" y="270" width="80" height="40" rx="10" fill="#285bfa"/>
+        <rect x="125" y="260" width="50" height="15" rx="4" fill="#79aee6"/>
+        <circle cx="130" cy="315" r="8" fill="#0a0a23"/>
+        <circle cx="170" cy="315" r="8" fill="#0a0a23"/>
+        <text x="150" y="288" text-anchor="middle" font-size="9" font-weight="800" fill="#fff">100km/h</text>
+        <!-- Linhas velocidade -->
+        <line x1="50" y1="280" x2="95" y2="280" stroke="#fff" stroke-width="2"/>
+        <line x1="35" y1="290" x2="90" y2="290" stroke="#fff" stroke-width="2"/>
+        <line x1="55" y1="300" x2="100" y2="300" stroke="#fff" stroke-width="2"/>
+      </g>
+
+      <!-- Anotação no carro -->
+      <g>
+        <path d="M 150 260 Q 110 200 70 175" stroke="#0a0a23" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
+        <text x="70" y="165" font-size="13" font-weight="600" fill="#0a0a23">você scrollando feed →</text>
+      </g>
+
+      <!-- Placa principal -->
+      <g>
+        <rect x="370" y="40" width="320" height="180" rx="8" fill="#fff" stroke="#0a0a23" stroke-width="4"/>
+        <text x="530" y="85" text-anchor="middle" font-size="22" font-weight="800" fill="#dc2626" letter-spacing="3">PARE!</text>
+        <text x="530" y="122" text-anchor="middle" font-size="16" font-weight="800" fill="#0a0a23">73% dos tatuadores</text>
+        <text x="530" y="144" text-anchor="middle" font-size="16" font-weight="800" fill="#0a0a23">faturam MENOS hoje</text>
+        <text x="530" y="166" text-anchor="middle" font-size="16" font-weight="800" fill="#0a0a23">do que em 2019</text>
+        <text x="530" y="200" text-anchor="middle" font-size="12" font-weight="500" fill="#3a3a5c">específico + curioso + claro</text>
+      </g>
+      <!-- Poste -->
+      <line x1="530" y1="220" x2="530" y2="240" stroke="#0a0a23" stroke-width="6"/>
+    </svg>
+    <!-- Caption HOOK BOM (fora do SVG, em HTML) -->
+    <div style="margin-top:20px;padding:18px 24px;background:#dcfce7;border-left:4px solid #15803d;border-radius:8px;display:flex;flex-wrap:wrap;align-items:center;gap:18px">
+      <div style="font-size:13px;font-weight:800;color:#15803d;letter-spacing:1px">✓ POR QUE É UM HOOK BOM</div>
+      <div style="flex:1;min-width:200px;font-size:13.5px;color:#15803d;font-weight:500">específico + curiosidade + relevante para tatuador + número que quebra padrão</div>
+    </div>
+  </div>
+
+  <div class="analogia">
+    <p><strong>Hook é a placa do trânsito.</strong> Você tá dirigindo a 80km/h, passa por uma placa. Tem ~2 segundos pra absorver. Se a placa tiver letra pequena demais, palavra confusa, símbolo estranho — você ignora e segue. Se for clara, específica e relevante ("PEDÁGIO 800 METROS"), você reage. <strong>Sua audiência está dirigindo o feed do Instagram a 100km/h.</strong> Não é hora de poesia — é hora de placa.</p>
+  </div>
+
+  <h4>Os 4 tipos de criativo que toda conta precisa rodar</h4>
+  <div class="grid-2">
+    <div class="card">
+      <h5>1. Talking Head do Founder</h5>
+      <p>Fundador falando direto pra câmera, iPhone, autêntico. Constrói autoridade. Performa surpreendentemente bem porque parece orgânico.</p>
+    </div>
+    <div class="card">
+      <h5>2. UGC (User Generated Content)</h5>
+      <p>Criador de conteúdo (não fundador) usando ou falando do produto. Parece review espontâneo. Funciona muito em audiência fria.</p>
+    </div>
+    <div class="card">
+      <h5>3. Estático "advertorial"</h5>
+      <p>Imagem com texto longo, formato de tweet ou artigo. <strong>Subestimado.</strong> Algumas contas faturam R$ 1M+/mês só com estático.</p>
+    </div>
+    <div class="card">
+      <h5>4. VSL (Video Sales Letter)</h5>
+      <p>Vídeo longo (8-20 min) que vende dentro do próprio anúncio. Performa muito em produtos premium e audiência 35+.</p>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="eq">Pra cada <strong>R$ 1.000</strong> de spend mensal = <strong>1 criativo novo/mês</strong></div>
+    <div class="nota">R$ 30k/mês → 30 criativos · R$ 100k/mês → 100 criativos</div>
+  </div>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>Por que ninguém consegue prever qual ad vai vencer</h4>
+    <p>Pega os 10 melhores estrategistas de criativo do planeta. Mostra 5 anúncios bons. Pede pra cada um adivinhar qual será o vencedor. <strong>Nenhum acerta consistentemente.</strong> A combinação entre criativo + algoritmo + momento da audiência é caótica demais. Por isso a regra mudou: não tente prever o vencedor — produza volume acima da barra e deixe o algoritmo escolher.</p>
+  </div>
+
+  <div class="fim-mod">fim do Módulo III</div>
+</section>
+</div>
+
+<!-- =========================================== -->
+<!-- MÓDULO IV -->
+<!-- =========================================== -->
+<div class="module">
+<div class="module-cover">
+  <div class="num">— Módulo IV —</div>
+  <h2><span class="gradient-text">Escala</span></h2>
+  <div class="desc">Métricas que mentem, aprendizagem, scaling, os 12 erros mortais e a mentalidade que separa profissional de amador.</div>
+</div>
+
+<!-- CAP 14 -->
+<section id="cap-14">
+  <div class="cap-num">— Capítulo 14 —</div>
+  <h3>Métricas reais:<br><span class="em">as que importam e as que mentem</span></h3>
+
+  <p>Tem métrica que parece importante e não é. Tem métrica que parece detalhe e define tudo. Iniciante olha as erradas e toma decisões erradas. Profissional sabe a hierarquia.</p>
+
+  <!-- VIZ: Pirâmide de métricas -->
+  <div class="viz">
+    <div class="viz-lbl">— Visualização 10 —</div>
+    <h4>A pirâmide de confiabilidade das métricas</h4>
+    <div class="leg">Quanto mais alto, mais você pode confiar. Quanto mais baixo, mais cuidado.</div>
+    <svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- Nível 1: Topo (Receita líquida real) -->
+      <polygon points="380,30 250,100 510,100" fill="#15803d"/>
+      <text x="380" y="80" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">Receita líquida real</text>
+
+      <!-- Nível 2: ROAS de Campanha -->
+      <polygon points="250,100 510,100 200,180 560,180" fill="#285bfa"/>
+      <text x="380" y="135" text-anchor="middle" fill="#fff" font-size="15" font-weight="800">ROAS de Campanha</text>
+      <text x="380" y="158" text-anchor="middle" fill="#bdd0ff" font-size="12" font-weight="500">com 7-day click</text>
+
+      <!-- Nível 3: Amount Spent + CPA -->
+      <polygon points="200,180 560,180 150,260 610,260" fill="#5a82ff"/>
+      <text x="380" y="218" text-anchor="middle" fill="#fff" font-size="15" font-weight="800">Amount Spent + CPA</text>
+      <text x="380" y="241" text-anchor="middle" fill="#e8eeff" font-size="12" font-weight="500">por Campanha</text>
+
+      <!-- Nível 4: CPC / CTR / Hook Rate -->
+      <polygon points="150,260 610,260 100,340 660,340" fill="#d97706"/>
+      <text x="380" y="298" text-anchor="middle" fill="#fff" font-size="15" font-weight="800">CPC / CTR / Hook Rate</text>
+      <text x="380" y="321" text-anchor="middle" fill="#fff7ed" font-size="12" font-weight="500">indicadores secundários</text>
+
+      <!-- Nível 5: ROAS de Ad individual -->
+      <polygon points="100,340 660,340 50,410 710,410" fill="#dc2626"/>
+      <text x="380" y="375" text-anchor="middle" fill="#fff" font-size="15" font-weight="800">⚠ ROAS de Ad individual</text>
+      <text x="380" y="398" text-anchor="middle" fill="#fee2e2" font-size="12" font-weight="500">NÃO CONFIE — last-click mente</text>
+
+      <!-- Seta lateral esquerda -->
+      <text x="20" y="50" font-size="11" font-weight="800" fill="#15803d">+ CONFIÁVEL</text>
+      <line x1="30" y1="65" x2="30" y2="365" stroke="#0a0a23" stroke-width="1.5"/>
+      <polyline points="25,355 30,365 35,355" fill="none" stroke="#0a0a23" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="20" y="390" font-size="11" font-weight="800" fill="#dc2626">− CONFIÁVEL</text>
+    </svg>
+  </div>
+
+  <h4>As 4 métricas que de fato pagam a conta</h4>
+  <ol class="book">
+    <li><strong>CAC (Custo de Aquisição de Cliente)</strong> — Quanto custou trazer UM cliente real, não lead.</li>
+    <li><strong>LTV (Lifetime Value)</strong> — Quanto cliente gasta no total. Razão LTV/CAC mínima saudável: 3:1.</li>
+    <li><strong>Payback Period</strong> — Quantos meses até recuperar o CAC. Negócio bom recupera em &lt; 4 meses.</li>
+    <li><strong>Margem Líquida Real</strong> — Receita - custos - imposto - taxa - ads. Sem maquiagem.</li>
+  </ol>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>Por que o ROAS do anúncio mente (e quanto)</h4>
+    <p>A Meta atribui receita usando <em>last-click</em> — quem clicou por último ganha o crédito. Mas a venda foi orquestrada por MÚLTIPLOS ads que essa pessoa viu antes. <strong>Estudos de atribuição incremental mostram que o ROAS reportado pela Meta é 30-60% inflado</strong> em campanhas de bottom-funnel. Por isso ROAS de Ad isolado é a métrica MAIS mentirosa do Gerenciador.</p>
+  </div>
+</section>
+
+<!-- CAP 15 -->
+<section id="cap-15">
+  <div class="cap-num">— Capítulo 15 —</div>
+  <h3>Aprendizagem:<br><span class="em">o que ninguém te ensina</span></h3>
+
+  <p>Toda vez que você cria ou edita uma campanha, ela entra em <em>Fase de Aprendizagem</em>. Durante essa fase, o algoritmo está testando audiências, posicionamentos, horários, criativos. Performance é instável. <strong>Decisões tomadas durante o aprendizado são quase sempre erradas.</strong></p>
+
+  <div class="analogia">
+    <p><strong>Fase de aprendizagem é o estagiário no primeiro dia.</strong> Você não pode olhar pra produção do estagiário às 11h da manhã do primeiro dia e dizer "tá uma porcaria". Claro que tá. Ele tá aprendendo. Você precisa dar uma SEMANA pra ele entender o trabalho, o tom da empresa, os fluxos. <strong>Demitir o estagiário no primeiro dia é a maneira mais rápida de nunca ter um bom funcionário.</strong> A maioria dos anunciantes "demite" campanhas na primeira semana e fica eternamente trocando estagiário.</p>
+  </div>
+
+  <h4>O que ATIVA novamente a fase de aprendizagem</h4>
+  <ul class="styled">
+    <li>Qualquer edição no nível do adset (audiência, orçamento, posicionamento)</li>
+    <li>Pausar e despausar uma campanha</li>
+    <li>Adicionar ou remover criativos do adset</li>
+    <li>Mudar o objetivo da campanha</li>
+    <li>Mudar a janela de atribuição</li>
+  </ul>
+
+  <div class="box danger">
+    <h5>O erro de R$ 50 mil que ninguém percebe</h5>
+    <p>Anunciante vê uma campanha rodando há 3 dias com ROAS abaixo do esperado. Vai lá e "mexe". <strong>Toda mexida zera o aprendizado e custa mais R$ 5-15 mil de novo aprendizado pra Meta entender o novo cenário.</strong> Anunciantes médios fazem isso 3-5x por semana. Profissional faz no MÁXIMO 1x por semana, com critério.</p>
+  </div>
+</section>
+
+<!-- CAP 16 -->
+<section id="cap-16">
+  <div class="cap-num">— Capítulo 16 —</div>
+  <h3>Scaling:<br><span class="em">a arte de aumentar sem quebrar</span></h3>
+
+  <p>Aumentar budget parece simples. "Tá bombando? Põe mais dinheiro!". <strong>Errado.</strong> Aumentar budget bruscamente reseta o aprendizado, infla o CPM, derruba o ROAS.</p>
+
+  <!-- VIZ: Escada de scaling -->
+  <div class="viz azul">
+    <div class="viz-lbl">— Visualização 11 —</div>
+    <h4>A escada do scaling</h4>
+    <div class="leg">Aumente 20% por dia. Espere o algoritmo absorver. Repita. Em 30 dias, R$ 100/dia vira R$ 1.000/dia.</div>
+    <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',sans-serif">
+      <!-- Eixos -->
+      <line x1="60" y1="280" x2="660" y2="280" stroke="#0a0a23" stroke-width="2"/>
+      <line x1="60" y1="40" x2="60" y2="280" stroke="#0a0a23" stroke-width="2"/>
+      <text x="50" y="50" text-anchor="end" font-size="11" font-weight="600" fill="#0a0a23">Spend</text>
+      <text x="660" y="305" text-anchor="end" font-size="11" font-weight="600" fill="#0a0a23">Tempo →</text>
+
+      <!-- Escada -->
+      <g stroke="#285bfa" stroke-width="3" fill="none">
+        <line x1="60" y1="260" x2="120" y2="260"/>
+        <line x1="120" y1="260" x2="120" y2="240"/>
+        <line x1="120" y1="240" x2="180" y2="240"/>
+        <line x1="180" y1="240" x2="180" y2="218"/>
+        <line x1="180" y1="218" x2="240" y2="218"/>
+        <line x1="240" y1="218" x2="240" y2="192"/>
+        <line x1="240" y1="192" x2="300" y2="192"/>
+        <line x1="300" y1="192" x2="300" y2="164"/>
+        <line x1="300" y1="164" x2="360" y2="164"/>
+        <line x1="360" y1="164" x2="360" y2="132"/>
+        <line x1="360" y1="132" x2="420" y2="132"/>
+        <line x1="420" y1="132" x2="420" y2="96"/>
+        <line x1="420" y1="96" x2="480" y2="96"/>
+        <line x1="480" y1="96" x2="480" y2="60"/>
+        <line x1="480" y1="60" x2="640" y2="60"/>
+      </g>
+
+      <!-- Pontos -->
+      <g fill="#285bfa">
+        <circle cx="90" cy="260" r="6"/>
+        <circle cx="150" cy="240" r="6"/>
+        <circle cx="210" cy="218" r="6"/>
+        <circle cx="270" cy="192" r="6"/>
+        <circle cx="330" cy="164" r="6"/>
+        <circle cx="390" cy="132" r="6"/>
+        <circle cx="450" cy="96" r="6"/>
+        <circle cx="560" cy="60" r="8" fill="#15803d"/>
+      </g>
+
+      <!-- Labels -->
+      <text x="90" y="278" text-anchor="middle" font-size="9" fill="#3a3a5c">R$100</text>
+      <text x="270" y="208" text-anchor="middle" font-size="9" fill="#3a3a5c">R$200</text>
+      <text x="390" y="148" text-anchor="middle" font-size="9" fill="#3a3a5c">R$400</text>
+      <text x="560" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">R$1.000/dia</text>
+
+      <!-- Anotação tempo -->
+      <text x="100" y="300" font-size="9" fill="#3a3a5c">Dia 1</text>
+      <text x="280" y="300" font-size="9" fill="#3a3a5c">Dia 10</text>
+      <text x="450" y="300" font-size="9" fill="#3a3a5c">Dia 20</text>
+      <text x="610" y="300" font-size="9" fill="#3a3a5c">Dia 30</text>
+
+      <!-- Linha contrário -->
+      <g stroke="#dc2626" stroke-width="2.5" fill="none" stroke-dasharray="6 4">
+        <line x1="60" y1="260" x2="120" y2="60"/>
+        <line x1="120" y1="60" x2="200" y2="130"/>
+        <line x1="200" y1="130" x2="280" y2="260"/>
+      </g>
+      <circle cx="120" cy="60" r="6" fill="#dc2626"/>
+      <text x="155" y="58" font-size="10" font-weight="700" fill="#dc2626" font-style="italic">"Vou de R$100 pra R$1.000!"</text>
+      <text x="200" y="280" font-size="10" font-weight="700" fill="#dc2626" font-style="italic">→ Algoritmo quebra</text>
+    </svg>
+  </div>
+
+  <div class="analogia">
+    <p><strong>Scaling é como ginástica.</strong> Quem nunca foi à academia não chega levantando 100kg. Começa com 5kg, 8kg, 12kg, semana após semana. <strong>Quem tenta pular fases lesiona o ombro</strong> e fica meses parado. Sua conta de anúncios funciona igual. Cada aumento brusco é uma lesão potencial. Aumente 20% por dia.</p>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <h5>1. Vertical (Seguro)</h5>
+      <p>Aumenta budget atual em até <strong>20%/dia</strong>. Algoritmo absorve sem perder otimização. Indicado pra 80% dos casos.</p>
+    </div>
+    <div class="card">
+      <h5>2. Horizontal (Médio)</h5>
+      <p>Duplica a campanha vencedora com nova audiência (LAL diferente, geo diferente). Distribui risco em 2-3 frentes.</p>
+    </div>
+    <div class="card">
+      <h5>3. Mass Duplicate (Alto)</h5>
+      <p>Cria 5-10 campanhas paralelas. Cada uma com budget alto. Algoritmo testa em paralelo. Só pra contas maduras.</p>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="tag">POUCO SE FALA</div>
+    <h4>O contraintuitivo: pausar é melhor que cortar budget</h4>
+    <p>Quando uma campanha começa a degradar, o instinto é cortar budget. Mas budget cortado de R$ 500 pra R$ 200 reseta o aprendizado IGUAL ao corte total. Profissional faz diferente: <strong>pausa a campanha por 2-3 dias</strong>, deixa o público "descansar" da frequência alta, e retoma com novo criativo. <em>Tempo de descanso é o input mais barato e o menos usado.</em></p>
+  </div>
+</section>
+
+<!-- CAP 17 -->
+<section id="cap-17">
+  <div class="cap-num">— Capítulo 17 —</div>
+  <h3>Os 12 erros mortais<br><span class="em">que matam contas grandes</span></h3>
+
+  <p>Depois de auditar centenas de contas, esses são os 12 erros que matam. Quem evita todos não vai voar — mas não vai cair. Quem comete 3 ou mais simultaneamente está rumo a desastre.</p>
+
+  <ol class="book">
+    <li><strong>Mexer em campanha que está funcionando.</strong> Se a régua está acertando, NÃO tira do prego.</li>
+    <li><strong>Confiar no ROAS de Ad individual.</strong> Last-click mente. Sempre olhe nível campanha.</li>
+    <li><strong>Otimizar pra evento sem volume.</strong> Otimizar Purchase com 8 vendas/semana é entregar a conta pra Meta chutar.</li>
+    <li><strong>Misturar conceitos no mesmo adset.</strong> 3 personas, 3 ângulos, 3 ofertas = algoritmo confuso = performance ruim.</li>
+    <li><strong>Pixel mal instalado.</strong> Eventos duplicando, eventos faltando. Métrica errada vira decisão errada.</li>
+    <li><strong>Não ter retargeting.</strong> 95% das pessoas não compram na primeira visita.</li>
+    <li><strong>Achar que "boost" do Instagram = tráfego.</strong> CPL 3-5x maior. Não use.</li>
+    <li><strong>Ignorar o LTV.</strong> Quem só olha ROAS do mês corrente nunca entende por que o concorrente "queima dinheiro" e fica rico.</li>
+    <li><strong>1-2 criativos segurando tudo.</strong> Quando fatigam, conta morre. Sempre portfolio.</li>
+    <li><strong>Subestimar criativo.</strong> Em 2026, criativo virou A alavanca. Gastar 10% do budget em produção = falência lenta.</li>
+    <li><strong>Copiar estrutura de guru.</strong> Sua estrutura tem que espelhar seu negócio.</li>
+    <li><strong>Decidir pelo sentimento.</strong> Dado primeiro, sentimento depois.</li>
+  </ol>
+
+  <div class="box danger">
+    <h5>O erro número zero (que ninguém lista)</h5>
+    <p><strong>Achar que tráfego pago resolve produto ruim.</strong> Anúncio acelera o que funciona. Acelera o problema do que não funciona também. Se a oferta é fraca, o nicho é errado, o atendimento é desorganizado — tráfego pago só vai te queimar mais rápido.</p>
+  </div>
+</section>
+
+<!-- CAP 18 -->
+<section id="cap-18">
+  <div class="cap-num">— Capítulo 18 —</div>
+  <h3>Mentalidade:<br><span class="em">profissional vs amador</span></h3>
+
+  <p class="dropcap">Tudo que foi ensinado até aqui é técnica. Técnica se aprende em meses. <strong>Mentalidade leva anos.</strong> E é a mentalidade que define quem chega aos 7 dígitos de spend mensal e quem trava nos 30 mil. Cinco posturas mentais que separam os dois grupos.</p>
+
+  <div class="tarefas">
+    <div class="tarefa">
+      <div class="num-circle">1</div>
+      <div class="conteudo"><p><span class="lbl">SISTEMAS, não hacks.</span> Amador: "qual é o segredo pra fazer R$ 100k?". Profissional: "como construo um sistema que produz 30 criativos por mês de forma consistente?". <strong>Sistemas vencem hacks toda vez.</strong></p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">2</div>
+      <div class="conteudo"><p><span class="lbl">AMOR pelo feedback negativo.</span> Anúncio com CTR baixo, lead que não fecha, comentário negativo. Tudo isso é DADO. Profissional pega, analisa, ajusta. Amador toma como ataque pessoal.</p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">3</div>
+      <div class="conteudo"><p><span class="lbl">SABER quando NÃO agir.</span> "O melhor dia pra mexer numa campanha é nunca, se ela está performando". Amador sente urgência de "fazer algo". <strong>Profissional sabe que paciência calculada é uma habilidade rara.</strong></p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">4</div>
+      <div class="conteudo"><p><span class="lbl">ACEITAR perder pra aprender.</span> Os primeiros R$ 5-10k de uma conta nova SÃO investimento em aprendizado. Iniciante chama de "prejuízo". <strong>Profissional chama de "matrícula".</strong></p></div>
+    </div>
+    <div class="tarefa">
+      <div class="num-circle">5</div>
+      <div class="conteudo"><p><span class="lbl">PENSAR em 12 meses.</span> Amador quer ROAS positivo na primeira semana. Profissional sabe que ad bom hoje gera retorno em 30, 60, 90 dias via retargeting, LTV, indicação. <strong>Quem mede só o front-end mata as melhores oportunidades.</strong></p></div>
+    </div>
+  </div>
+
+  <div class="cite">"O tráfego pago não é uma corrida de 100 metros, é uma maratona. Você pode até ter um bom 1° km no sprint inicial, mas é a constância na hora 2 que define quem chega na linha de chegada."</div>
+
+  <div class="fim-mod">fim do Módulo IV</div>
+</section>
+</div>
+
+<!-- =========================================== -->
+<!-- ENCERRAMENTO -->
+<!-- =========================================== -->
+<div class="module">
+  <div class="module-cover" style="background:linear-gradient(180deg, #0a0a23 0%, #285bfa 100%)">
+    <div class="num">— Última página —</div>
+    <h2><span class="gradient-text">Fim.</span></h2>
+    <div class="desc">Se você chegou até aqui, já sabe mais sobre Meta Ads do que 95% do mercado. O que falta agora é praticar.</div>
+  </div>
+
+  <section>
+    <h3>Onde ir <span class="em">a partir daqui</span></h3>
+
+    <div class="tarefas">
+      <div class="tarefa">
+        <div class="num-circle">1</div>
+        <div class="conteudo"><p><span class="lbl">RELEIA</span> os capítulos 9, 10 e 11 antes de cada novo cliente — eles definem qual funil você vai construir.</p></div>
+      </div>
+      <div class="tarefa">
+        <div class="num-circle">2</div>
+        <div class="conteudo"><p><span class="lbl">IMPRIMA</span> o capítulo 17 (os 12 erros mortais) e cole na parede do gestor de tráfego.</p></div>
+      </div>
+      <div class="tarefa">
+        <div class="num-circle">3</div>
+        <div class="conteudo"><p><span class="lbl">CONSULTE</span> o capítulo 4 (vocabulário) toda vez que estiver explicando algo pra cliente — ajuda a profissionalizar a comunicação.</p></div>
+      </div>
+      <div class="tarefa">
+        <div class="num-circle">4</div>
+        <div class="conteudo"><p><span class="lbl">APLIQUE</span> em UMA campanha, não em todas ao mesmo tempo. Mudança gradual vence revolução abrupta.</p></div>
+      </div>
+    </div>
+
+    <div class="cite">"O tráfego pago é uma das ferramentas mais democráticas que já existiram pra construir um negócio. Mas só funciona pra quem entende que é uma disciplina, não um botão."</div>
+  </section>
+</div>
+
+<footer style="margin-top:80px;padding:40px 60px;background:linear-gradient(180deg, #0a0a23 0%, #1a1a4d 100%);color:#a8a8c8;text-align:center">
+  <p style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:11px;color:#79aee6;letter-spacing:3px;text-transform:uppercase">Eikon Insider</p>
+  <p style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:32px;color:#fff;margin-top:10px;letter-spacing:-1px">Manual de Meta Ads</p>
+  <p style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:12px;margin-top:10px;color:#7a7aa3;letter-spacing:1.5px">edição 2026 · curadoria Eikon Digital</p>
+</footer>
+
+</main>
+</div>
+
+</body>
+</html>
