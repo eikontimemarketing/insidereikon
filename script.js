@@ -1,5 +1,5 @@
 /* ============================================================
-   EIKON INSIDER — Playbook Funil de Aquisição 10X
+   EIKON INSIDER — Playbook Funil de Aquisição Qualificada
    ------------------------------------------------------------
    ⚙️ CONFIGURAÇÃO RÁPIDA:
    - Endpoint do lead ..... data-endpoint no <form id="leadForm"> (index.html)
@@ -18,7 +18,7 @@
 (function () {
   'use strict';
 
-  var PRELOADER_MS = 1000; // ✏️ duração do preloader em milissegundos
+  var PRELOADER_MS = 800; // ✏️ duração do preloader em milissegundos
 
   var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('js');
@@ -28,16 +28,8 @@
   if (pre) {
     setTimeout(function () {
       pre.classList.add('hidden');
-      setTimeout(function () { pre.style.display = 'none'; }, 800);
+      setTimeout(function () { pre.style.display = 'none'; }, 600);
     }, reduceMotion ? 0 : PRELOADER_MS);
-  }
-
-  /* ---------- Header no scroll (só se o header existir) ---------- */
-  var nav = document.getElementById('nav');
-  if (nav) {
-    var onNavScroll = function () { nav.classList.toggle('scrolled', scrollY > 8); };
-    addEventListener('scroll', onNavScroll, { passive: true });
-    onNavScroll();
   }
 
   /* ---------- Scroll suave até o formulário ---------- */
@@ -50,22 +42,8 @@
     });
   });
 
-  /* ---------- Reveal on scroll + contadores ---------- */
-  var counters = document.querySelectorAll('[data-count]');
-  function setFinal() {
-    counters.forEach(function (el) { el.textContent = (el.dataset.prefix || '') + el.dataset.count; });
-  }
-  function animateCount(el) {
-    var end = +el.dataset.count, prefix = el.dataset.prefix || '', t0 = performance.now();
-    (function tick(now) {
-      var p = Math.min((now - t0) / 1400, 1), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + Math.round(end * e);
-      if (p < 1) requestAnimationFrame(tick);
-    })(t0);
-  }
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    setFinal();
-  } else {
+  /* ---------- Revelação ao entrar no viewport ---------- */
+  if (!reduceMotion && 'IntersectionObserver' in window) {
     document.documentElement.classList.add('reveal-ready');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
@@ -73,84 +51,43 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
     document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  }
 
-    counters.forEach(function (el) { el.textContent = (el.dataset.prefix || '') + '0'; });
-    var ioCount = new IntersectionObserver(function (entries) {
+  /* ---------- "O que você vai aprender": cards juntos → se espalham ---------- */
+  var stages = document.getElementById('stagesGrid');
+  if (stages && !reduceMotion && 'IntersectionObserver' in window && matchMedia('(min-width: 768px)').matches) {
+    var stageCards = stages.querySelectorAll('.scard');
+    var stagesSpread = false;
+    var setGather = function () {
+      var r = stages.getBoundingClientRect();
+      var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      stageCards.forEach(function (c, i) {
+        var cr = c.getBoundingClientRect();
+        c.style.setProperty('--dx', (cx - (cr.left + cr.width / 2)).toFixed(1) + 'px');
+        c.style.setProperty('--dy', (cy - (cr.top + cr.height / 2)).toFixed(1) + 'px');
+        c.style.setProperty('--rot', ((i % 2 ? 1 : -1) * (3 + i * 1.5)).toFixed(1) + 'deg');
+        c.style.transitionDelay = (i * 70) + 'ms';
+      });
+      stages.classList.add('gather');
+    };
+    setGather();
+    addEventListener('resize', function () { if (!stagesSpread) setGather(); });
+    var ioStages = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { animateCount(en.target); ioCount.unobserve(en.target); }
+        if (en.isIntersecting) {
+          stagesSpread = true;
+          stages.classList.add('spread');
+          ioStages.disconnect();
+          // após a animação, remove as classes e limpa os delays para o
+          // hover dos cards responder na hora
+          setTimeout(function () {
+            stageCards.forEach(function (c) { c.style.transitionDelay = ''; });
+            stages.classList.remove('gather', 'spread');
+          }, stageCards.length * 70 + 1000);
+        }
       });
-    }, { threshold: 0.6 });
-    counters.forEach(function (el) { ioCount.observe(el); });
-  }
-
-  /* ---------- Transições .scroll-left / .scroll-right / .scroll-bottom / .scroll-top ---------- */
-  var scrollEls = document.querySelectorAll('.scroll-left, .scroll-right, .scroll-bottom, .scroll-top');
-  if (scrollEls.length && !reduceMotion) {
-    var fadeScroll = function () {
-      var gate = innerHeight * 0.5;
-      scrollEls.forEach(function (el) {
-        var top = el.getBoundingClientRect().top - gate;
-        el.classList.toggle('ativo', top < 320);
-      });
-    };
-    var fsTick = false;
-    addEventListener('scroll', function () {
-      if (!fsTick) { fsTick = true; requestAnimationFrame(function () { fadeScroll(); fsTick = false; }); }
-    }, { passive: true });
-    fadeScroll();
-  } else {
-    scrollEls.forEach(function (el) { el.classList.add('ativo'); });
-  }
-
-  /* ---------- Títulos letra a letra no scroll (data-letras) ---------- */
-  var letterEls = [];
-  if (!reduceMotion) {
-    document.querySelectorAll('[data-letras]').forEach(function (el) {
-      el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
-      (function split(node) {
-        Array.prototype.slice.call(node.childNodes).forEach(function (child) {
-          if (child.nodeType === 3) {
-            var frag = document.createDocumentFragment();
-            child.textContent.replace(/\s+/g, ' ').split(' ').forEach(function (word, wi, arr) {
-              if (word) {
-                var w = document.createElement('span');
-                w.className = 'ltw';
-                w.setAttribute('aria-hidden', 'true');
-                Array.prototype.forEach.call(word, function (ch) {
-                  var s = document.createElement('span');
-                  s.className = 'lt';
-                  s.textContent = ch;
-                  w.appendChild(s);
-                });
-                frag.appendChild(w);
-              }
-              if (wi < arr.length - 1) frag.appendChild(document.createTextNode(' '));
-            });
-            node.replaceChild(frag, child);
-          } else if (child.nodeType === 1) split(child);
-        });
-      })(el);
-      el._lts = el.querySelectorAll('.lt');
-      letterEls.push(el);
-    });
-
-    var updateLetters = function () {
-      var vh = innerHeight;
-      var start = vh * 0.78, end = vh * 0.42; // ✏️ início/fim da animação no scroll
-      letterEls.forEach(function (el) {
-        var r = el.getBoundingClientRect();
-        var p = Math.max(0, Math.min(1, (start - r.top) / (start - end)));
-        var n = el._lts.length;
-        el._lts.forEach(function (s, i) {
-          s.style.opacity = Math.max(0, Math.min(1, (p * n - i) / 2.5));
-        });
-      });
-    };
-    var ltTick = false;
-    addEventListener('scroll', function () {
-      if (!ltTick) { ltTick = true; requestAnimationFrame(function () { updateLetters(); ltTick = false; }); }
-    }, { passive: true });
-    updateLetters();
+    }, { threshold: 0.18 });
+    ioStages.observe(stages);
   }
 
   /* ---------- Tilt sutil no mockup (desktop, ponteiro fino) ---------- */
@@ -398,30 +335,13 @@
         cfg.errBox.textContent = 'Não foi possível enviar agora. Tente novamente em instantes.';
       };
 
-      // Preview local (file://) roda em modo demonstração, sem enviar.
-      if (location.protocol === 'file:') { setTimeout(done, 900); return; }
+      if (!endpoint) { setTimeout(done, 900); return; } // modo demonstração
 
-      // Endpoint próprio (CRM/webhook) tem prioridade e recebe JSON.
-      // Sem endpoint => Netlify Forms: POST urlencoded para "/" com form-name.
-      var req;
-      if (endpoint) {
-        req = fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-      } else {
-        payload['form-name'] = 'playbook-lead';
-        var body = Object.keys(payload).map(function (k) {
-          return encodeURIComponent(k) + '=' + encodeURIComponent(payload[k]);
-        }).join('&');
-        req = fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: body
-        });
-      }
-      req.then(function (res) {
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
         done();
       }).catch(fail);
@@ -440,7 +360,7 @@
     errWhats: document.getElementById('err-whats'),
     errFat: document.getElementById('err-fat'),
     btn: document.getElementById('submitBtn'),
-    btnLabel: 'Receber Playbook gratuitamente',
+    btnLabel: 'QUERO RECEBER O PLAYBOOK', // ✏️ texto do botão na última etapa
     errBox: document.getElementById('formErr'),
     okBox: document.getElementById('formOk'),
     okBtn: document.getElementById('playbookBtn'),
@@ -504,7 +424,7 @@
       errWhats: document.getElementById('perr-whats'),
       errFat: document.getElementById('perr-fat'),
       btn: document.getElementById('popupSubmit'),
-      btnLabel: 'Quero receber agora',
+      btnLabel: 'QUERO RECEBER ACESSO', // ✏️ texto do botão na última etapa
       errBox: document.getElementById('popupErr'),
       okBox: document.getElementById('popupOk'),
       okBtn: document.getElementById('popupPlaybookBtn'),

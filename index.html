@@ -7,13 +7,14 @@
 <!-- ══════════════════════════════════════════════════════════════
      ✏️ [SEO] TÍTULO E DESCRIÇÃO DA PÁGINA (Google / compartilhamento)
 ════════════════════════════════════════════════════════════════ -->
-<title>Playbook Funil de Aquisição 10X | Eikon Insider</title>
-<meta name="description" content="Receba gratuitamente o Playbook Funil de Aquisição 10X da Eikon Insider e aprenda a conectar aquisição, SDR, comercial e vendas em um único sistema." />
+<title>Playbook Gratuito — Funil de Aquisição Qualificada | Eikon Insider</title>
+<meta name="description" content="Baixe grátis o Playbook Funil de Aquisição Qualificada: as 7 etapas que conectam tráfego, qualificação e vendas — o processo extraído de uma operação real para agências e gestores venderem mais." />
 <link rel="canonical" href="https://insidereikon.com/playbook/" />
-<meta property="og:title" content="Playbook Funil de Aquisição 10X | Eikon Insider" />
-<meta property="og:description" content="Receba gratuitamente o Playbook Funil de Aquisição 10X da Eikon Insider e aprenda a conectar aquisição, SDR, comercial e vendas em um único sistema." />
+<meta property="og:title" content="Playbook Gratuito — Funil de Aquisição Qualificada | Eikon Insider" />
+<meta property="og:description" content="Baixe grátis o Playbook Funil de Aquisição Qualificada: as 7 etapas que conectam tráfego, qualificação e vendas — o processo extraído de uma operação real para agências e gestores venderem mais." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://insidereikon.com/playbook/" />
+<meta property="og:locale" content="pt_BR" />
 <meta name="theme-color" content="#2E59E3" />
 
 <!-- ══════════════════════════════════════════════════════════════
@@ -41,93 +42,8 @@
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/></noscript>
 
 <link rel="stylesheet" href="styles.css" />
-
-<!-- ══════════════════════════════════════════════════════════════
-     🎨 [CSS EXTRA] FORMULÁRIO NO HERO
-     O card do formulário saiu da antiga seção de captura e passou a
-     viver na primeira dobra. Este bloco só afeta ".hero-formwrap" —
-     não interfere no popup nem no restante do styles.css.
-     ▸ Se preferir, recorte este bloco e cole no fim do styles.css.
-════════════════════════════════════════════════════════════════ -->
-<style id="hero-form-css">
-  .hero-formwrap{
-    --hf-navy:#122050;
-    --hf-blue:#2E59E3;
-    --hf-line:rgba(18,32,80,.10);
-    --hf-muted:#5D6B8C;
-    width:100%;
-    max-width:520px;
-    margin-top:clamp(18px,2.4vw,28px);
-    scroll-margin-top:24px;           /* respiro ao rolar até o form */
-    animation:heroFormIn .7s .18s cubic-bezier(.22,1,.36,1) both;
-  }
-  @keyframes heroFormIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-  @media (prefers-reduced-motion:reduce){.hero-formwrap{animation:none}}
-
-  /* Card branco (mesma linguagem visual do resto da página) */
-  .hero-formwrap .formcard{
-    position:relative;
-    background:#fff;
-    border:1px solid var(--hf-line);
-    border-radius:22px;
-    padding:clamp(20px,2.4vw,28px);
-    box-shadow:0 2px 4px rgba(18,32,80,.04), 0 26px 60px -34px rgba(18,32,80,.5);
-    text-align:left;
-  }
-  .hero-formwrap .formcard h3{
-    margin:0 0 6px;
-    font-size:clamp(19px,1.9vw,23px);
-    line-height:1.2;
-    font-weight:600;
-    letter-spacing:-.02em;
-    color:var(--hf-navy);
-  }
-  .hero-formwrap .formcard h3 b{color:var(--hf-blue);font-weight:700}
-  .hero-formwrap .fc-sub{margin:0 0 18px;font-size:15px;line-height:1.45;color:var(--hf-muted)}
-  .hero-formwrap .btn{width:100%}
-  .hero-formwrap .form-foot{margin-top:12px;font-size:13px}
-  .hero-formwrap .lgpd{margin-top:10px;font-size:11.5px;line-height:1.5;text-align:center;color:#8C99B4}
-  .hero-formwrap .form-ok{text-align:center}
-
-  /* O hero passou a ser mais alto: garante que a coluna não estoure o grid */
-  .hero .hero-copy{min-width:0}
-
-  @media (max-width:900px){
-    .hero-formwrap{max-width:100%;margin-inline:auto}
-  }
-  @media (max-width:480px){
-    .hero-formwrap .formcard{border-radius:18px;padding:20px 16px}
-    .hero-formwrap .fc-sub{font-size:14.5px;margin-bottom:16px}
-  }
-</style>
 </head>
 <body>
-
-<!-- ══════════════════════════════════════════════════════════════
-     📥 [NETLIFY FORMS] Formulário oculto de detecção — NÃO REMOVER.
-     No deploy, a Netlify escaneia o HTML e registra este form + campos.
-     Os envios reais são feitos via AJAX pelo script.js (POST urlencoded
-     para "/" com form-name="playbook-lead"). Os leads dos DOIS formulários
-     (hero e popup) caem em: Netlify → painel → Forms → "playbook-lead".
-     O campo form_location distingue a origem (principal | popup_saida).
-════════════════════════════════════════════════════════════════ -->
-<form name="playbook-lead" data-netlify="true" data-netlify-honeypot="website" hidden aria-hidden="true">
-  <input type="text" name="nome" />
-  <input type="email" name="email" />
-  <input type="tel" name="whatsapp" />
-  <input type="text" name="instagram" />
-  <input type="text" name="faturamento" />
-  <input type="text" name="form_location" />
-  <input type="text" name="lead_magnet" />
-  <input type="url" name="page" />
-  <input type="text" name="website" />
-  <input type="text" name="utm_source" />
-  <input type="text" name="utm_medium" />
-  <input type="text" name="utm_campaign" />
-  <input type="text" name="utm_content" />
-  <input type="text" name="utm_term" />
-  <input type="text" name="fbclid" />
-</form>
 
 <!-- ══════════════════════════════════════════════════════════════
      ⏳ [01] PRELOADER (tela de abertura)
@@ -143,11 +59,6 @@
 
 <!-- Ícones SVG usados na página (não é texto visível) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="wg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#3d6bff"/><stop offset="1" stop-color="#9db6ff"/>
-    </linearGradient>
-  </defs>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
@@ -159,7 +70,6 @@
   <symbol id="i-bolt" viewBox="0 0 24 24"><path class="fill" d="M13 2L4.5 13.5H11L9.6 22 19 10h-6.4z"/><path d="M13 2L4.5 13.5H11L9.6 22 19 10h-6.4z"/></symbol>
   <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17.5H6.5A2.5 2.5 0 0 0 4 22z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M9 7h7M9 10.4h4.5"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.4"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0"/><path d="M15.6 5.6a3.4 3.4 0 0 1 0 5.8M17.6 14.6a6.2 6.2 0 0 1 3.6 5.4"/></symbol>
-  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5z"/><path d="M9 4v13M15 6.5v13"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
   <symbol id="i-cifrao" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6.5v11M14.8 8.6c-.6-.8-1.6-1.3-2.8-1.3-1.5 0-2.6.8-2.6 2 0 2.8 5.6 1.5 5.6 4.3 0 1.2-1 2-2.9 2-1.3 0-2.4-.5-3.1-1.3"/></symbol>
   <symbol id="i-ima" viewBox="0 0 24 24"><path d="M4.5 3.5h4.4v8a3.1 3.1 0 0 0 6.2 0v-8h4.4v8a7.5 7.5 0 0 1-15 0z"/><path class="fill" d="M4.5 3.5h4.4v3.4H4.5zM15.1 3.5h4.4v3.4h-4.4z"/></symbol>
@@ -169,78 +79,89 @@
 <main id="top">
 
 <!-- ══════════════════════════════════════════════════════════════
-     🚀 [03] HERO (primeira dobra) — id="home"
+     🚀 [02] HERO (primeira dobra) — id="home"
+     Duas colunas no desktop: copy + formulário à esquerda,
+     mockup do Playbook + resultados à direita.
 ════════════════════════════════════════════════════════════════ -->
 <header class="hero" id="home">
   <div class="hero-atmo" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
 
-      <!-- ✏️ HERO · HEADLINE (título principal — o <b> deixa em negrito) -->
-      <h1 class="hero-el d1">O funil que conecta aquisição, SDR e vendas para transformar <b>mais leads em clientes</b>.</h1>
+      <!-- ✏️ HERO · HEADLINE OFICIAL (gradiente animado aplicado linha a linha) -->
+      <h1 class="hero-el d1">
+        <span class="h1-top">Playbook Gratuito</span>
+        <span class="h1-main">Funil de Aquisição <b>Qualificada</b></span>
+        <span class="h1-sale">para sua operação vender até <b>3X mais R$</b></span>
+      </h1>
+
+      <!-- ✏️ HERO · O QUE VOCÊ RECEBE (3 entregas concretas) -->
+      <ul class="hero-points hero-el d2">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>As <b>7 etapas do funil</b> que transformam até 80% da aquisição em leads qualificados</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>Processo comercial completo para vender <b>+R$ 100 mil</b> (Closer · SDR · Sales Ops)</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><b>10 frameworks de anúncios</b> validados para copiar, colar e rodar hoje</span></li>
+      </ul>
 
       <!-- ═════════════════════════════════════════════════════════════
-           📝 [03-A] FORMULÁRIO DE CAPTURA — AGORA NA PRIMEIRA DOBRA
+           📝 [02-A] FORMULÁRIO DE CAPTURA (multistep)
            ⚙️ CONFIGURAÇÃO (vale para este formulário E para o popup):
               data-endpoint=""      → URL do webhook que recebe o lead
               data-playbook-url=""  → link do material entregue no sucesso
-           ℹ️ O id="capturar" mudou para cá: todos os botões da página
-              (header, meio e final) rolam a tela até este formulário.
+           ℹ️ Todos os botões da página rolam até este id="capturar".
       ═════════════════════════════════════════════════════════════ -->
-      <div class="hero-formwrap" id="capturar">
+      <div class="hero-formwrap hero-el d3" id="capturar">
         <div class="formcard" id="formcard">
           <form id="leadForm" data-endpoint="" data-playbook-url="" data-form-location="principal" novalidate>
             <!-- ✏️ FORMULÁRIO · TÍTULO DO CARD -->
-            <h3>Receba o <b>Playbook Funil de Aquisição 10X</b></h3>
-            <!-- ✏️ FORMULÁRIO · SUBTÍTULO DO CARD -->
-            <p class="fc-sub">Gratuito · acesso enviado direto no seu e-mail.</p>
+            <h2 class="fc-title">Preencha abaixo e receba grátis o <b>Playbook Funil de Aquisição Qualificada</b> — acesso imediato</h2>
 
             <!-- Barra de progresso das etapas -->
-            <div class="fprog"><span class="fprog-txt">Etapa 1 de 5</span><div class="fprog-bar" aria-hidden="true"><i></i></div></div>
+            <div class="fprog"><span class="fprog-txt" aria-live="polite">Etapa 1 de 5</span><div class="fprog-bar" aria-hidden="true"><i></i></div></div>
 
             <!-- ✏️ ETAPA 1 · NOME -->
             <div class="fstep on">
               <div class="field">
-                <label for="f-nome">Nome</label>
+                <label for="f-nome">Como podemos te chamar?</label>
                 <input type="text" id="f-nome" name="nome" placeholder="Seu nome" autocomplete="name" required aria-describedby="err-nome" />
-                <p class="field-err" id="err-nome" role="alert" hidden>Digite seu nome.</p>
+                <p class="field-err" id="err-nome" role="alert" hidden>Digite seu nome para continuar.</p>
               </div>
             </div>
             <!-- ✏️ ETAPA 2 · E-MAIL -->
             <div class="fstep">
               <div class="field">
-                <label for="f-email">Melhor e-mail</label>
+                <label for="f-email">Qual é o seu melhor e-mail?</label>
                 <input type="email" id="f-email" name="email" placeholder="voce@email.com" autocomplete="email" inputmode="email" required aria-describedby="err-email" />
-                <p class="field-err" id="err-email" role="alert" hidden>Digite um e-mail válido.</p>
+                <p class="field-err" id="err-email" role="alert" hidden>Digite um e-mail válido para receber o material.</p>
               </div>
             </div>
             <!-- ✏️ ETAPA 3 · WHATSAPP (com +DDI internacional) -->
             <div class="fstep">
               <div class="field">
-                <label for="f-whats">WhatsApp</label>
+                <label for="f-whats">Qual é o seu WhatsApp?</label>
                 <input type="tel" id="f-whats" name="whatsapp" placeholder="(00) 00000-0000" autocomplete="tel-national" inputmode="tel" required aria-describedby="err-whats" maxlength="20" />
                 <p class="field-err" id="err-whats" role="alert" hidden>Digite um WhatsApp válido com DDD.</p>
               </div>
             </div>
-            <!-- ✏️ ETAPA 4 · INSTAGRAM -->
+            <!-- ✏️ ETAPA 4 · INSTAGRAM (opcional) -->
             <div class="fstep">
               <div class="field">
-                <label for="f-insta">Qual é o @ do seu instagram?</label>
+                <label for="f-insta">Qual é o @ do seu Instagram?</label>
                 <input type="text" id="f-insta" name="instagram" placeholder="@seuusuario" autocomplete="off" autocapitalize="none" maxlength="40" />
               </div>
             </div>
             <!-- ✏️ ETAPA 5 · FATURAMENTO MENSAL (opções de seleção) -->
             <div class="fstep">
               <fieldset class="opts-field">
-                <legend>Base do seu Faturamento Mensal</legend>
+                <legend>Qual é a faixa média de faturamento mensal da sua operação?</legend>
                 <div class="opts">
-                  <label class="opt"><input type="radio" name="faturamento" value="R$5 mil até R$10 mil" /><span>R$5 mil até R$10 mil</span></label>
-                  <label class="opt"><input type="radio" name="faturamento" value="R$10 mil até R$30 mil" /><span>R$10 mil até R$30 mil</span></label>
-                  <label class="opt"><input type="radio" name="faturamento" value="R$30 mil até R$50 mil" /><span>R$30 mil até R$50 mil</span></label>
-                  <label class="opt"><input type="radio" name="faturamento" value="R$50 mil até R$100 mil" /><span>R$50 mil até R$100 mil</span></label>
-                  <label class="opt"><input type="radio" name="faturamento" value="+De R$100 mil" /><span>+De R$100 mil</span></label>
+                  <label class="opt"><input type="radio" name="faturamento" value="Não tenho faturamento, estou começando" /><span>Não tenho faturamento, estou começando</span></label>
+                  <label class="opt"><input type="radio" name="faturamento" value="R$ 5 mil até R$ 10 mil" /><span>R$ 5 mil até R$ 10 mil</span></label>
+                  <label class="opt"><input type="radio" name="faturamento" value="R$ 10 mil até R$ 30 mil" /><span>R$ 10 mil até R$ 30 mil</span></label>
+                  <label class="opt"><input type="radio" name="faturamento" value="R$ 30 mil até R$ 50 mil" /><span>R$ 30 mil até R$ 50 mil</span></label>
+                  <label class="opt"><input type="radio" name="faturamento" value="R$ 50 mil até R$ 100 mil" /><span>R$ 50 mil até R$ 100 mil</span></label>
+                  <label class="opt"><input type="radio" name="faturamento" value="Acima de R$ 100 mil" /><span>Acima de R$ 100 mil</span></label>
                 </div>
-                <p class="field-err" id="err-fat" role="alert" hidden>Selecione uma opção.</p>
+                <p class="field-err" id="err-fat" role="alert" hidden>Selecione uma opção para continuar.</p>
               </fieldset>
             </div>
 
@@ -250,7 +171,7 @@
               <input type="text" id="f-site" name="website" tabindex="-1" autocomplete="off" />
             </div>
 
-            <!-- ✏️ FORMULÁRIO · BOTÃO (o texto final fica no script.js em btnLabel) -->
+            <!-- ✏️ FORMULÁRIO · BOTÃO (o texto da última etapa fica no script.js em btnLabel) -->
             <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
               <span class="btn-label">Continuar</span>
               <svg class="ic arr btn-arr" aria-hidden="true"><use href="#i-arrow"/></svg>
@@ -260,17 +181,17 @@
 
             <p class="form-err" id="formErr" role="alert"></p>
             <!-- ✏️ FORMULÁRIO · MICROCOPY DE SEGURANÇA -->
-            <p class="form-foot"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Seus dados estão seguros e não enviamos spam.</p>
-            <!-- ✏️ FORMULÁRIO · TEXTO LGPD (links de política/termos) -->
-            <p class="lgpd">Ao enviar seus dados, você concorda em receber o material e comunicações relacionadas da Eikon Insider. Você pode cancelar a qualquer momento. <a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></p>
+            <p class="form-foot"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Seus dados estão seguros. Não enviamos spam.</p>
+            <!-- ✏️ FORMULÁRIO · TEXTO LGPD (troque os href pelas URLs reais) -->
+            <p class="lgpd">Ao enviar seus dados, você concorda em receber este material e comunicações relacionadas da Eikon Insider. Você poderá cancelar o recebimento a qualquer momento. <a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></p>
           </form>
 
           <!-- ✏️ ESTADO DE SUCESSO (aparece após o envio) -->
           <div class="form-ok" id="formOk" aria-live="polite">
             <div class="bk"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></div>
             <h3>Seu Playbook está liberado.</h3>
-            <p>Clique abaixo para acessar o material.</p>
-            <a href="#" class="btn btn-primary btn-lg" id="playbookBtn" hidden>Acessar Playbook <svg class="ic arr" aria-hidden="true"><use href="#i-down"/></svg></a>
+            <p>Seu cadastro foi concluído com sucesso.<br/>Clique abaixo para acessar o Playbook Funil de Aquisição Qualificada.</p>
+            <a href="#" class="btn btn-primary btn-lg" id="playbookBtn" hidden>ACESSAR PLAYBOOK <svg class="ic arr" aria-hidden="true"><use href="#i-down"/></svg></a>
             <p class="ok-note" id="okNote" hidden>Link do Playbook ainda não configurado.</p>
           </div>
         </div>
@@ -278,47 +199,24 @@
     </div>
 
     <!-- ─────────────────────────────────────────────
-         📘 [03-B] MOCKUP DO EBOOK/PLAYBOOK
-         ✏️ Textos da capa e dos cards flutuantes abaixo
+         📘 [02-B] MOCKUP DO PLAYBOOK + RESULTADOS
+         ✏️ Textos da capa, dos cards flutuantes e do
+            mini-dashboard de resultados abaixo
     ────────────────────────────────────────────── -->
-    <div class="hero-mock hero-el d3" aria-hidden="true">
+    <div class="hero-visual hero-el d4">
       <div class="mock-scene">
-        <div class="mock-tilt tilt" id="mockTilt">
-          <div class="mock-glow"></div>
+        <div class="mock-tilt tilt" id="mockTilt" aria-hidden="true">
 
-          <!-- Página interna flutuante (atrás do livro) — ✏️ etiqueta do capítulo -->
-          <div class="mock-page float-wrap d2">
-            <div class="mp-head"><span></span><span class="mp-tag">CAP. 04 · SDR</span></div>
-            <svg viewBox="0 0 150 84" class="mp-viz">
-              <path class="wire wire-soft" d="M8 66 L34 48 L60 54 L88 30 L118 36 L142 14"/>
-              <circle class="mp-dot" cx="88" cy="30" r="3"/>
-              <line class="wire wire-faint" x1="8" y1="76" x2="142" y2="76"/>
-              <line class="wire wire-faint" x1="8" y1="8" x2="8" y2="76"/>
-            </svg>
-            <div class="mp-lines"><span></span><span></span><span style="width:58%"></span></div>
+          <!-- Card flutuante: LEADS QUALIFICADOS -->
+          <div class="mock-card mc-leads float-wrap d1">
+            <span class="mc-ico"><svg class="ic" aria-hidden="true"><use href="#i-filter"/></svg></span>
+            <b>+ Leads Qualificados</b>
           </div>
 
-          <!-- Card flutuante: VENDAS (cifrão + barras subindo) — ✏️ textos -->
-          <div class="mock-card mc-sales float-wrap d1">
-            <span class="mc-ico"><svg class="ic" aria-hidden="true"><use href="#i-cifrao"/></svg></span>
-            <div class="mc-body">
-              <b>+ Vendas</b>
-              <svg viewBox="0 0 64 26" class="mc-bars">
-                <rect x="2"  y="16" width="9" height="10" rx="2"/>
-                <rect x="16" y="12" width="9" height="14" rx="2"/>
-                <rect x="30" y="7"  width="9" height="19" rx="2"/>
-                <rect x="44" y="2"  width="9" height="24" rx="2" class="on"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Card flutuante: CLIENTES (ímã puxando leads) — ✏️ textos -->
-          <div class="mock-card mc-leads float-wrap d3">
-            <span class="mc-ico"><svg class="ic" aria-hidden="true"><use href="#i-ima"/></svg></span>
-            <div class="mc-body">
-              <b>+ Clientes</b>
-              <span class="mc-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            </div>
+          <!-- Card flutuante: CLIENTES -->
+          <div class="mock-card mc-clients float-wrap d2">
+            <span class="mc-ico"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <b>+ Clientes</b>
           </div>
 
           <!-- Livro -->
@@ -333,178 +231,218 @@
                 <!-- ✏️ CAPA · marca no topo -->
                 <span class="bc-brand">EIKON <b>INSIDER</b></span>
                 <!-- ✏️ CAPA · etiqueta -->
-                <span class="bc-tag">Exclusivo</span>
+                <span class="bc-tag">Ebook</span>
               </div>
               <div class="bc-title">
-                <!-- ✏️ CAPA · título em 3 linhas -->
-                <span class="bc-t1">FUNIL DE</span>
-                <span class="bc-t2">AQUISIÇÃO</span>
-                <span class="bc-t3">10X</span>
+                <!-- ✏️ CAPA · nome do ebook (negrito com degradê em movimento) -->
+                <span class="bc-name">FUNIL DE</span>
+                <span class="bc-name">AQUISIÇÃO</span>
+                <span class="bc-name">QUALIFICADA</span>
+                <!-- ✏️ CAPA · linha de benefício -->
+                <span class="bc-mid">Para suas vendas escalar até</span>
+                <span class="bc-t3">3X MAIS R$</span>
               </div>
-              <!-- ✏️ CAPA · subtítulo -->
-              <div class="bc-sub">Donos de Agência</div>
+              <!-- ✏️ CAPA · subtítulo (público) -->
+              <div class="bc-sub">Donos de Agência · Estrategista Digital Senior · Gestor de Tráfego Senior</div>
               <!-- ✏️ CAPA · rodapé da capa -->
-              <div class="bc-foot"><span>Framework Completo</span><span>Ed. 2026</span></div>
+              <div class="bc-foot"><span>Framework Exclusivo</span><span>2026</span></div>
             </div>
           </div>
-
-          <!-- Chip flutuante do fluxo — ✏️ textos -->
-          <div class="mock-chip float-wrap d1">
-            <span><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg> Funil de Aquisição</span>
-            <span><svg class="ic" aria-hidden="true"><use href="#i-filter"/></svg> Receber +Lead Qualificado</span>
-            <span class="mchip-on"><svg class="ic" aria-hidden="true"><use href="#i-cifrao"/></svg> Venda no Comercial 3x até 5x R$</span>
-          </div>
         </div>
-        <div class="mock-shadow"></div>
+        <div class="mock-shadow" aria-hidden="true"></div>
       </div>
     </div>
   </div>
 </header>
 
 <!-- ══════════════════════════════════════════════════════════════
-     ⚠️ [04] SEÇÃO O PROBLEMA
+     ⚠️ [03] SEÇÃO O PROBLEMA
 ════════════════════════════════════════════════════════════════ -->
-<section class="sec sec-soft luz-sec" id="problema">
-  <div class="luz" aria-hidden="true"></div>
+<section class="sec sec-soft" id="problema">
   <div class="wrap">
     <div class="sec-head reveal">
       <!-- ✏️ PROBLEMA · KICKER -->
       <span class="kicker"><span class="dot"></span> O problema</span>
-      <!-- ✏️ PROBLEMA · TÍTULO (efeito letra a letra no scroll) -->
-      <h2 data-letras>Mais leads não resolvem <b>um funil quebrado</b>.</h2>
-      <!-- ✏️ PROBLEMA · TEXTO -->
-      <p class="lead">Muitas operações tentam resolver vendas aumentando investimento em tráfego. O problema é que entre o anúncio e o dinheiro existe um sistema inteiro: qualificação, velocidade de atendimento, SDR, reunião, follow-up e fechamento.</p>
+      <!-- ✏️ PROBLEMA · TÍTULO (negrito com degradê preto→laranja em movimento) -->
+      <h2 class="grad-fire">Gerar mais leads não resolve <b>um funil quebrado</b>.</h2>
+      <!-- ✏️ PROBLEMA · TEXTO (curto e direto, 3 linhas) -->
+      <p class="lead">A venda caiu? A reação padrão é comprar mais tráfego.<br/>O resultado: mais leads, o mesmo faturamento, CAC mais caro.</p>
+      <p class="lead">Entre o clique e o caixa existe um sistema inteiro — e ele é tão forte quanto a etapa mais fraca.</p>
+      <p class="lead">Quando uma etapa falha: lead sem resposta, reunião que não acontece, proposta sem retorno.</p>
     </div>
-    <!-- ✏️ PROBLEMA · ETAPAS DA CADEIA -->
-    <div class="chain reveal" role="img" aria-label="Funil quebrado: tráfego, leads, qualificação, SDR, reunião, closer e venda desconectados">
-      <span class="chain-item">Tráfego</span><span class="chain-sep"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
-      <span class="chain-item">Leads</span><span class="chain-sep"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
-      <span class="chain-item">Qualificação</span><span class="chain-sep"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
-      <span class="chain-item">SDR</span><span class="chain-sep"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
-      <span class="chain-item">Reunião</span><span class="chain-sep"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
-      <span class="chain-item">Closer</span><span class="chain-sep"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
-      <span class="chain-item on">Venda</span>
+    <!-- ✏️ PROBLEMA · FLUXO DO FUNIL QUEBRADO -->
+    <div class="flow reveal" role="img" aria-label="Funil quebrado: tráfego, leads, qualificação, SDR, reunião, closer e venda desconectados entre si">
+      <span class="flow-item">Tráfego</span><span class="flow-x"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
+      <span class="flow-item">Leads</span><span class="flow-x"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
+      <span class="flow-item">Qualificação</span><span class="flow-x"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
+      <span class="flow-item">SDR</span><span class="flow-x"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
+      <span class="flow-item">Reunião</span><span class="flow-x"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
+      <span class="flow-item">Closer</span><span class="flow-x"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
+      <span class="flow-item on">Venda</span>
     </div>
-    <!-- ✏️ PROBLEMA · FRASE DE FECHAMENTO -->
-    <p class="verdict reveal">Se uma etapa vaza, <b>todo o investimento anterior vaza junto</b>.</p>
+    <!-- ✏️ PROBLEMA · FECHAMENTO DA SEÇÃO (letra fina, degradê preto→laranja) -->
+    <div class="leak reveal">
+      <p class="leak-line">Cada etapa que vaza leva junto uma parte de tudo o que você investiu nas etapas anteriores.</p>
+      <p class="verdict grad-fire">Crescer não é gerar mais leads.<br/>É fazer o sistema inteiro converter melhor.</p>
+    </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════
-     🎯 [05] SEÇÃO O QUE VOCÊ VAI APRENDER (4 blocos)
+     🗺️ [04] SEÇÃO O QUE VOCÊ VAI APRENDER (mapa de 7 etapas)
 ════════════════════════════════════════════════════════════════ -->
 <section class="sec" id="aprender">
   <div class="wrap">
     <div class="sec-head reveal">
       <!-- ✏️ APRENDER · KICKER -->
       <span class="kicker"><span class="dot"></span> O que você vai aprender</span>
-      <!-- ✏️ APRENDER · TÍTULO -->
-      <h2 data-letras>Um mapa <b>do clique até a venda</b>.</h2>
+      <!-- ✏️ APRENDER · TÍTULO (negrito com degradê em movimento) -->
+      <h2 class="grad-title">Um mapa completo <b>do clique até a venda</b>.</h2>
+      <!-- ✏️ APRENDER · SUBTÍTULO -->
+      <p class="lead">As 7 etapas que conectam tráfego, qualificação e comercial em um único sistema — e mostram exatamente onde sua operação está perdendo oportunidades, reuniões e receita hoje.</p>
     </div>
-    <!-- ✏️ APRENDER · 7 ETAPAS DO FUNIL (timeline com o conteúdo completo em cada bolha) -->
-    <div class="pipeline reveal" role="img" aria-label="Etapas do funil: aquisição, captura, qualificação, SDR, reunião, closer e venda">
-      <div class="pipe-line" aria-hidden="true"></div>
-      <div class="pstage up">
-        <span class="pnode"></span>
-        <div class="pcard">
-          <span class="pnum">01</span>
-          <span class="pico"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span>
-          <h3>Aquisição</h3>
-          <p class="ptag">Meta · Criativo · Oferta</p>
-          <p class="pdesc">Como estruturar a entrada de oportunidades <b>sem olhar apenas para CPL</b>.</p>
-        </div>
-      </div>
-      <div class="pstage down">
-        <span class="pnode"></span>
-        <div class="pcard">
-          <span class="pnum">02</span>
-          <span class="pico"><svg class="ic" aria-hidden="true"><use href="#i-ima"/></svg></span>
-          <h3>Captura</h3>
-          <p class="ptag">Landing · Form</p>
-        </div>
-      </div>
-      <div class="pstage up">
-        <span class="pnode"></span>
-        <div class="pcard">
-          <span class="pnum">03</span>
-          <span class="pico"><svg class="ic" aria-hidden="true"><use href="#i-filter"/></svg></span>
-          <h3>Qualificação</h3>
-          <p class="ptag">MQL · SQL</p>
-          <p class="pdesc">Como separar volume de <b>oportunidade comercial real</b>.</p>
-        </div>
-      </div>
-      <div class="pstage down">
-        <span class="pnode"></span>
-        <div class="pcard">
-          <span class="pnum">04</span>
-          <span class="pico"><svg class="ic" aria-hidden="true"><use href="#i-cadence"/></svg></span>
-          <h3>SDR &amp; Follow-up</h3>
-          <p class="ptag">Contato · Cadência · Follow-up</p>
-          <p class="pdesc">Como trabalhar <b>velocidade, cadência e recuperação</b> dos leads.</p>
-        </div>
-      </div>
-      <div class="pstage up">
-        <span class="pnode"></span>
-        <div class="pcard">
-          <span class="pnum">05</span>
-          <span class="pico"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>
-          <h3>Reunião</h3>
-          <p class="ptag">Show Rate</p>
-        </div>
-      </div>
-      <div class="pstage down">
-        <span class="pnode"></span>
-        <div class="pcard">
-          <span class="pnum">06</span>
-          <span class="pico"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg></span>
-          <h3>Closer &amp; Venda</h3>
-          <p class="ptag">Conversão</p>
-          <p class="pdesc">Como conectar a demanda ao processo que <b>efetivamente gera receita</b>.</p>
-        </div>
-      </div>
-      <div class="pstage up last">
-        <span class="pnode"></span>
-        <div class="pcard">
-          <span class="pnum">07</span>
-          <span class="pico"><svg class="ic" aria-hidden="true"><use href="#i-cifrao"/></svg></span>
-          <h3>Venda</h3>
-          <p class="ptag">Novo MRR</p>
-        </div>
-      </div>
+
+    <!-- ✏️ APRENDER · 7 ETAPAS EM CARDS
+         (começam "juntos" no centro e se espalham quando a seção
+          entra na tela — lógica no script.js) -->
+    <div class="stages" id="stagesGrid">
+      <article class="scard">
+        <span class="snum">01</span>
+        <h3 class="grad-title">Aquisição</h3>
+        <p class="stag">Tráfego · Criativo · Oferta</p>
+      </article>
+      <article class="scard">
+        <span class="snum">02</span>
+        <h3 class="grad-title">Captura</h3>
+        <p class="stag">Landing Page · Formulário</p>
+      </article>
+      <article class="scard">
+        <span class="snum">03</span>
+        <h3 class="grad-title">Qualificação</h3>
+        <p class="stag">MQL · SQL</p>
+      </article>
+      <article class="scard">
+        <span class="snum">04</span>
+        <h3 class="grad-title">SDR &amp; Follow-up</h3>
+        <p class="stag">Contato · Cadência · Recuperação</p>
+      </article>
+      <article class="scard">
+        <span class="snum">05</span>
+        <h3 class="grad-title">Reunião</h3>
+        <p class="stag">Agendamento · Show Rate</p>
+      </article>
+      <article class="scard">
+        <span class="snum">06</span>
+        <h3 class="grad-title">Closer &amp; Fechamento</h3>
+        <p class="stag">Conversão</p>
+      </article>
+      <article class="scard">
+        <span class="snum">07</span>
+        <h3 class="grad-title">Receita</h3>
+        <p class="stag">MRR High Ticket</p>
+      </article>
     </div>
-    <!-- ✏️ APRENDER · FRASE DE FECHAMENTO -->
-    <p class="verdict reveal">O Playbook mostra como as sete etapas funcionam <b>como um único sistema</b>.</p>
+
+    <!-- ✏️ APRENDER · FECHAMENTO + CTA INTERMEDIÁRIO -->
+    <div class="map-close reveal">
+      <p class="verdict">O Playbook mostra como essas sete etapas funcionam como <b>um único sistema de aquisição qualificada</b>.</p>
+      <p class="lead">Quando você enxerga o funil assim, encontrar o gargalo — e saber o que resolver primeiro — deixa de ser adivinhação.</p>
+      <a href="#capturar" class="btn btn-primary btn-lg" data-goto-form>QUERO O PLAYBOOK GRATUITO <svg class="ic arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════
-     🏆 [08] SEÇÃO AUTORIDADE (quem criou + números)
+     👤 [04-B] SEÇÃO PARA QUEM É / PARA QUEM NÃO É
 ════════════════════════════════════════════════════════════════ -->
-<section class="sec auth" id="quem-criou">
+<section class="sec sec-soft" id="paraquem">
   <div class="wrap">
     <div class="sec-head reveal">
-      <!-- ✏️ AUTORIDADE · KICKER -->
-      <span class="kicker"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> Quem criou</span>
-      <!-- ✏️ AUTORIDADE · TÍTULO -->
-      <h2 data-letras>Estratégia construída dentro de <b>uma operação real</b>.</h2>
-      <!-- ✏️ AUTORIDADE · TEXTO -->
-      <p class="lead">A Eikon Insider nasceu dos aprendizados, erros, processos e sistemas desenvolvidos dentro de uma operação real de agência. O objetivo deste Playbook é organizar parte desses aprendizados em um framework aplicável para quem vende serviços no digital.</p>
+      <!-- ✏️ PARA QUEM · KICKER -->
+      <span class="kicker"><span class="dot"></span> Para quem é</span>
+      <!-- ✏️ PARA QUEM · TÍTULO -->
+      <h2 class="grad-title">Feito para quem vive <b>a operação na prática</b>.</h2>
     </div>
-    <!-- ✏️ AUTORIDADE · MÉTRICAS (data-count = número final do contador) -->
-    <div class="metrics">
-      <div class="metric reveal"><div class="n grad-blue" data-count="200" data-prefix="+">+200</div><div class="l">Clientes MRR Ativo</div></div>
-      <div class="metric reveal"><div class="n grad-blue">Operação Real</div><div class="l">Validado agora no mercado</div></div>
-      <div class="metric reveal"><div class="n grad-blue">Escalando Agências</div><div class="l">Brasil · Estados Unidos · Europa</div></div>
+    <div class="proof">
+      <!-- ✏️ PARA QUEM · CARD "É PARA VOCÊ" -->
+      <div class="proof-card reveal">
+        <span class="mico"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <h3 class="grad-title">É para você que…</h3>
+        <p>É dono de agência ou gestor de tráfego e sente que gera lead todo mês — mas fatura menos do que a operação deveria entregar.</p>
+        <p>Quer estruturar aquisição, qualificação e comercial como um processo — para crescer com clientes recorrentes de maior ticket.</p>
+      </div>
+      <!-- ✏️ PARA QUEM · CARD "NÃO É PARA" -->
+      <div class="proof-card reveal">
+        <span class="mico"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></span>
+        <h3 class="grad-title">Não é para quem…</h3>
+        <p>Procura fórmula mágica, hack de algoritmo ou promessa de resultado sem execução.</p>
+        <p>O Playbook entrega o processo. Quem aplica — e ajusta com consistência — é você e o seu time.</p>
+      </div>
     </div>
-    <!-- ✏️ AUTORIDADE · BOTÃO FINAL (rola até o formulário) -->
-    <div class="auth-cta reveal"><a href="#capturar" class="btn btn-primary btn-lg flutuar" data-goto-form>Receber o Playbook <svg class="ic arr" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     ✅ [05] SEÇÃO PROVAS / VALIDAÇÃO (compacta)
+════════════════════════════════════════════════════════════════ -->
+<section class="sec" id="validacao">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <!-- ✏️ VALIDAÇÃO · KICKER -->
+      <span class="kicker"><span class="dot"></span> Operação real</span>
+      <!-- ✏️ VALIDAÇÃO · TÍTULO (negrito com degradê em movimento) -->
+      <h2 class="grad-title">Nada aqui é teoria. É o processo que roda todos os dias <b>dentro de uma operação real</b>.</h2>
+    </div>
+  </div>
+
+  <!-- ✏️ VALIDAÇÃO · CARROSSEL DE IMAGENS (anda sozinho, pausa no hover)
+       ▸ Para adicionar suas fotos: dentro de cada <div class="op-slide">,
+         troque o <span> por: <img src="img/sua-foto.jpg" alt="" />
+       ▸ Repita a MESMA troca no grupo duplicado logo abaixo (aria-hidden)
+         — ele existe para o loop ser contínuo, sem "pulo". -->
+  <div class="op-marquee reveal" aria-label="Bastidores da operação">
+    <div class="op-track">
+      <div class="op-group">
+        <div class="op-slide"><span>Imagem 1</span></div>
+        <div class="op-slide"><span>Imagem 2</span></div>
+        <div class="op-slide"><span>Imagem 3</span></div>
+        <div class="op-slide"><span>Imagem 4</span></div>
+        <div class="op-slide"><span>Imagem 5</span></div>
+        <div class="op-slide"><span>Imagem 6</span></div>
+      </div>
+      <div class="op-group" aria-hidden="true">
+        <div class="op-slide"><span>Imagem 1</span></div>
+        <div class="op-slide"><span>Imagem 2</span></div>
+        <div class="op-slide"><span>Imagem 3</span></div>
+        <div class="op-slide"><span>Imagem 4</span></div>
+        <div class="op-slide"><span>Imagem 5</span></div>
+        <div class="op-slide"><span>Imagem 6</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     🎯 [06] CTA FINAL (rola de volta para o formulário)
+════════════════════════════════════════════════════════════════ -->
+<section class="sec" id="cta-final">
+  <div class="wrap">
+    <div class="cta-panel reveal">
+      <div class="cta-grid" aria-hidden="true"></div>
+      <!-- ✏️ CTA FINAL · TEXTO PRINCIPAL -->
+      <p class="cta-text">Você pode continuar comprando mais tráfego para um funil que vaza — ou baixar grátis o Playbook e estruturar o sistema inteiro, do clique ao contrato.</p>
+      <!-- ✏️ CTA FINAL · BOTÃO -->
+      <a href="#capturar" class="btn btn-primary btn-lg" data-goto-form>QUERO RECEBER O PLAYBOOK <svg class="ic arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <!-- ✏️ CTA FINAL · MICROCOPY -->
+      <p class="cta-micro">100% gratuito · PDF · Acesso imediato após o cadastro</p>
+    </div>
   </div>
 </section>
 
 </main>
 
 <!-- ══════════════════════════════════════════════════════════════
-     ⬛ [11] RODAPÉ
+     ⬛ [07] RODAPÉ
 ════════════════════════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="wrap">
@@ -520,12 +458,12 @@
       </div>
     </div>
     <!-- ✏️ RODAPÉ · DISCLAIMER -->
-    <p class="disclaimer">© 2026 Eikon Insider. Todos os direitos reservados. Este material tem caráter educacional. As estratégias apresentadas são referências da nossa operação; resultados variam conforme aplicação, mercado e esforço — não há promessa de faturamento. Este site não faz parte do Facebook/Meta nem é endossado por eles.</p>
+    <p class="disclaimer">© 2026 Eikon Insider. Todos os direitos reservados. Este material possui caráter exclusivamente educacional. As estratégias e processos apresentados são referências provenientes da nossa operação e não representam promessa ou garantia de resultados. Os resultados podem variar de acordo com execução, mercado, oferta, investimento, equipe e diversos outros fatores. Este site não faz parte do Facebook ou da Meta e não é endossado por essas empresas.</p>
   </div>
 </footer>
 
 <!-- ══════════════════════════════════════════════════════════════
-     🚪 [13] POPUP DE SAÍDA (exit intent)
+     🚪 [08] POPUP DE SAÍDA (exit intent)
      Aparece 1x quando o visitante demonstra que vai sair da página
      (mouse saindo pelo topo no desktop / scroll rápido de volta ao
      topo no mobile). Não aparece para quem já se cadastrou.
@@ -535,65 +473,72 @@
     <button type="button" class="popup-close" id="popupClose" aria-label="Fechar popup"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
 
     <!-- ✏️ POPUP · KICKER -->
-    <span class="kicker"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Espera · bônus liberado</span>
+    <span class="kicker"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Espera — antes de sair</span>
     <!-- ✏️ POPUP · TÍTULO -->
-    <h3 id="popupTitle">Antes de sair, <b>leve seu material gratuito</b>.</h3>
-    <!-- ✏️ POPUP · TEXTO -->
-    <p class="popup-sub">Cadastre-se agora e receba imediatamente:</p>
+    <h3 id="popupTitle">Leve grátis o <b>Playbook Funil de Aquisição Qualificada</b> + o Cópia e Cola Comercial.</h3>
+    <!-- ✏️ POPUP · SUBTÍTULO -->
+    <p class="popup-sub">Cadastre-se em menos de 1 minuto e receba:</p>
 
-    <!-- ✏️ POPUP · LISTA DO QUE A PESSOA GANHA -->
-    <ul class="olist popup-list">
-      <li><span class="ck"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> <span><b>Ebook Funil de Aquisição 10X</b></span></li>
-      <li><span class="ck"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span> <span><b>Cópia e Cola:</b> a estrutura diária para o comercial vender de <b>R$&nbsp;5K a R$&nbsp;10K</b></span></li>
+    <!-- ✏️ POPUP · BENEFÍCIOS -->
+    <ul class="popup-benefits">
+      <li>
+        <span class="pb-ico"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span>
+        <div><b>Playbook Funil de Aquisição Qualificada</b><p>As 7 etapas que conectam tráfego, qualificação e vendas — do clique ao contrato high ticket.</p></div>
+      </li>
+      <li>
+        <span class="pb-ico"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>
+        <div><b>Cópia e Cola Comercial</b><p>Estrutura pronta para organizar cadência, follow-up e rotina comercial no dia a dia do time.</p></div>
+      </li>
     </ul>
 
     <form id="popupForm" data-form-location="popup_saida" novalidate>
       <!-- Barra de progresso das etapas -->
-      <div class="fprog"><span class="fprog-txt">Etapa 1 de 5</span><div class="fprog-bar" aria-hidden="true"><i></i></div></div>
+      <div class="fprog"><span class="fprog-txt" aria-live="polite">Etapa 1 de 5</span><div class="fprog-bar" aria-hidden="true"><i></i></div></div>
 
       <!-- ✏️ POPUP · ETAPA 1 · NOME -->
       <div class="fstep on">
         <div class="field">
-          <label for="p-nome">Nome</label>
+          <label for="p-nome">Como podemos te chamar?</label>
           <input type="text" id="p-nome" name="nome" placeholder="Seu nome" autocomplete="name" required aria-describedby="perr-nome" />
-          <p class="field-err" id="perr-nome" role="alert" hidden>Digite seu nome.</p>
+          <p class="field-err" id="perr-nome" role="alert" hidden>Digite seu nome para continuar.</p>
         </div>
       </div>
       <!-- ✏️ POPUP · ETAPA 2 · E-MAIL -->
       <div class="fstep">
         <div class="field">
-          <label for="p-email">Melhor e-mail</label>
+          <label for="p-email">Qual é o seu melhor e-mail?</label>
           <input type="email" id="p-email" name="email" placeholder="voce@email.com" autocomplete="email" inputmode="email" required aria-describedby="perr-email" />
-          <p class="field-err" id="perr-email" role="alert" hidden>Digite um e-mail válido.</p>
+          <p class="field-err" id="perr-email" role="alert" hidden>Digite um e-mail válido para receber o material.</p>
         </div>
       </div>
       <!-- ✏️ POPUP · ETAPA 3 · WHATSAPP -->
       <div class="fstep">
         <div class="field">
-          <label for="p-whats">WhatsApp</label>
+          <label for="p-whats">Qual é o seu WhatsApp?</label>
           <input type="tel" id="p-whats" name="whatsapp" placeholder="(00) 00000-0000" autocomplete="tel-national" inputmode="tel" required aria-describedby="perr-whats" maxlength="20" />
           <p class="field-err" id="perr-whats" role="alert" hidden>Digite um WhatsApp válido com DDD.</p>
         </div>
       </div>
-      <!-- ✏️ POPUP · ETAPA 4 · INSTAGRAM -->
+      <!-- ✏️ POPUP · ETAPA 4 · INSTAGRAM (opcional) -->
       <div class="fstep">
         <div class="field">
-          <label for="p-insta">Qual é o @ do seu instagram?</label>
+          <label for="p-insta">Qual é o @ do seu Instagram?</label>
           <input type="text" id="p-insta" name="instagram" placeholder="@seuusuario" autocomplete="off" autocapitalize="none" maxlength="40" />
         </div>
       </div>
       <!-- ✏️ POPUP · ETAPA 5 · FATURAMENTO MENSAL -->
       <div class="fstep">
         <fieldset class="opts-field">
-          <legend>Base do seu Faturamento Mensal</legend>
+          <legend>Qual é a faixa média de faturamento mensal da sua operação?</legend>
           <div class="opts">
-            <label class="opt"><input type="radio" name="faturamento" value="R$5 mil até R$10 mil" /><span>R$5 mil até R$10 mil</span></label>
-            <label class="opt"><input type="radio" name="faturamento" value="R$10 mil até R$30 mil" /><span>R$10 mil até R$30 mil</span></label>
-            <label class="opt"><input type="radio" name="faturamento" value="R$30 mil até R$50 mil" /><span>R$30 mil até R$50 mil</span></label>
-            <label class="opt"><input type="radio" name="faturamento" value="R$50 mil até R$100 mil" /><span>R$50 mil até R$100 mil</span></label>
-            <label class="opt"><input type="radio" name="faturamento" value="+De R$100 mil" /><span>+De R$100 mil</span></label>
+            <label class="opt"><input type="radio" name="faturamento" value="Não tenho faturamento, estou começando" /><span>Não tenho faturamento, estou começando</span></label>
+            <label class="opt"><input type="radio" name="faturamento" value="R$ 5 mil até R$ 10 mil" /><span>R$ 5 mil até R$ 10 mil</span></label>
+            <label class="opt"><input type="radio" name="faturamento" value="R$ 10 mil até R$ 30 mil" /><span>R$ 10 mil até R$ 30 mil</span></label>
+            <label class="opt"><input type="radio" name="faturamento" value="R$ 30 mil até R$ 50 mil" /><span>R$ 30 mil até R$ 50 mil</span></label>
+            <label class="opt"><input type="radio" name="faturamento" value="R$ 50 mil até R$ 100 mil" /><span>R$ 50 mil até R$ 100 mil</span></label>
+            <label class="opt"><input type="radio" name="faturamento" value="Acima de R$ 100 mil" /><span>Acima de R$ 100 mil</span></label>
           </div>
-          <p class="field-err" id="perr-fat" role="alert" hidden>Selecione uma opção.</p>
+          <p class="field-err" id="perr-fat" role="alert" hidden>Selecione uma opção para continuar.</p>
         </fieldset>
       </div>
 
@@ -603,7 +548,7 @@
         <input type="text" id="p-site" name="website" tabindex="-1" autocomplete="off" />
       </div>
 
-      <!-- ✏️ POPUP · BOTÃO (o texto final fica no script.js em btnLabel) -->
+      <!-- ✏️ POPUP · BOTÃO (o texto da última etapa fica no script.js em btnLabel) -->
       <button type="submit" class="btn btn-primary btn-lg" id="popupSubmit">
         <span class="btn-label">Continuar</span>
         <svg class="ic arr btn-arr" aria-hidden="true"><use href="#i-arrow"/></svg>
@@ -613,15 +558,15 @@
 
       <p class="form-err" id="popupErr" role="alert"></p>
       <!-- ✏️ POPUP · MICROCOPY -->
-      <p class="form-foot"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Seus dados estão seguros e não enviamos spam.</p>
+      <p class="form-foot"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Seus dados estão seguros. Não enviamos spam.</p>
     </form>
 
     <!-- ✏️ POPUP · ESTADO DE SUCESSO -->
     <div class="form-ok" id="popupOk" aria-live="polite">
       <div class="bk"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></div>
       <h3>Seu material está liberado.</h3>
-      <p>Clique abaixo para acessar.</p>
-      <a href="#" class="btn btn-primary btn-lg" id="popupPlaybookBtn" hidden>Acessar material <svg class="ic arr" aria-hidden="true"><use href="#i-down"/></svg></a>
+      <p>Cadastro concluído.<br/>Clique abaixo e acesse agora o conteúdo da Eikon Insider.</p>
+      <a href="#" class="btn btn-primary btn-lg" id="popupPlaybookBtn" hidden>ACESSAR PLAYBOOK <svg class="ic arr" aria-hidden="true"><use href="#i-down"/></svg></a>
       <p class="ok-note" id="popupOkNote" hidden>Link do Playbook ainda não configurado.</p>
     </div>
   </div>
