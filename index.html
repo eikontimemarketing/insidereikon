@@ -41,7 +41,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" media="print" onload="this.media='all'"/>
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/></noscript>
 
-<link rel="stylesheet" href="styles.css" />
+<!-- ✏️ Ao publicar mudanças de CSS/JS, aumente o ?v= para furar o cache -->
+<link rel="stylesheet" href="styles.css?v=20" />
 </head>
 <body>
 
@@ -90,7 +91,8 @@
 
       <!-- ✏️ HERO · HEADLINE OFICIAL (gradiente animado aplicado linha a linha) -->
       <h1 class="hero-el d1">
-        <span class="h1-top">Playbook Gratuito</span>
+        <!-- ✏️ HERO · LINHA DE OFERTA (preço ancorado: riscado vermelho + verde) -->
+        <span class="h1-top h1-offer">Playbook <s>R$ 197,00</s> por <b class="of-zero">R$ 0,00</b> — preencha para fazer download <b class="of-free">grátis</b></span>
         <span class="h1-main">Funil de Aquisição <b>Qualificada</b></span>
         <span class="h1-sale">para sua operação vender até <b>3X mais R$</b></span>
       </h1>
@@ -103,97 +105,23 @@
       </ul>
 
       <!-- ═════════════════════════════════════════════════════════════
-           📝 [02-A] FORMULÁRIO DE CAPTURA (multistep)
-           ⚙️ CONFIGURAÇÃO (vale para este formulário E para o popup):
-              data-endpoint=""      → URL do webhook que recebe o lead
-              data-playbook-url=""  → link do material entregue no sucesso
-           ℹ️ Todos os botões da página rolam até este id="capturar".
+           📝 [02-A] CARD DE CAPTURA (só título + botão)
+           ℹ️ O botão — e todos os CTAs com data-goto-form — abrem o
+              FORMULÁRIO POPUP (seção [08]), que tem as 5 perguntas.
+           ⚙️ CONFIGURAÇÃO do lead (endpoint/playbook) fica agora no
+              <form id="popupForm"> lá embaixo.
       ═════════════════════════════════════════════════════════════ -->
       <div class="hero-formwrap hero-el d3" id="capturar">
         <div class="formcard" id="formcard">
-          <form id="leadForm" data-endpoint="" data-playbook-url="" data-form-location="principal" novalidate>
-            <!-- ✏️ FORMULÁRIO · TÍTULO DO CARD -->
-            <h2 class="fc-title">Preencha abaixo e receba grátis o <b>Playbook Funil de Aquisição Qualificada</b> — acesso imediato</h2>
-
-            <!-- Barra de progresso das etapas -->
-            <div class="fprog"><span class="fprog-txt" aria-live="polite">Etapa 1 de 5</span><div class="fprog-bar" aria-hidden="true"><i></i></div></div>
-
-            <!-- ✏️ ETAPA 1 · NOME -->
-            <div class="fstep on">
-              <div class="field">
-                <label for="f-nome">Como podemos te chamar?</label>
-                <input type="text" id="f-nome" name="nome" placeholder="Seu nome" autocomplete="name" required aria-describedby="err-nome" />
-                <p class="field-err" id="err-nome" role="alert" hidden>Digite seu nome para continuar.</p>
-              </div>
-            </div>
-            <!-- ✏️ ETAPA 2 · E-MAIL -->
-            <div class="fstep">
-              <div class="field">
-                <label for="f-email">Qual é o seu melhor e-mail?</label>
-                <input type="email" id="f-email" name="email" placeholder="voce@email.com" autocomplete="email" inputmode="email" required aria-describedby="err-email" />
-                <p class="field-err" id="err-email" role="alert" hidden>Digite um e-mail válido para receber o material.</p>
-              </div>
-            </div>
-            <!-- ✏️ ETAPA 3 · WHATSAPP (com +DDI internacional) -->
-            <div class="fstep">
-              <div class="field">
-                <label for="f-whats">Qual é o seu WhatsApp?</label>
-                <input type="tel" id="f-whats" name="whatsapp" placeholder="(00) 00000-0000" autocomplete="tel-national" inputmode="tel" required aria-describedby="err-whats" maxlength="20" />
-                <p class="field-err" id="err-whats" role="alert" hidden>Digite um WhatsApp válido com DDD.</p>
-              </div>
-            </div>
-            <!-- ✏️ ETAPA 4 · INSTAGRAM (opcional) -->
-            <div class="fstep">
-              <div class="field">
-                <label for="f-insta">Qual é o @ do seu Instagram?</label>
-                <input type="text" id="f-insta" name="instagram" placeholder="@seuusuario" autocomplete="off" autocapitalize="none" maxlength="40" />
-              </div>
-            </div>
-            <!-- ✏️ ETAPA 5 · FATURAMENTO MENSAL (opções de seleção) -->
-            <div class="fstep">
-              <fieldset class="opts-field">
-                <legend>Qual é a faixa média de faturamento mensal da sua operação?</legend>
-                <div class="opts">
-                  <label class="opt"><input type="radio" name="faturamento" value="Não tenho faturamento, estou começando" /><span>Não tenho faturamento, estou começando</span></label>
-                  <label class="opt"><input type="radio" name="faturamento" value="R$ 5 mil até R$ 10 mil" /><span>R$ 5 mil até R$ 10 mil</span></label>
-                  <label class="opt"><input type="radio" name="faturamento" value="R$ 10 mil até R$ 30 mil" /><span>R$ 10 mil até R$ 30 mil</span></label>
-                  <label class="opt"><input type="radio" name="faturamento" value="R$ 30 mil até R$ 50 mil" /><span>R$ 30 mil até R$ 50 mil</span></label>
-                  <label class="opt"><input type="radio" name="faturamento" value="R$ 50 mil até R$ 100 mil" /><span>R$ 50 mil até R$ 100 mil</span></label>
-                  <label class="opt"><input type="radio" name="faturamento" value="Acima de R$ 100 mil" /><span>Acima de R$ 100 mil</span></label>
-                </div>
-                <p class="field-err" id="err-fat" role="alert" hidden>Selecione uma opção para continuar.</p>
-              </fieldset>
-            </div>
-
-            <!-- Honeypot anti-spam (invisível — não mexer) -->
-            <div class="hp" aria-hidden="true">
-              <label for="f-site">Deixe este campo vazio</label>
-              <input type="text" id="f-site" name="website" tabindex="-1" autocomplete="off" />
-            </div>
-
-            <!-- ✏️ FORMULÁRIO · BOTÃO (o texto da última etapa fica no script.js em btnLabel) -->
-            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
-              <span class="btn-label">Continuar</span>
-              <svg class="ic arr btn-arr" aria-hidden="true"><use href="#i-arrow"/></svg>
-              <span class="spinner" aria-hidden="true"></span>
-            </button>
-            <button type="button" class="fback" hidden>&larr; Voltar</button>
-
-            <p class="form-err" id="formErr" role="alert"></p>
-            <!-- ✏️ FORMULÁRIO · MICROCOPY DE SEGURANÇA -->
-            <p class="form-foot"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Seus dados estão seguros. Não enviamos spam.</p>
-            <!-- ✏️ FORMULÁRIO · TEXTO LGPD (troque os href pelas URLs reais) -->
-            <p class="lgpd">Ao enviar seus dados, você concorda em receber este material e comunicações relacionadas da Eikon Insider. Você poderá cancelar o recebimento a qualquer momento. <a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></p>
-          </form>
-
-          <!-- ✏️ ESTADO DE SUCESSO (aparece após o envio) -->
-          <div class="form-ok" id="formOk" aria-live="polite">
-            <div class="bk"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></div>
-            <h3>Seu Playbook está liberado.</h3>
-            <p>Seu cadastro foi concluído com sucesso.<br/>Clique abaixo para acessar o Playbook Funil de Aquisição Qualificada.</p>
-            <a href="#" class="btn btn-primary btn-lg" id="playbookBtn" hidden>ACESSAR PLAYBOOK <svg class="ic arr" aria-hidden="true"><use href="#i-down"/></svg></a>
-            <p class="ok-note" id="okNote" hidden>Link do Playbook ainda não configurado.</p>
-          </div>
+          <!-- ✏️ CARD · TÍTULO (brilho navalha) -->
+          <h2 class="fc-title">Receba grátis o <b>Playbook Funil de Aquisição Qualificada</b> — acesso imediato</h2>
+          <!-- ✏️ CARD · BOTÃO ÚNICO (abre o formulário popup) -->
+          <button type="button" class="btn btn-primary btn-lg" id="heroCta" data-goto-form>
+            QUERO RECEBER O PLAYBOOK
+            <svg class="ic arr" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+          <!-- ✏️ CARD · MICROCOPY DE SEGURANÇA -->
+          <p class="form-foot"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Leva menos de 1 minuto · Seus dados estão seguros.</p>
         </div>
       </div>
     </div>
@@ -213,39 +141,39 @@
             <b>+ Leads Qualificados</b>
           </div>
 
-          <!-- Card flutuante: CLIENTES -->
-          <div class="mock-card mc-clients float-wrap d2">
-            <span class="mc-ico"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>
-            <b>+ Clientes</b>
-          </div>
+          <!-- ✏️ FOTO REAL DO EBOOK (troca automática):
+               salve sua arte como  img/capa-ebook.png  (nesta pasta do site)
+               e ela SUBSTITUI sozinha o mockup feito em CSS abaixo.
+               Sem o arquivo, o mockup CSS continua aparecendo normalmente. -->
+          <img class="book-photo float-wrap" id="bookPhoto" src="img/capa-ebook.png" alt="Playbook Funil de Aquisição Qualificada" hidden />
 
           <!-- Livro -->
           <div class="book float-wrap">
             <div class="book-pages"></div>
             <div class="book-spine"></div>
             <div class="book-cover">
-              <div class="bc-grid"></div>
+              <!-- brilho branco em movimento sobre o degradê (não é texto) -->
               <div class="bc-glow"></div>
               <div class="bc-sheen"></div>
               <div class="bc-top">
-                <!-- ✏️ CAPA · marca no topo -->
-                <span class="bc-brand">EIKON <b>INSIDER</b></span>
-                <!-- ✏️ CAPA · etiqueta -->
-                <span class="bc-tag">Ebook</span>
+                <!-- ✏️ CAPA · marca no topo (caixa normal, à esquerda) -->
+                <span class="bc-brand">Eikon <b>Insider</b></span>
               </div>
               <div class="bc-title">
-                <!-- ✏️ CAPA · nome do ebook (negrito com degradê em movimento) -->
-                <span class="bc-name">FUNIL DE</span>
-                <span class="bc-name">AQUISIÇÃO</span>
-                <span class="bc-name">QUALIFICADA</span>
-                <!-- ✏️ CAPA · linha de benefício -->
-                <span class="bc-mid">Para suas vendas escalar até</span>
-                <span class="bc-t3">3X MAIS R$</span>
+                <!-- ✏️ CAPA · nome do ebook (leve / bold / leve, tudo branco) -->
+                <span class="bc-name n1">Funil de</span>
+                <span class="bc-name n2">Aquisição</span>
+                <span class="bc-name n3">Qualificada</span>
               </div>
-              <!-- ✏️ CAPA · subtítulo (público) -->
-              <div class="bc-sub">Donos de Agência · Estrategista Digital Senior · Gestor de Tráfego Senior</div>
+              <!-- ✏️ CAPA · ícones (moedas + lead qualificado; o check é
+                   ancorado no canto da bolha da pessoa) -->
+              <div class="bc-icons" aria-hidden="true">
+                <span class="ci ci-coin2"><svg class="ic"><use href="#i-cifrao"/></svg></span>
+                <span class="ci ci-coin"><svg class="ic"><use href="#i-cifrao"/></svg></span>
+                <span class="ci ci-user"><svg class="ic"><use href="#i-users"/></svg><span class="ci ci-check"><svg class="ic"><use href="#i-check"/></svg></span></span>
+              </div>
               <!-- ✏️ CAPA · rodapé da capa -->
-              <div class="bc-foot"><span>Framework Exclusivo</span><span>2026</span></div>
+              <div class="bc-foot"><span>Framework Exclusivo</span></div>
             </div>
           </div>
         </div>
@@ -385,7 +313,9 @@
 <!-- ══════════════════════════════════════════════════════════════
      ✅ [05] SEÇÃO PROVAS / VALIDAÇÃO (compacta)
 ════════════════════════════════════════════════════════════════ -->
-<section class="sec" id="validacao">
+<!-- ⚠️ SEÇÃO DESATIVADA temporariamente (aguardando as imagens do carrossel).
+     ✏️ PARA REATIVAR: apague apenas a palavra `hidden` da linha abaixo. -->
+<section class="sec" id="validacao" hidden>
   <div class="wrap">
     <div class="sec-head reveal">
       <!-- ✏️ VALIDAÇÃO · KICKER -->
@@ -463,35 +393,29 @@
 </footer>
 
 <!-- ══════════════════════════════════════════════════════════════
-     🚪 [08] POPUP DE SAÍDA (exit intent)
-     Aparece 1x quando o visitante demonstra que vai sair da página
-     (mouse saindo pelo topo no desktop / scroll rápido de volta ao
-     topo no mobile). Não aparece para quem já se cadastrou.
+     🚪 [08] FORMULÁRIO POPUP (captura única da página)
+     Abre de 2 jeitos:
+       1) clique em qualquer botão/CTA com data-goto-form;
+       2) exit intent — 1x quando o visitante demonstra que vai sair
+          (mouse saindo pelo topo no desktop / scroll rápido de volta
+          ao topo no mobile). Não aparece para quem já se cadastrou.
+     ⚙️ CONFIGURAÇÃO (no <form id="popupForm"> abaixo):
+        data-endpoint=""      → URL do webhook que recebe o lead
+        data-playbook-url=""  → link do material entregue no sucesso
 ════════════════════════════════════════════════════════════════ -->
 <div class="popup-overlay" id="exitPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" hidden>
   <div class="popup">
     <button type="button" class="popup-close" id="popupClose" aria-label="Fechar popup"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
 
-    <!-- ✏️ POPUP · KICKER -->
-    <span class="kicker"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> Espera — antes de sair</span>
+    <!-- ✏️ POPUP · KICKER (o texto muda sozinho: CTA → preço ancorado;
+         exit intent → "Espera — antes de sair"; textos no script.js) -->
+    <span class="kicker"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg> <span id="popupKickerTxt">Playbook Funil de Aquisição <s>R$ 197,00</s> por R$ 0,00 — preencha para receber</span></span>
     <!-- ✏️ POPUP · TÍTULO -->
-    <h3 id="popupTitle">Leve grátis o <b>Playbook Funil de Aquisição Qualificada</b> + o Cópia e Cola Comercial.</h3>
+    <h3 id="popupTitle"><b>Playbook Funil de Aquisição Qualificada</b> + Processo Completo do Comercial + 10 Modelos de Anúncios Validados.</h3>
     <!-- ✏️ POPUP · SUBTÍTULO -->
-    <p class="popup-sub">Cadastre-se em menos de 1 minuto e receba:</p>
+    <p class="popup-sub">Cadastre-se em menos de 1 minuto e receba o acesso imediato.</p>
 
-    <!-- ✏️ POPUP · BENEFÍCIOS -->
-    <ul class="popup-benefits">
-      <li>
-        <span class="pb-ico"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span>
-        <div><b>Playbook Funil de Aquisição Qualificada</b><p>As 7 etapas que conectam tráfego, qualificação e vendas — do clique ao contrato high ticket.</p></div>
-      </li>
-      <li>
-        <span class="pb-ico"><svg class="ic" aria-hidden="true"><use href="#i-bolt"/></svg></span>
-        <div><b>Cópia e Cola Comercial</b><p>Estrutura pronta para organizar cadência, follow-up e rotina comercial no dia a dia do time.</p></div>
-      </li>
-    </ul>
-
-    <form id="popupForm" data-form-location="popup_saida" novalidate>
+    <form id="popupForm" data-endpoint="" data-playbook-url="" data-form-location="popup_saida" novalidate>
       <!-- Barra de progresso das etapas -->
       <div class="fprog"><span class="fprog-txt" aria-live="polite">Etapa 1 de 5</span><div class="fprog-bar" aria-hidden="true"><i></i></div></div>
 
@@ -559,6 +483,8 @@
       <p class="form-err" id="popupErr" role="alert"></p>
       <!-- ✏️ POPUP · MICROCOPY -->
       <p class="form-foot"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Seus dados estão seguros. Não enviamos spam.</p>
+      <!-- ✏️ POPUP · TEXTO LGPD (troque os href pelas URLs reais) -->
+      <p class="lgpd">Ao enviar seus dados, você concorda em receber este material e comunicações relacionadas da Eikon Insider. Você poderá cancelar o recebimento a qualquer momento. <a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></p>
     </form>
 
     <!-- ✏️ POPUP · ESTADO DE SUCESSO -->
@@ -574,6 +500,6 @@
 
 <!-- Telefone internacional (+55) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js" defer></script>
-<script src="script.js" defer></script>
+<script src="script.js?v=20" defer></script>
 </body>
 </html>

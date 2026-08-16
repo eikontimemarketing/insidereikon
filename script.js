@@ -2,17 +2,20 @@
    EIKON INSIDER — Playbook Funil de Aquisição Qualificada
    ------------------------------------------------------------
    ⚙️ CONFIGURAÇÃO RÁPIDA:
-   - Endpoint do lead ..... data-endpoint no <form id="leadForm"> (index.html)
+   - Endpoint do lead ..... data-endpoint no <form id="popupForm"> (index.html)
    - URL do Playbook ...... data-playbook-url no mesmo <form>
-     (as duas configurações valem para o formulário principal E o popup)
    - Duração do preloader . constante PRELOADER_MS logo abaixo
-   Com data-endpoint vazio, os formulários rodam em modo demonstração
-   (validam, simulam o envio e mostram o estado de sucesso).
+   Com data-endpoint vazio, o formulário roda em modo demonstração
+   (valida, simula o envio e mostra o estado de sucesso).
+
+   ℹ️ A página tem UM formulário (o popup). Ele abre:
+   - ao clicar em qualquer CTA com data-goto-form → form_location 'principal'
+   - por exit intent (1x por sessão)             → form_location 'popup_saida'
 
    📊 TRACKING (dispara sozinho, sem depender de Pixel instalado):
    - dataLayer: { event:'form_start',          form_location }  → 1º clique no formulário
    - dataLayer: { event:'lead_playbook',       form_location }  → lead enviado com sucesso
-   - dataLayer: { event:'popup_saida_exibido' }                 → popup de saída aberto
+   - dataLayer: { event:'popup_saida_exibido' }                 → popup aberto por exit intent
    - fbq('track','Lead') → disparado se o Meta Pixel existir na página
    ============================================================ */
 (function () {
@@ -31,16 +34,6 @@
       setTimeout(function () { pre.style.display = 'none'; }, 600);
     }, reduceMotion ? 0 : PRELOADER_MS);
   }
-
-  /* ---------- Scroll suave até o formulário ---------- */
-  var firstField = document.getElementById('f-nome');
-  document.querySelectorAll('[data-goto-form]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.getElementById('capturar').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
-      if (firstField) setTimeout(function () { firstField.focus({ preventScroll: true }); }, reduceMotion ? 0 : 600);
-    });
-  });
 
   /* ---------- Revelação ao entrar no viewport ---------- */
   if (!reduceMotion && 'IntersectionObserver' in window) {
@@ -90,6 +83,20 @@
     ioStages.observe(stages);
   }
 
+  /* ---------- Foto real do ebook (se img/capa-ebook.png existir,
+                substitui o mockup CSS automaticamente) ---------- */
+  var bookPhoto = document.getElementById('bookPhoto');
+  if (bookPhoto) {
+    var usePhoto = function () {
+      bookPhoto.hidden = false;
+      var cssBook = document.querySelector('.book');
+      if (cssBook) cssBook.style.display = 'none';
+    };
+    bookPhoto.addEventListener('load', usePhoto);
+    bookPhoto.addEventListener('error', function () { bookPhoto.remove(); });
+    if (bookPhoto.complete && bookPhoto.naturalWidth > 0) usePhoto();
+  }
+
   /* ---------- Tilt sutil no mockup (desktop, ponteiro fino) ---------- */
   var tiltEl = document.getElementById('mockTilt');
   if (tiltEl && !reduceMotion && matchMedia('(pointer: fine)').matches) {
@@ -128,11 +135,11 @@
     }
   }
 
-  /* ---------- Configuração compartilhada (formulário principal + popup) ---------- */
-  var mainForm = document.getElementById('leadForm');
-  if (!mainForm) return;
-  var endpoint = (mainForm.dataset.endpoint || '').trim();
-  var playbookUrl = (mainForm.dataset.playbookUrl || '').trim();
+  /* ---------- Configuração (fica no <form id="popupForm">) ---------- */
+  var popupFormEl = document.getElementById('popupForm');
+  if (!popupFormEl) return;
+  var endpoint = (popupFormEl.dataset.endpoint || '').trim();
+  var playbookUrl = (popupFormEl.dataset.playbookUrl || '').trim();
   var converted = false;
 
   /* Máscara brasileira: (00) 00000-0000 (10 ou 11 dígitos) */
@@ -190,7 +197,8 @@
   function setupForm(cfg) {
     var form = cfg.form;
     if (!form) return;
-    var location_ = form.dataset.formLocation || 'principal';
+    /* origem lida na hora (o popup troca entre 'principal' e 'popup_saida') */
+    function formLoc() { return form.dataset.formLocation || 'principal'; }
     var iti = initPhone(cfg.whats);
 
     /* etapas + barra de progresso */
@@ -229,7 +237,7 @@
     form.addEventListener('focusin', function (e) {
       if (!started && e.target.tagName === 'INPUT') {
         started = true;
-        pushEvent({ event: 'form_start', form_location: location_ });
+        pushEvent({ event: 'form_start', form_location: formLoc() });
       }
     });
 
@@ -323,13 +331,13 @@
         instagram: insta,
         faturamento: form.elements.faturamento.value,
         lead_magnet: 'funil_aquisicao_10x',
-        form_location: location_,
+        form_location: formLoc(),
         page: location.href
       };
       Object.keys(tracking).forEach(function (k) { payload[k] = tracking[k]; });
 
       setLoading(true);
-      var done = function () { fireLead(location_); showSuccess(); };
+      var done = function () { fireLead(formLoc()); showSuccess(); };
       var fail = function () {
         setLoading(false);
         cfg.errBox.textContent = 'Não foi possível enviar agora. Tente novamente em instantes.';
@@ -348,39 +356,29 @@
     });
   }
 
-  /* Formulário principal */
-  setupForm({
-    form: mainForm,
-    nome: document.getElementById('f-nome'),
-    email: document.getElementById('f-email'),
-    whats: document.getElementById('f-whats'),
-    insta: document.getElementById('f-insta'),
-    errNome: document.getElementById('err-nome'),
-    errEmail: document.getElementById('err-email'),
-    errWhats: document.getElementById('err-whats'),
-    errFat: document.getElementById('err-fat'),
-    btn: document.getElementById('submitBtn'),
-    btnLabel: 'QUERO RECEBER O PLAYBOOK', // ✏️ texto do botão na última etapa
-    errBox: document.getElementById('formErr'),
-    okBox: document.getElementById('formOk'),
-    okBtn: document.getElementById('playbookBtn'),
-    okNote: document.getElementById('okNote')
-  });
-
-  /* ---------- Popup de saída (exit intent) ---------- */
+  /* ---------- Formulário popup (captura única da página) ---------- */
   var overlay = document.getElementById('exitPopup');
   if (overlay) {
     var popupShown = false;
     try { popupShown = sessionStorage.getItem('eikon_popup') === '1'; } catch (err) { /* modo privado */ }
 
-    var openPopup = function () {
-      if (popupShown || converted || !overlay.hidden) return;
+    /* force=true → clique em CTA (abre sempre, origem 'principal')
+       force=false/vazio → exit intent (1x por sessão, origem 'popup_saida') */
+    var openPopup = function (force) {
+      if (!overlay.hidden) return;
+      if (!force && (popupShown || converted)) return;
       popupShown = true;
       try { sessionStorage.setItem('eikon_popup', '1'); } catch (err) { /* modo privado */ }
+      popupFormEl.dataset.formLocation = force ? 'principal' : 'popup_saida';
+      var kickerTxt = document.getElementById('popupKickerTxt');
+      // ✏️ textos do kicker do popup conforme a origem
+      if (kickerTxt) kickerTxt.innerHTML = force
+        ? 'Playbook Funil de Aquisição <s>R$ 197,00</s> por R$ 0,00 — preencha para receber'
+        : 'Espera — antes de sair';
       overlay.hidden = false;
       requestAnimationFrame(function () { overlay.classList.add('show'); });
       document.body.classList.add('popup-open');
-      pushEvent({ event: 'popup_saida_exibido' });
+      if (!force) pushEvent({ event: 'popup_saida_exibido' });
       var first = document.getElementById('p-nome');
       if (first) setTimeout(function () { first.focus({ preventScroll: true }); }, 380);
     };
@@ -393,6 +391,11 @@
     document.getElementById('popupClose').addEventListener('click', closePopup);
     overlay.addEventListener('click', function (e) { if (e.target === overlay) closePopup(); });
     addEventListener('keydown', function (e) { if (e.key === 'Escape' && !overlay.hidden) closePopup(); });
+
+    /* Todos os CTAs da página abrem o formulário popup */
+    document.querySelectorAll('[data-goto-form]').forEach(function (el) {
+      el.addEventListener('click', function (e) { e.preventDefault(); openPopup(true); });
+    });
 
     // Desktop: mouse saindo pelo topo da janela
     document.addEventListener('mouseout', function (e) {
@@ -414,7 +417,7 @@
 
     /* Formulário do popup */
     setupForm({
-      form: document.getElementById('popupForm'),
+      form: popupFormEl,
       nome: document.getElementById('p-nome'),
       email: document.getElementById('p-email'),
       whats: document.getElementById('p-whats'),
@@ -424,7 +427,7 @@
       errWhats: document.getElementById('perr-whats'),
       errFat: document.getElementById('perr-fat'),
       btn: document.getElementById('popupSubmit'),
-      btnLabel: 'QUERO RECEBER ACESSO', // ✏️ texto do botão na última etapa
+      btnLabel: 'QUERO RECEBER O PLAYBOOK', // ✏️ texto do botão na última etapa
       errBox: document.getElementById('popupErr'),
       okBox: document.getElementById('popupOk'),
       okBtn: document.getElementById('popupPlaybookBtn'),
