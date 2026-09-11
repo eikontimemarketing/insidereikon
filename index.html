@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  LANDING PAGE — AULA GRATUITA · EIKON INSIDER
+  Manual de edição para quem não programa.
+
+  Ao longo do arquivo você vai ver avisos com estes símbolos:
+
+      ✏️ EDITE AQUI   →  texto que você pode trocar à vontade
+      🎨 COR          →  onde mudar as cores
+      🔗 LINK         →  onde colar links
+      📊 RASTREIO     →  onde colar Pixel do Facebook / Tag Manager
+
+  Esses avisos são comentários: aparecem acinzentados no VS Code e NUNCA
+  aparecem para quem visita o site.
+
+  ─────────────────────────────────────────────────────────────────────────────
+  ÍNDICE — use Ctrl+F (Cmd+F no Mac) e busque pelo número, por exemplo: [12]
+
+    [1]  RASTREIO — Google Tag Manager (topo)
+    [2]  RASTREIO — Pixel do Facebook / Meta (parte 1)
+    [2b] RASTREIO — Pixel do Facebook / Meta (parte 2, no corpo da página)
+    [3]  SEO — título e descrição que aparecem no Google e no WhatsApp
+    [4]  CORES — a paleta inteira do site fica aqui
+    [5]  TAMANHOS — fonte do título e largura da página
+    [6]  ESTILOS — aparência dos elementos (mexa só se souber CSS)
+    [7]  RASTREIO — Tag Manager (parte do corpo, obrigatória)
+    [9]  TEXTO PRINCIPAL — frase de abertura e título grande
+    [10] OS 3 BENEFÍCIOS — as caixinhas com check
+    [11] AVISO VERMELHO — urgência
+    [12] BOTÃO PRINCIPAL — LINK DO GRUPO DE WHATSAPP (o mais importante!)
+    [13] SELOS DE CONFIANÇA — abaixo do botão
+    [14] RODAPÉ
+    [15] BOTÃO FIXO DO CELULAR
+    [16] PROGRAMAÇÃO — não precisa mexer
+
+  ─────────────────────────────────────────────────────────────────────────────
+  REGRAS DE OURO PARA NÃO QUEBRAR O SITE
+
+    • Troque apenas o texto que está ENTRE os sinais de maior e menor.
+      No exemplo abaixo, só a parte em CAIXA ALTA pode ser trocada:
+          <span>TROQUE SÓ ISTO AQUI</span>
+    • NUNCA apague os sinais < > nem as aspas " "
+    • <b>palavra</b> deixa a palavra em NEGRITO
+    • Salve com Ctrl+S (Cmd+S no Mac) e atualize a página no navegador (F5)
+    • Deu errado? Desfaça com Ctrl+Z (Cmd+Z no Mac)
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [1] 📊 RASTREIO · GOOGLE TAG MANAGER (parte 1 de 2 — vai no topo)
+     ───────────────────────────────────────────────────────────────────────
+     Está DESLIGADO. Para ligar:
+
+       1. Pegue seu código no Tag Manager. É parecido com: GTM-ABC1234
+       2. Logo abaixo, troque  GTM-XXXXXXX  pelo SEU código
+       3. Logo abaixo deste aviso existe um bloco de código acinzentado.
+          APAGUE a PRIMEIRA e a ÚLTIMA linha desse bloco — são as duas
+          únicas linhas que terminam com as palavras "para ligar".
+          São elas que mantêm o código desligado.
+       4. Faça o mesmo no item [7]. As duas partes são obrigatórias.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- GTM-INICIO · apague esta linha inteira para ligar
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+GTM-FIM · apague esta linha inteira para ligar -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [2] 📊 RASTREIO · PIXEL DO FACEBOOK (META) — parte 1 de 2
+     ───────────────────────────────────────────────────────────────────────
+     Está DESLIGADO. Para ligar:
+
+       1. Pegue o número do seu Pixel no Gerenciador de Anúncios da Meta
+          (são uns 15 números, exemplo: 1260875599275474)
+       2. Abaixo, troque  SEU_PIXEL_ID  pelo número do seu Pixel
+       3. Logo abaixo deste aviso existe um bloco de código acinzentado.
+          APAGUE a PRIMEIRA e a ÚLTIMA linha desse bloco — são as duas
+          únicas linhas que terminam com as palavras "para ligar".
+       4. Faça o mesmo no item [2b], logo no começo do corpo da página.
+
+     O QUE ELE MEDE SOZINHO depois de ligado:
+       • PageView  →  toda vez que alguém abre a página
+       • Lead      →  toda vez que alguém clica em "Entrar no Grupo"
+                      (este é o evento que você usa para otimizar a campanha)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- PIXEL-INICIO · apague esta linha inteira para ligar
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','SEU_PIXEL_ID');
+fbq('track','PageView');</script>
+PIXEL-FIM · apague esta linha inteira para ligar -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [3] ✏️ SEO — textos que aparecem na aba do navegador, no Google e na
+         PRÉVIA quando alguém compartilha o link no WhatsApp
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- ✏️ EDITE AQUI: nome que aparece na aba do navegador -->
+<title>Aula Gratuita no Google Meet — Eikon Insider</title>
+
+<!-- ✏️ EDITE AQUI: descrição que o Google mostra embaixo do título -->
+<meta name="description" content="Aula gratuita e fechada no Google Meet para donos de agência e gestores de tráfego: a estrutura para transformar sua agência em uma máquina de aquisição qualificada.">
+
+<!-- ✏️ EDITE AQUI: título e descrição da prévia no WhatsApp / Instagram -->
+<meta property="og:title" content="Aula Gratuita no Google Meet — Eikon Insider">
+<meta property="og:description" content="A estrutura para transformar sua agência em uma máquina de aquisição qualificada — sem depender de indicação e sem lotar o comercial de leads ruins. Vagas limitadas.">
+<meta property="og:type" content="website">
+
+<!-- 🔗 LINK (opcional): imagem da prévia no WhatsApp. Suba um arquivo .jpg de
+     1200x630 pixels no seu site e cole o endereço dele entre as aspas abaixo.
+     Enquanto ficar vazio, o WhatsApp mostra só o texto. -->
+<meta property="og:image" content="">
+
+<meta name="theme-color" content="#ffffff">
+
+<!-- FONTE DO SITE: Inter. Para trocar a fonte de todo o site você mudaria
+     este endereço E a linha da fonte no item [4]. Recomendo não mexer. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [3.1] 🔤 FONTE DO SITE · NEUE MONTREAL
+     ───────────────────────────────────────────────────────────────────────
+     A página inteira está configurada para usar a Neue Montreal.
+     Enquanto os arquivos não estiverem no servidor, ela usa a Inter como
+     reserva — ou seja, o site NÃO quebra, só não mostra a fonte nova.
+
+     PARA LIGAR A NEUE MONTREAL:
+       1. Baixe a família em  https://pangrampangram.com/products/neue-montreal
+       2. Converta cada peso para .woff2 em  https://cloudconvert.com/otf-to-woff2
+       3. Crie uma pasta  fonts/  ao lado deste HTML e suba os 4 arquivos com
+          EXATAMENTE estes nomes:
+              fonts/PPNeueMontreal-Thin.woff2
+              fonts/PPNeueMontreal-Book.woff2
+              fonts/PPNeueMontreal-Medium.woff2
+              fonts/PPNeueMontreal-Bold.woff2
+       4. Pronto. Não precisa mexer em mais nada.
+
+     ⚠️ LICENÇA: a Neue Montreal é gratuita só para uso pessoal. Esta página
+        é comercial e roda anúncios pagos — nesse caso a licença comercial
+        é obrigatória. Compre na Pangram Pangram antes de publicar.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [3.2] 🔤 FONTE DO TÍTULO · NEUE HAAS GROTESK
+     ───────────────────────────────────────────────────────────────────────
+     A headline está configurada para usar a Neue Haas Grotesk.
+     Ela é uma fonte paga (Monotype) e NÃO existe em CDN gratuito.
+
+     CAMINHO 1 — você tem Adobe Creative Cloud (mais rápido):
+       1. Entre em  https://fonts.adobe.com  e busque "Neue Haas Grotesk"
+       2. Clique em "Adicionar ao projeto web" → crie um projeto
+       3. A Adobe te dá um <link> pronto. Cole ele logo abaixo desta linha.
+       4. Só isso. Os nomes já estão configurados no item [4].
+
+     CAMINHO 2 — você comprou o arquivo:
+       1. Converta para .woff2 em  https://cloudconvert.com/otf-to-woff2
+       2. Suba em  fonts/NeueHaasDisplay-Bold.woff2
+       3. APAGUE a primeira e a última linha do bloco acinzentado abaixo
+
+     ENQUANTO NÃO LIGAR: em Mac e iPhone a página já mostra Helvetica Neue,
+     que é praticamente a mesma letra (a Neue Haas é a Helvetica original).
+     Em Windows e Android cai para Arial. Ou seja: nada quebra.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- NHG-INICIO · apague esta linha inteira para ligar
+<style>
+@font-face{font-family:"Neue Haas Grotesk Display";src:url("fonts/NeueHaasDisplay-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+</style>
+NHG-FIM · apague esta linha inteira para ligar -->
+
+<style>
+@font-face{font-family:"Neue Montreal";src:url("fonts/PPNeueMontreal-Thin.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Montreal";src:url("fonts/PPNeueMontreal-Book.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Montreal";src:url("fonts/PPNeueMontreal-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Neue Montreal";src:url("fonts/PPNeueMontreal-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+</style>
+
+<style>
+/* ════════════════════════════════════════════════════════════════════════
+   [4] 🎨 CORES DO SITE — MUDE TUDO POR AQUI
+   ────────────────────────────────────────────────────────────────────────
+   Cada cor é um código que começa com # (formato hexadecimal).
+   Troque o código e a cor muda em TODOS os lugares do site de uma vez.
+   Para descobrir o código de uma cor: no Google, busque "color picker".
+
+   MAPA DE ONDE CADA COR APARECE:
+     --blue        → cor principal da marca (botão, palavra "Insider", ícones)
+     --blue-deep   → azul bem escuro do texto do título grande
+     --blue-ink    → azul do negrito dentro da frase de abertura
+     --blue-elec   → azul claro do topo do degradê do botão
+     --blue-2      → azul do brilho que passa pelo título
+     --ink         → cor padrão dos textos
+     --ink-soft    → cinza dos textos dentro das caixinhas
+     --ink-faint   → cinza bem clarinho (selos e rodapé)
+     --bg          → cor de fundo da página (#fff = branco)
+     --line        → cor das bordas finas das caixinhas
+     --red         → vermelho do aviso de urgência
+   ════════════════════════════════════════════════════════════════════════ */
+@layer tokens{:root{
+  --blue:#2e59e3;--blue-deep:#122050;--blue-ink:#1b3fb0;--blue-elec:#3d6bff;--blue-2:#5e84ff;--peri:#9db6ff;
+  --ink:#26315c;--ink-soft:#515d86;--ink-faint:#828dba;
+  --bg:#fff;--bg-soft:#f4f7ff;--line:#e4eafc;--line-2:#d3ddfb;
+  --red:#d23b3b;
+
+  /* Fonte usada no site inteiro */
+  --ff:"Neue Montreal","Inter","Inter Variable",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+  /* A frase destacada do título usa A MESMA fonte do site.
+     Só troque esta linha se quiser uma 2ª fonte apenas nessa frase. */
+  --ff-lux:var(--ff);
+
+  /* fonte da headline */
+  --ff-h1:"Neue Haas Grotesk Display","Neue Haas Grotesk Text","Helvetica Neue",Helvetica,Arial,var(--ff);
+  /* botões usam a mesma fonte da headline */
+  --ff-btn:var(--ff-h1);
+
+  /* ════════════════════════════════════════════════════════════════════
+     [5] TAMANHOS
+
+     --fs-hero  → tamanho do TÍTULO GRANDE.
+                  O clamp tem 3 números: (mínimo no celular, automático,
+                  máximo no computador).
+                  Quer o título maior no PC? Troque 3.4rem por 3.8rem.
+                  Quer ele menor no celular? Troque .9rem por .8rem.
+     --maxw     → largura máxima do conteúdo no computador (880px).
+                  Aumente esse número para a página ficar mais larga.
+     ════════════════════════════════════════════════════════════════════ */
+  /* TÍTULO: um único tamanho para a headline inteira */
+  --fs-hero:clamp(1.62rem,calc(.86rem + 3.2vw),2.95rem);--fs-xl:clamp(1.22rem,1.9vw,1.55rem);--fs-md:1.0625rem;--fs-base:1rem;--fs-sm:.9375rem;
+  --maxw:880px;--r:18px;--r-lg:26px;--r-pill:999px;--r-btn:4px;--sh:0 18px 50px -22px #2e59e347;
+
+  /* ════════════════════════════════════════════════════════════════════
+     [5.1] ESPAÇAMENTO ENTRE AS SEÇÕES
+
+     A regra: o que pertence ao mesmo assunto fica PERTO, e blocos de
+     assuntos diferentes ficam LONGE. É isso que faz a página ser lida
+     em partes em vez de virar um texto único.
+
+       --gap-kicker → etiqueta do topo  →  título      (perto: mesmo bloco)
+       --gap-title  → título            →  caixinhas   (longe: muda de assunto)
+       --gap-cards  → entre as caixinhas              (perto: mesma lista)
+       --gap-block  → caixinhas         →  aviso       (longe: muda de assunto)
+       --gap-warn   → aviso             →  botão       (perto: aviso empurra o clique)
+       --gap-cta    → botão             →  selos       (perto: mesmo bloco)
+
+     Os clamp() ajustam sozinhos entre celular e computador.
+     ════════════════════════════════════════════════════════════════════ */
+  --gap-kicker:clamp(18px,2.4vw,24px);
+  --gap-title:clamp(26px,3.4vw,36px);
+  --gap-cards:16px;
+  --gap-block:clamp(26px,3.2vw,34px);
+  --gap-warn:18px;
+  --gap-cta:13px;
+}}
+
+/* ════════════════════════════════════════════════════════════════════════
+   [6] ESTILOS DOS ELEMENTOS
+   Daqui para baixo é a "aparência" já pronta. Só mexa se souber CSS.
+   Para trocar COR use o item [4]; para trocar TEXTO use do item [8] em diante.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* --- base da página --- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff);background:var(--bg);color:var(--ink);font-size:var(--fs-base);letter-spacing:-.011em;-webkit-font-smoothing:antialiased;line-height:1.65;position:relative;overflow-x:hidden;
+  /* as duas manchas suaves de luz azul no fundo da página */
+  background-image:radial-gradient(60% 50% at 78% 4%,#dfe7ff,#0000 60%),radial-gradient(55% 45% at 12% 16%,#e8edff,#0000 60%);background-attachment:fixed;min-height:100vh}
+a{color:inherit;text-decoration:none}
+h1{color:var(--blue-deep);letter-spacing:-.03em;font-weight:300;line-height:1.14;text-wrap:balance}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+header,.footer{z-index:1;position:relative}
+
+/* --- brilho que atravessa as palavras destacadas do título --- */
+@keyframes shine{to{background-position:200%}}
+/* o tom do meio (#5e84ff) nao pode ficar mais claro que isso: como o brilho
+   percorre a frase, um azul mais claro sumiria no fundo branco no meio da animacao */
+.grad-blue{background:linear-gradient(100deg,#1b3fb0 0%,#2e59e3 26%,#5e84ff 50%,#2e59e3 74%,#1b3fb0 100%) 0 0/200%;color:#0000;-webkit-text-fill-color:transparent;-webkit-background-clip:text;background-clip:text;animation:6s linear infinite shine}
+
+/* --- ícones --- */
+.ic{fill:none;stroke:currentColor;stroke-width:1.7px;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;width:1em;height:1em}
+
+/* --- botões --- */
+.btn{font-family:var(--ff-btn);font-weight:700;letter-spacing:.005em;font-size:var(--fs-sm);border-radius:var(--r-btn);cursor:pointer;white-space:nowrap;border:none;align-items:center;gap:.55em;padding:15px 30px;transition:transform .25s,box-shadow .25s,background .25s;display:inline-flex}
+.btn .ic{width:1.15em;height:1.15em}
+/* botão: três sombras somadas (contato · elevação · halo azul) + um brilho
+   que atravessa a superfície de tempos em tempos, como reflexo em vidro */
+.btn-primary{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--blue-elec),var(--blue));color:#fff;
+  box-shadow:inset 0 1px 0 #ffffff6b,0 0 0 1px #5e84ff59,0 3px 8px -3px #12205059,0 14px 30px -10px #2e59e3b8,0 28px 56px -22px #2e59e3}
+.btn-primary::after{content:"";position:absolute;top:0;bottom:0;left:0;width:55%;pointer-events:none;
+  background:linear-gradient(100deg,#0000 0%,#ffffff5c 50%,#0000 100%);
+  transform:translateX(-180%);animation:btnshine 4s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes btnshine{0%,62%{transform:translateX(-180%)}100%{transform:translateX(340%)}}
+.btn-primary:hover{transform:translateY(-3px);
+  box-shadow:inset 0 1px 0 #ffffff80,0 0 0 1px #5e84ff80,0 4px 10px -3px #12205066,0 22px 44px -12px #2e59e3cc,0 40px 70px -26px #2e59e3}
+.btn-primary:active{transform:translateY(-1px)}
+.btn-lg{font-size:var(--fs-base);padding:18px 38px}
+.arr{transition:transform .25s}.btn:hover .arr{transform:translate(4px)}
+
+/* --- marca (usada só no rodapé) --- */
+.brand{align-items:baseline;gap:.34em;display:flex}
+.brand .e{color:var(--blue-deep);font-size:1.05rem;font-weight:500}
+.brand .i{color:var(--blue);letter-spacing:-.02em;font-size:1.4rem;font-weight:800}
+
+/* --- frase de abertura com a bolinha piscando --- */
+.kicker{max-width:34ch;letter-spacing:-.008em;line-height:1.4;color:var(--blue);align-items:center;justify-content:center;gap:8px;margin-bottom:var(--gap-kicker);font-size:clamp(.95rem,1.2vw,1.02rem);font-weight:500;display:inline-flex;flex-wrap:wrap;text-align:center}
+.kicker .dot{background:var(--blue-elec);width:7px;height:7px;box-shadow:0 0 10px var(--blue-elec);border-radius:50%;animation:pulse 2s ease-in-out infinite;flex:none}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.65)}}
+.kicker b{color:var(--blue-ink);font-weight:800}
+/* o texto fica todo dentro de um span só, para quebrar como frase normal
+   (sem isso, cada trecho em negrito viraria um bloco separado) */
+.kicker-txt{max-width:30ch;text-wrap:balance}
+
+/* --- animação de entrada dos elementos ao rolar --- */
+.reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal-ready .reveal{opacity:0;transform:translateY(22px)}
+.reveal-ready .reveal.in{opacity:1;transform:none}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}.rd4{transition-delay:.32s}.rd5{transition-delay:.4s}
+
+/* --- área do título --- */
+.hero{padding:clamp(26px,3.4vw,44px) 0 clamp(58px,6vw,82px);text-align:center;overflow:hidden}
+
+/* TÍTULO: bloco único. Todas as palavras no MESMO tamanho e no MESMO peso.
+   O destaque não vem de tamanho — vem da cor (degradê) na promessa central. */
+/* HEADLINE — modelo de cartaz:
+     • caixa alta, muito pesada, ocupando a largura inteira do bloco
+     • entrelinha quase colada (.98) — as linhas formam um bloco maciço
+     • letras apertadas (-.022em), como em capa de revista
+     • o contraste vem de DUAS coisas: peso (pesado × leve) e cor (azul-noite
+       × azul da marca). Não de tamanho.
+   Se você aumentar --fs-hero no item [5], ela ganha mais linhas. */
+.hero h1{max-width:100%;margin:0 auto var(--gap-title);font-family:var(--ff-h1);font-size:var(--fs-hero);font-weight:800;text-transform:uppercase;letter-spacing:-.022em;line-height:.98;color:var(--blue-deep)}
+
+/* trecho leve — abre respiro no meio do bloco pesado */
+.h1-thin{font-weight:400}
+/* trecho na cor da marca — é aqui que a promessa ganha destaque */
+.h1-hl{color:var(--blue)}
+
+
+/* --- caixinhas dos benefícios --- */
+.bullets{max-width:520px;margin:0 auto var(--gap-block);display:flex;flex-direction:column;gap:var(--gap-cards);text-align:left}
+/* checklist limpo: sem card, sem borda, sem sombra — só o selo e o texto */
+.bullet{align-items:flex-start;gap:10px;display:flex;padding:0;border:none;background:none;box-shadow:none}
+
+/* selo do check: mesmo azul do botão, com o "V" em branco */
+.bullet .bic{width:22px;height:22px;flex:none;color:#fff;background:linear-gradient(180deg,var(--blue-elec),var(--blue));border-radius:8px;place-items:center;display:grid;
+  box-shadow:inset 0 1px #ffffff5c,0 5px 12px -6px #2e59e3b3;margin-top:1px}
+.bullet .bic .ic{width:12px;height:12px;stroke-width:3px}
+.bullet p{color:var(--ink-soft);font-size:clamp(.95rem,1.15vw,1rem);line-height:1.45;text-wrap:pretty}
+.bullet p b{color:var(--blue-deep);font-weight:500}
+
+/* --- aviso vermelho --- */
+.warning{color:var(--red);justify-content:center;align-items:center;gap:9px;max-width:38ch;margin:0 auto var(--gap-warn);font-size:clamp(.9rem,1.1vw,.95rem);font-weight:500;letter-spacing:-.006em;line-height:1.5;display:flex;flex-wrap:wrap;text-align:center}
+.warning .ic{width:1.2em;height:1.2em;flex:none;stroke-width:2.2px}
+.warning b{font-weight:700}
+/* o degradê fica SÓ no texto: se fosse no bloco inteiro o ícone sumiria,
+   porque ele é desenhado com a mesma cor da letra */
+.warning-txt{background:linear-gradient(100deg,#6e1414 0%,#a52626 18%,#d23b3b 38%,#ff7a6b 50%,#d23b3b 62%,#a52626 82%,#6e1414 100%) 0 0/220%;
+  color:#0000;-webkit-text-fill-color:transparent;-webkit-background-clip:text;background-clip:text;
+  animation:7s linear infinite shine;padding-bottom:.08em}
+
+/* --- botão principal e selos --- */
+.cta-zone{display:flex;flex-direction:column;align-items:center;gap:var(--gap-cta)}
+.cta-note{color:var(--ink-faint);align-items:center;gap:14px;font-size:.85rem;display:flex;flex-wrap:wrap;justify-content:center}
+.cta-note span{display:inline-flex;align-items:center;gap:6px}
+.cta-note .ic{width:15px;height:15px;color:var(--blue);stroke-width:2.4px}
+.cta-note b{color:var(--blue);font-weight:600}
+.tdot{width:4px;height:4px;border-radius:50%;background:var(--line-2)}
+
+/* --- rodapé --- */
+.footer{border-top:1px solid var(--line);color:var(--ink-faint);font-size:var(--fs-sm);padding:38px 0 34px;text-align:center}
+.footer .brand{justify-content:center;margin-bottom:14px}
+.disclaimer{color:var(--ink-faint);max-width:90ch;margin:0 auto;font-size:.74rem;line-height:1.65}
+
+/* --- botão fixo que só aparece no celular --- */
+.mobile-cta{z-index:70;background:linear-gradient(180deg,var(--blue-elec),var(--blue));color:#fff;justify-content:center;align-items:center;gap:8px;padding:16px;font-weight:700;letter-spacing:.005em;font-family:var(--ff-btn);border-radius:var(--r-btn);transition:transform .3s,opacity .3s;display:none;position:fixed;bottom:14px;left:14px;right:14px;box-shadow:0 16px 40px -12px #2e59e3b3;border:none;cursor:pointer;font-size:var(--fs-sm)}
+.mobile-cta .ic{width:1.1em;height:1.1em}
+
+/* --- ajustes para telas de celular (até 560px de largura) --- */
+@media(max-width:560px){
+  .btn-lg{padding:16px 26px}
+  .mobile-cta{display:flex}
+  /* no celular o título usa a largura toda e respira um pouco mais */
+  .hero h1{max-width:100%;line-height:1.2}
+}
+/* respeita quem desativou animações no aparelho */
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;animation:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [7] 📊 RASTREIO · GOOGLE TAG MANAGER (parte 2 de 2 — obrigatória)
+     Se você ligou o item [1], ligue este também:
+       1. Troque  GTM-XXXXXXX  pelo SEU código (o mesmo do item [1])
+       2. Logo abaixo deste aviso existe um bloco de código acinzentado.
+          APAGUE a PRIMEIRA e a ÚLTIMA linha desse bloco — são as duas
+          únicas linhas que terminam com as palavras "para ligar".
+     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- GTMBODY-INICIO · apague esta linha inteira para ligar
+<noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+GTMBODY-FIM · apague esta linha inteira para ligar -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [2b] 📊 RASTREIO · PIXEL DO FACEBOOK (META) — parte 2 de 2
+     ───────────────────────────────────────────────────────────────────────
+     Esta parte mede quem abre a página com o JavaScript desativado.
+     Se você ligou o item [2], ligue este também:
+
+       1. Troque  SEU_PIXEL_ID  pelo MESMO número que usou no item [2]
+       2. Logo abaixo deste aviso existe um bloco de código acinzentado.
+          APAGUE a PRIMEIRA e a ÚLTIMA linha desse bloco — são as duas
+          únicas linhas que terminam com as palavras "para ligar".
+     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- PIXELBODY-INICIO · apague esta linha inteira para ligar
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&amp;ev=PageView&amp;noscript=1"></noscript>
+PIXELBODY-FIM · apague esta linha inteira para ligar -->
+
+<!-- BIBLIOTECA DE ÍCONES — é daqui que saem os desenhos (check, seta, alerta,
+     WhatsApp, câmera, pessoas). Não precisa mexer. -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+  <symbol id="i-whats" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         [9] TEXTO PRINCIPAL
+         ═══════════════════════════════════════════════════════════════════ -->
+
+    <!-- ✏️ EDITE AQUI: frase de abertura.
+         Troque o texto que está dentro do span com class="kicker-txt".
+         A bolinha azul que pisca é automática, não mexa nela.
+         O que estiver dentro de <b> e </b> fica em negrito mais escuro. -->
+    <div class="kicker reveal"><span class="dot"></span><span class="kicker-txt">Aula gratuita e fechada para donos de agência e gestores</span></div>
+
+    <!-- ✏️ EDITE AQUI: TÍTULO da página.
+         É um bloco único: todas as palavras no mesmo tamanho e em negrito.
+         O destaque vem de peso e cor, não de tamanho:
+           <span class="h1-thin">  →  trecho em letra leve
+           <span class="h1-hl">    →  trecho no azul da marca
+         • O título inteiro sai em CAIXA ALTA automaticamente — pode
+           escrever normal aqui que a página converte
+         • Tamanho do título: item [5] (--fs-hero)
+         • Fonte do site: item [3.1] -->
+    <h1 class="reveal rd1">A estrutura para transformar <span class="h1-thin">sua agência em uma</span> <span class="h1-hl">máquina de aquisição qualificada</span></h1>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         [10] OS 3 BENEFÍCIOS (as caixinhas com check azul)
+
+         ✏️ EDITE o texto de cada uma entre <p> e </p>.
+
+         PARA ADICIONAR UMA 4ª CAIXINHA:
+           copie um bloco inteiro (da linha que começa com <div class="bullet"
+           até o </div> logo abaixo do texto), cole embaixo e troque rd3 por rd4.
+         PARA REMOVER UMA:
+           apague o bloco inteiro, do <div até o </div> correspondente.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <div class="bullets">
+      <div class="bullet reveal rd1">
+        <span class="bic"><svg class="ic"><use href="#i-check"/></svg></span>
+        <p>Como atrair <b>oportunidades qualificadas</b>, em vez de encher o comercial de <b>leads que não têm perfil para comprar</b></p>
+      </div>
+      <div class="bullet reveal rd2">
+        <span class="bic"><svg class="ic"><use href="#i-check"/></svg></span>
+        <p>O funil que conecta <b>tráfego, qualificação, SDR e closer</b> para transformar demanda em <b>reuniões com mais intenção</b></p>
+      </div>
+      <div class="bullet reveal rd3">
+        <span class="bic"><svg class="ic"><use href="#i-check"/></svg></span>
+        <p>Como identificar o <b>gargalo que trava sua agência</b> e saber exatamente <b>o que corrigir antes de tentar escalar</b></p>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         [11] AVISO VERMELHO (urgência)
+         ✏️ EDITE o texto entre <span> e </span>.
+         🎨 Para mudar o tom de vermelho, altere a linha "red" no item [4].
+         ═══════════════════════════════════════════════════════════════════ -->
+    <div class="warning reveal rd3">
+      <span class="warning-txt">Clica no botão e garanta sua vaga. Essa aula NÃO ficará gravada!</span>
+    </div>
+
+    <div class="cta-zone">
+
+      <!-- ═════════════════════════════════════════════════════════════════
+           [12] 🔗 BOTÃO PRINCIPAL — LINK DO GRUPO DE WHATSAPP
+           ─────────────────────────────────────────────────────────────────
+           ⚠️ ESTE É O PASSO MAIS IMPORTANTE DE TODOS.
+           Enquanto estiver escrito  href="#"  o botão NÃO leva a lugar nenhum.
+
+           COMO FAZER:
+             1. No WhatsApp: abra o grupo → Dados do grupo → Convidar via link
+                → Copiar link. Ele fica assim:
+                https://chat.whatsapp.com/AbC123xyz
+             2. Na linha abaixo, troque o  #  pelo seu link, mantendo as aspas.
+                O começo da linha deve ficar exatamente assim:
+                <a href="https://chat.whatsapp.com/AbC123xyz" id="ctaGrupo"
+
+           ✅ O botão fixo do celular (item [15]) usa este MESMO link
+              automaticamente. Você cola o link em um lugar só.
+
+           ✏️ Para mudar o texto do botão, troque as palavras
+              Entrar no Grupo  (ficam entre os dois desenhos de ícone).
+           ═════════════════════════════════════════════════════════════════ -->
+      <a href="#" id="ctaGrupo" class="btn btn-primary btn-lg reveal rd4" target="_blank" rel="noopener"><svg class="ic"><use href="#i-whats"/></svg>Entrar no Grupo<svg class="ic arr"><use href="#i-arrow"/></svg></a>
+
+      <!-- ═════════════════════════════════════════════════════════════════
+           [13] SELOS DE CONFIANÇA (a linha logo abaixo do botão)
+           ✏️ EDITE cada texto. As bolinhas cinzas que separam os selos são
+           as linhas <span class="tdot"></span> — mantenha uma entre cada selo.
+           ═════════════════════════════════════════════════════════════════ -->
+      <div class="cta-note reveal rd5">
+        <span><svg class="ic"><use href="#i-video"/></svg>Ao vivo no <b>Meet</b></span>
+        <span class="tdot"></span>
+        <span><svg class="ic"><use href="#i-check"/></svg><b>100% gratuita</b></span>
+        <span class="tdot"></span>
+        <span><svg class="ic"><use href="#i-users"/></svg>Vagas <b>limitadas</b></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [14] RODAPÉ
+     ═══════════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <!-- ✏️ EDITE AQUI: nome da marca no rodapé -->
+    <a href="#" class="brand"><span class="e">Eikon</span><span class="i">Insider</span></a>
+
+    <!-- ✏️ EDITE AQUI: texto do rodapé (lembre de trocar o ano em 2027) -->
+    <p class="disclaimer">© 2026 Eikon Insider · Educação.</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [15] BOTÃO FIXO DO CELULAR
+     Fica grudado embaixo da tela apenas no celular e some sozinho quando o
+     botão principal aparece. Usa o link do item [12] automaticamente.
+     ✏️ EDITE só as palavras  Entrar no Grupo Gratuito
+     ═══════════════════════════════════════════════════════════════════════ -->
+<button type="button" class="mobile-cta" id="mobileCta"><svg class="ic"><use href="#i-whats"/></svg>Entrar no Grupo Gratuito</button>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     [16] PROGRAMAÇÃO — NÃO PRECISA MEXER
+     É isto que faz funcionar: a animação de entrada dos elementos, o botão
+     do celular e o envio do evento de
+     conversão para o Pixel e o Tag Manager quando alguém clica no botão.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+  /* prepara a animação de entrada */
+  document.body.classList.add('reveal-ready');
+
+  /* mostra cada elemento quando ele entra na tela */
+  var pref=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.reveal');
+  if(pref||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
+  else{
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+    els.forEach(function(e){io.observe(e);});
+    /* segurança: se algo travar, mostra tudo depois de 3 segundos */
+    setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+  }
+
+  var cta=document.getElementById('ctaGrupo'),mc=document.getElementById('mobileCta');
+
+  /* CONVERSÃO: dispara quando alguém clica em "Entrar no Grupo".
+     Avisa o Pixel do Facebook (evento Lead) e o Tag Manager.
+     Só funciona depois que você ligar o Pixel no item [2]. */
+  function joinGroup(){
+    if(window.fbq)fbq('track','Lead',{content_name:'Aula Gratuita — Grupo WhatsApp'});
+    if(window.dataLayer)dataLayer.push({event:'join_group_webinario'});
+  }
+  if(cta)cta.addEventListener('click',joinGroup);
+
+  /* o botão do celular repete o clique do botão principal */
+  if(mc)mc.addEventListener('click',function(){
+    joinGroup();
+    if(cta){
+      var href=cta.getAttribute('href');
+      if(href&&href!=='#'){window.open(cta.href,'_blank','noopener');}
+      else{cta.scrollIntoView({behavior:'smooth',block:'center'});}
+    }
+  });
+
+  /* esconde o botão do celular quando o botão principal está visível */
+  if(mc&&cta&&'IntersectionObserver' in window){
+    var mio=new IntersectionObserver(function(en){var v=en[0].isIntersecting;mc.style.transform=v?'translateY(140%)':'translateY(0)';mc.style.opacity=v?'0':'1';},{threshold:.12});
+    mio.observe(cta);
+  }
+})();
+</script>
+</body>
+</html>
