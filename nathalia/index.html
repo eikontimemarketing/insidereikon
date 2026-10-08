@@ -4,31 +4,37 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>D'Paula Cleaning Specialist | Owner-Led House Cleaning in Denver &amp; South Metro</title>
-<meta name="description" content="Recurring house cleaning, Airbnb turnovers and move-in/move-out cleaning in Denver, Castle Rock, Castle Pines, Lone Tree, Centennial, Littleton, Aurora, Arvada and Thornton. The owner leads every job. Get a free quote.">
+<meta name="description" content="Recurring house cleaning, deep cleaning, Airbnb turnovers, move-in/move-out and post-construction cleaning in Denver, Castle Rock, Castle Pines, Lone Tree, Centennial, Littleton, Aurora, Arvada and Thornton. The owner leads every job. Get a free quote.">
 <meta name="theme-color" content="#FFF8FB">
 <meta property="og:title" content="D'Paula Cleaning Specialist">
-<meta property="og:description" content="Owner-led house cleaning across Denver and the South Metro. Weekly, biweekly or monthly.">
+<meta property="og:description" content="Owner-led house cleaning across Denver and the South Metro. Weekly, biweekly or monthly, plus deep cleaning and Airbnb turnovers.">
 <meta property="og:type" content="website">
-<!-- TROCAR: og:image com uma foto real (1200x630) quando houver -->
+<!-- TROCAR: quando o domínio estiver no ar, deixe a URL absoluta (ex.: https://dpaulacleaning.com/img/og-dpaula.jpg) -->
+<meta property="og:image" content="img/og-dpaula.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="preload" as="image" href="img/bedroom-hero-1000.webp" imagesrcset="img/bedroom-hero-600.webp 600w, img/bedroom-hero-1000.webp 1000w" imagesizes="(min-width:900px) 460px, 320px" fetchpriority="high">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 32V16A14 14 0 0 1 30 16V32Z' fill='%23FFC3E7'/%3E%3Cpath d='M7 18l9-7 9 7M9 17v12h14V17' fill='none' stroke='%231C1619' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Montserrat: mesma família da logo. Escolha deliberada no lugar da Inter para manter coerência de marca. -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..700&display=swap" rel="stylesheet">
 
 <script>document.documentElement.classList.add('js')</script>
 
 <!-- TROCAR: cole aqui o GA4 (gtag) e o Meta Pixel quando a cliente tiver as contas.
      Os eventos já disparam pela função track() no fim do arquivo:
-     generate_lead (envio do formulário) e contact_text / contact_email (cliques de contato). -->
+     generate_lead (envio do formulário com endpoint), quote_mailto_opened (envio pelo e-mail do visitante)
+     e contact_text / contact_email (cliques de contato). -->
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "D'Paula Cleaning Specialist",
-  "description": "Owner-led residential cleaning, Airbnb / short-term rental turnovers, move-in/move-out and post-construction cleaning.",
+  "description": "Owner-led recurring house cleaning, deep cleaning, Airbnb / short-term rental turnovers, move-in/move-out and post-construction cleaning.",
+  "image": "img/og-dpaula.jpg",
   "telephone": "+1-720-701-1667",
   "email": "dpaulacleaning@outlook.com",
   "areaServed": ["Denver","Castle Rock","Castle Pines","Lone Tree","Centennial","Littleton","Aurora","Arvada","Thornton"],
@@ -151,26 +157,45 @@ body::before{
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
 .brand svg{width:34px;height:40px}
-.brand b{font-weight:600;letter-spacing:.02em;font-size:1rem;line-height:1}
+.brand b{font-weight:700;letter-spacing:.02em;font-size:1rem;line-height:1}
 .brand small{display:block;font-size:9px;letter-spacing:.24em;font-weight:500;color:var(--muted);margin-top:4px}
 .nav .btn{min-height:44px;padding:10px 22px;font-size:.9375rem}
+.nav-right{display:flex;align-items:center;gap:26px}
+.nav-links{display:none;gap:26px;list-style:none;margin:0;padding:0}
+.nav-links a{font-size:.9375rem;font-weight:500;color:var(--ink);text-decoration:none;padding-block:10px}
+.nav-links a:hover{color:var(--accent)}
+.nav-phone{display:none;align-items:center;gap:8px;font-size:.9375rem;font-weight:600;color:var(--ink);text-decoration:none;min-height:44px}
+.nav-phone svg{width:18px;height:18px;color:var(--accent)}
+.nav-phone:hover{color:var(--accent)}
 
 /* ---------- Hero ---------- */
-.hero{padding-top:calc(72px + clamp(48px,8vw,104px));padding-bottom:var(--pad-y)}
-.hero-grid{display:grid;gap:56px;align-items:center}
+.hero{padding-top:calc(72px + clamp(48px,8vw,104px));padding-bottom:var(--pad-y);overflow-x:clip}
+.hero-grid{display:grid;gap:56px;align-items:center;grid-template-areas:"copy" "visual" "stats"}
+.hero-copy{grid-area:copy}
+.hero .visual{grid-area:visual}
+.hero .stats{grid-area:stats}
 .hero .lead{margin-top:28px}
+.also{margin-top:16px;font-size:.9375rem;color:var(--muted);max-width:52ch;line-height:1.55}
+.also a{color:var(--ink);font-weight:500;text-underline-offset:3px;white-space:nowrap}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.text-line{margin-top:18px;font-size:.9375rem;color:var(--muted)}
+.text-line{margin-top:18px;font-size:.9375rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 22px}
 .text-line a{color:var(--ink);font-weight:500;text-underline-offset:3px}
 .stats{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:24px 20px;margin-top:56px;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:24px 20px;margin-top:0;
   padding-top:32px;border-top:1px solid var(--border-s);max-width:640px;
 }
 .stat strong{display:block;font-size:clamp(1.75rem,3vw,2.25rem);font-weight:400;letter-spacing:-.03em;color:var(--ink);line-height:1}
 .stat span{display:block;margin-top:8px;font-size:.8125rem;color:var(--muted);line-height:1.4}
 
 /* Arco da marca: o único elemento memorável do topo */
-.visual{position:relative;max-width:500px;width:100%;margin-inline:auto}
+.visual{position:relative;max-width:500px;width:100%;margin-inline:auto;isolation:isolate}
+/* Com foto no arco, o rosa da marca vira um segundo arco deslocado atrás da foto */
+.visual::before{
+  content:"";position:absolute;left:0;right:0;top:0;aspect-ratio:5/6;z-index:-1;
+  border-radius:9999px 9999px var(--r-block) var(--r-block);background:var(--brand);
+  transform:translate(22px,-22px);
+}
+.arch.has-photo{box-shadow:0 30px 60px -36px rgba(28,22,25,.45)}
 .arch{
   aspect-ratio:5/6;border-radius:9999px 9999px var(--r-block) var(--r-block);
   background:var(--brand);position:relative;overflow:hidden;
@@ -295,7 +320,28 @@ body::before{
 /* ---------- Formulário ---------- */
 .quote{display:grid;gap:48px;align-items:start}
 .quote-side .checks{margin-top:28px}
-.form{background:var(--card);border:1px solid var(--border-m);border-radius:var(--r-block);padding:clamp(22px,4vw,40px);box-shadow:0 30px 60px -40px rgba(var(--a),.35)}
+.form{position:relative;background:var(--card);border:1px solid var(--border-m);border-radius:var(--r-block);padding:clamp(22px,4vw,40px);box-shadow:0 30px 60px -40px rgba(var(--a),.35)}
+/* Destaque rápido quando alguém clica em "Get my free quote" e chega no formulário */
+.form::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;box-shadow:0 0 0 0 rgba(var(--a),0)}
+.form.flash::after{animation:ring 1.8s var(--ease-out)}
+@keyframes ring{25%{box-shadow:0 0 0 8px rgba(var(--a),.28)}100%{box-shadow:0 0 0 18px rgba(var(--a),0)}}
+.form-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid var(--border-s)}
+.form-head h3{font-size:1.375rem;font-weight:600}
+.form-head .cap{font-size:.8125rem}
+.form-step{grid-column:1/-1;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:6px 0 -4px}
+.form-step:not(:first-child){margin-top:14px;padding-top:22px;border-top:1px solid var(--border-s)}
+.consent{margin-top:12px;font-size:.8125rem;color:var(--muted);text-align:center;line-height:1.5}
+.contact-cards{display:grid;gap:12px;margin-top:28px}
+.contact-card{
+  display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:var(--r-card);
+  background:var(--card);border:1px solid var(--border-s);text-decoration:none;color:var(--ink);
+  transition:border-color .15s var(--ease), transform .15s var(--ease);
+}
+.contact-card:hover{border-color:var(--border-l);transform:translateY(-2px)}
+.contact-card .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(var(--a),.08);flex:none}
+.contact-card .ico svg{width:22px;height:22px;color:var(--accent)}
+.contact-card small{display:block;font-size:.8125rem;color:var(--muted);font-weight:400;line-height:1.3}
+.contact-card b{display:block;font-weight:600;font-size:1rem;overflow-wrap:anywhere;line-height:1.35}
 .fields{display:grid;gap:18px;grid-template-columns:1fr 1fr}
 .full{grid-column:1/-1}
 .field label,.field legend{display:block;font-size:.8125rem;font-weight:500;color:var(--ink);margin-bottom:8px;padding:0}
@@ -337,7 +383,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 
 /* ---------- Dona ---------- */
 .owner{display:grid;gap:48px;align-items:center}
-.owner .arch{max-width:360px;width:100%;margin-inline:auto;aspect-ratio:4/5}
+.owner .arch{max-width:min(360px, 70vw);width:100%;margin-inline:auto;aspect-ratio:4/5}
 .mono-mark{align-self:center;font-size:clamp(4rem,10vw,7rem);font-weight:300;letter-spacing:-.04em;color:var(--ink);line-height:1}
 .owner .arch{align-items:center}
 .owner .body{margin-top:20px}
@@ -354,10 +400,11 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 .faq-q .plus{width:28px;height:28px;flex:none;border-radius:9999px;border:1px solid var(--border-m);display:grid;place-items:center;transition:transform .3s var(--ease), border-color .15s var(--ease)}
 .faq-q .plus svg{width:14px;height:14px;color:var(--accent)}
 .faq-item.open .plus{transform:rotate(45deg);border-color:var(--border-l)}
-.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease-out}
+.faq-a{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .3s ease-out, visibility .3s}
 .faq-a > div{min-height:0;overflow:hidden}
 .faq-a p{padding-bottom:24px;max-width:65ch}
-.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a a{color:var(--accent);font-weight:500;text-underline-offset:3px}
+.faq-item.open .faq-a{grid-template-rows:1fr;visibility:visible}
 
 /* ---------- Fechamento ---------- */
 .close-grid{display:grid;gap:16px;margin-top:clamp(40px,6vw,64px)}
@@ -389,9 +436,100 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
   background:rgba(255,248,251,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border-top:1px solid var(--border-s);
 }
-.mbar .btn{flex:1;min-height:48px;padding:12px 14px;font-size:.9375rem}
-.mbar .btn-ghost{flex:0 0 auto}
+.mbar .btn{flex:1;min-height:48px;padding:12px 14px;font-size:.9375rem;gap:8px}
+.mbar .btn-ghost{flex:0 0 auto;background:var(--card)}
 body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+
+/* ---------- Antes e depois (seção escura, Ameixa Noite) ----------
+   Esteira com scroll-snap: o par ativo fica no centro e os vizinhos aparecem nas bordas.
+   Desktop: antes | depois lado a lado (4:5). Celular: empilhados (4:3). */
+.results{
+  background:var(--night);color:#D9CFD6;
+  --gap:20px;--slide:min(880px, 86%);
+}
+.results .label{color:var(--brand)}
+.results .h2{color:#fff}
+.results .head p{color:#D9CFD6;max-width:54ch}
+.ba-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;margin-bottom:28px}
+.ba-chips{position:relative;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:-20px;padding:2px 20px;max-width:calc(100% + 40px)}
+.ba-chips::-webkit-scrollbar{display:none}
+.ba-chips button{
+  flex:none;min-height:44px;padding:10px 18px;border-radius:9999px;cursor:pointer;
+  font:inherit;font-size:.875rem;font-weight:500;letter-spacing:-.005em;
+  background:transparent;color:#D9CFD6;border:1px solid rgba(255,195,231,.28);
+  transition:background-color .15s var(--ease), color .15s var(--ease), border-color .15s var(--ease);
+}
+.ba-chips button:hover{border-color:rgba(255,195,231,.6);color:#fff}
+.ba-chips button[aria-current="true"]{background:var(--brand);border-color:var(--brand);color:var(--ink)}
+.ba-arrows{display:flex;align-items:center;gap:14px}
+.ba-btn{
+  width:48px;height:48px;border-radius:9999px;display:grid;place-items:center;cursor:pointer;
+  background:transparent;color:#fff;border:1px solid rgba(255,195,231,.4);
+  transition:background-color .15s var(--ease), opacity .15s var(--ease);
+}
+.ba-btn:hover:not(:disabled){background:rgba(255,195,231,.14)}
+.ba-btn:disabled{opacity:.35;cursor:default}
+.ba-btn svg{width:20px;height:20px}
+.ba-count{font-size:.875rem;color:#D9CFD6;min-width:44px;text-align:center}
+.ba-count b{color:#fff;font-weight:600}
+.results :focus-visible{outline-color:var(--brand)}
+.ba-track{
+  display:flex;gap:var(--gap);overflow-x:auto;position:relative;
+  scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;
+  padding-block:6px;border-radius:var(--r-card);
+}
+.ba-track::-webkit-scrollbar{display:none}
+.ba-track::before,.ba-track::after{content:"";flex:0 0 calc((100% - var(--slide)) / 2 - var(--gap))}
+.ba-slide{flex:0 0 var(--slide);scroll-snap-align:center;margin:0;transition:opacity .4s var(--ease)}
+.js .ba-slide:not(.is-active){opacity:.38;cursor:pointer}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ba-img{position:relative;margin:0;border-radius:var(--r-card);overflow:hidden;aspect-ratio:4/5;background:#3A2F40}
+.ba-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba-tag{
+  position:absolute;left:12px;top:12px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  padding:6px 12px;border-radius:9999px;background:rgba(28,22,25,.78);color:#fff;
+}
+.ba-tag.is-after{background:var(--brand);color:var(--ink)}
+.ba-slide figcaption{margin-top:16px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;font-size:.9375rem;line-height:1.5}
+.ba-slide figcaption strong{color:#fff;font-weight:600;font-size:1.0625rem}
+.ba-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 24px;margin-top:clamp(36px,5vw,52px);text-align:center}
+.ba-foot p{font-size:.9375rem;color:#D9CFD6}
+.btn-light{background:var(--brand);border-color:var(--brand);color:var(--ink)}
+.btn-light:hover{transform:translateY(-2px);box-shadow:0 0 28px rgba(255,195,231,.35)}
+.btn-light:active{transform:none}
+@media (max-width:639px){
+  .results{--gap:12px;--slide:86%}
+  .ba-pair{grid-template-columns:1fr;gap:8px}
+  .ba-img{aspect-ratio:4/3}
+  .ba-arrows{width:100%;justify-content:center}
+}
+
+/* ---------- Serviços (recorrente em destaque + 4 cartões) ---------- */
+.svc-feature{
+  display:grid;gap:clamp(24px,4vw,56px);background:var(--card);border:1px solid var(--border-m);
+  border-radius:var(--r-block);padding:clamp(26px,4vw,52px);box-shadow:0 0 0 6px rgba(var(--a),.04);
+}
+.svc-feature .h3{font-size:clamp(1.5rem,2.6vw,2.125rem);font-weight:500;letter-spacing:-.02em;margin-top:18px}
+.svc-feature p{margin-top:14px;max-width:50ch}
+.svc-feature .btn{margin-top:28px}
+.svc-cover{background:var(--bg-2);border-radius:var(--r-card);padding:clamp(22px,3vw,32px)}
+.svc-cover .checks li{font-size:1rem}
+.svc-cards{display:grid;gap:16px;margin-top:16px}
+.svc-card{display:flex;flex-direction:column}
+.svc-card .checks{margin:18px 0 20px}
+.svc-link{
+  margin-top:auto;display:inline-flex;align-items:center;gap:8px;min-height:44px;align-self:flex-start;
+  font-weight:600;font-size:.9375rem;color:var(--accent);text-decoration:none;
+}
+.svc-link svg{width:16px;height:16px;transition:transform .15s var(--ease)}
+.svc-link:hover svg{transform:translateX(3px)}
+.svc-note{margin-top:24px}
+
+/* ---------- Dona: assinatura e contato direto ---------- */
+.owner .arch .mono-mark{position:relative}
+.owner-sign{margin-top:22px;font-size:.9375rem;color:var(--muted)}
+.owner-sign b{display:block;color:var(--ink);font-weight:600;font-size:1.0625rem}
+.owner .ctas{margin-top:28px}
 
 /* ---------- Revelar com desfoque ---------- */
 @keyframes reveal{
@@ -406,9 +544,24 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   .grid-4{grid-template-columns:repeat(2,1fr)}
   .stats{grid-template-columns:repeat(4,1fr)}
   .close-grid{grid-template-columns:1fr 1fr}
+  .svc-cards{grid-template-columns:repeat(2,1fr)}
+  .contact-cards{grid-template-columns:1fr 1fr}
+}
+@media (min-width:760px){
+  .nav-phone{display:inline-flex}
+}
+@media (min-width:1080px){
+  .nav-links{display:flex}
+}
+@media (min-width:1100px){
+  .svc-cards{grid-template-columns:repeat(4,1fr)}
 }
 @media (min-width:900px){
-  .hero-grid{grid-template-columns:1.1fr .9fr}
+  .hero-grid{grid-template-columns:1.1fr .9fr;grid-template-areas:"copy visual" "stats visual";row-gap:0}
+  .hero-copy{align-self:end}
+  .hero .stats{margin-top:56px;align-self:start}
+  .svc-feature{grid-template-columns:1.05fr .95fr;align-items:center}
+  .contact-cards{grid-template-columns:1fr}
   .grid-4{grid-template-columns:repeat(4,1fr)}
   .svc-grid{grid-template-columns:1.1fr .9fr}
   .plans{grid-template-columns:repeat(3,1fr)}
@@ -424,6 +577,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 }
 @media (max-width:899px){
   .visual{max-width:320px}
+  .visual::before{transform:translate(14px,-14px)}
   .f1{left:-2%;top:10%}
   .f2{right:-2%;bottom:-22px}
 }
@@ -435,12 +589,170 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   .brand small{display:none}
 }
 
+/* =========================================================
+   ACABAMENTO PREMIUM (v2)
+   Sistema das 41 LPs aplicado sobre a identidade D'Paula, sem mudar a estrutura aprovada:
+   - sombras em camadas tingidas de ameixa (nunca cinza puro)
+   - flutuação lenta só nos selos (hero e dona)
+   - auréolas com função: puxar o olho para promessa, foto, serviço principal e fechamento
+   - títulos em dois tons + rótulo com traço
+   - borda em gradiente nos blocos de conversão e feixe circulando no formulário
+   ========================================================= */
+:root{
+  --soft:#8A7F86;  /* 2º tom dos títulos: 3.5:1+ nos fundos claros, só em corpo grande */
+  --sh-1:0 1px 2px rgba(43,34,48,.04), 0 6px 16px -8px rgba(43,34,48,.10);
+  --sh-2:0 2px 6px rgba(43,34,48,.05), 0 18px 40px -18px rgba(43,34,48,.20);
+  --sh-3:0 4px 10px rgba(43,34,48,.05), 0 34px 70px -30px rgba(43,34,48,.32);
+  --ring-grad:linear-gradient(135deg, rgba(var(--a),.42), rgba(var(--a),.08) 38%, rgba(var(--a),.08) 62%, rgba(var(--a),.28));
+}
+
+/* ---------- Títulos ---------- */
+h1,h2,h3,.statement{text-wrap:balance}
+p,li{text-wrap:pretty}
+.h2{line-height:1.06;letter-spacing:-.025em}
+.soft{color:var(--soft)}
+.results .soft{color:#A89BA4}
+.h1 em{
+  background:linear-gradient(100deg, var(--accent) 0%, #C4387F 48%, var(--accent-d) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  padding-bottom:.08em;
+}
+.label{display:inline-flex;align-items:center;gap:12px}
+.label::before{content:"";width:22px;height:1px;background:currentColor;opacity:.55;flex:none}
+[style*="text-align:center"] > .label::after{content:"";width:22px;height:1px;background:currentColor;opacity:.55;flex:none}
+@media (max-width:420px){.hero .label::before{display:none}.hero .label{letter-spacing:.14em}}
+.stat strong{font-weight:300;letter-spacing:-.04em}
+.form-head h3{font-weight:500}
+
+/* ---------- Botões ---------- */
+.btn-primary{
+  background:linear-gradient(180deg, #BF2E79 0%, var(--accent) 50%, #A01F62 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22), var(--glow-sm), 0 10px 24px -12px rgba(var(--a),.55);
+}
+.btn-primary:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.22), var(--glow-md), 0 18px 34px -14px rgba(var(--a),.6)}
+.btn-primary:active{background:var(--accent-d)}
+.btn-ghost{background:rgba(255,255,255,.7);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:var(--sh-1)}
+.results .btn-ghost{background:transparent;box-shadow:none}
+
+/* ---------- Nav ganha sombra ao rolar ---------- */
+.nav{transition:box-shadow .3s var(--ease), background-color .3s var(--ease)}
+.nav.scrolled{background:rgba(255,248,251,.9);box-shadow:0 12px 32px -20px rgba(43,34,48,.28)}
+
+/* ---------- Hero: auréola + selos flutuando (os dois efeitos da tela) ---------- */
+.hero{position:relative;isolation:isolate}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 50% 60% at 80% 32%, rgba(255,195,231,.55), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 15% -10%, rgba(255,195,231,.32), transparent 70%);
+}
+.visual::before{background:linear-gradient(165deg, #FFC3E7 0%, #FFD4EC 55%, #FFE6F3 100%)}
+.arch.has-photo{box-shadow:var(--sh-3)}
+@keyframes float{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-10px,0)}}
+.float{
+  background:rgba(255,255,255,.86);border-color:rgba(var(--a),.14);
+  box-shadow:var(--sh-2);animation:float 6.5s ease-in-out infinite;
+}
+.f2,.o2{animation-duration:8s;animation-delay:-3s}
+
+/* ---------- Faixa de cidades ---------- */
+.cities li{display:flex;align-items:center;gap:10px}
+.cities li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--brand);flex:none}
+
+/* ---------- Cards: escavado + sombra que cresce no hover (sem brigar com o reveal) ---------- */
+.card{
+  box-shadow:inset 0 14px 22px -20px rgba(28,22,25,.18), var(--sh-1);
+  transition:border-color .15s var(--ease), translate .3s var(--ease-out);
+}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:var(--sh-2);opacity:0;transition:opacity .3s var(--ease)}
+.card:hover{translate:0 -3px}
+.card:hover::after{opacity:1}
+.is-on .icon{background:linear-gradient(135deg, rgba(var(--a),.12), rgba(255,195,231,.45))}
+.plan.featured{box-shadow:var(--glow-sm), var(--sh-3), inset 0 14px 22px -20px rgba(28,22,25,.18)}
+.step-n{background:linear-gradient(180deg,#FFFFFF,#FFF4FA);box-shadow:var(--sh-1)}
+.host-box,.included{box-shadow:var(--sh-1)}
+.contact-card{box-shadow:var(--sh-1)}
+.contact-card:hover{box-shadow:var(--sh-2)}
+
+/* ---------- Blocos de conversão: borda em gradiente por máscara ---------- */
+.svc-feature,.promise{position:relative;border-color:transparent}
+.svc-feature::before,.promise::before{
+  content:"";position:absolute;inset:-1px;padding:1px;border-radius:inherit;pointer-events:none;
+  background:var(--ring-grad);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+.svc-feature{
+  background:radial-gradient(ellipse 55% 75% at 100% 0%, rgba(255,195,231,.38), transparent 65%), var(--card);
+  box-shadow:0 0 0 6px rgba(var(--a),.04), var(--sh-2);
+}
+.promise{
+  background:radial-gradient(ellipse 45% 70% at 0% 0%, rgba(255,195,231,.32), transparent 62%), var(--card);
+  box-shadow:var(--sh-2);
+}
+
+/* ---------- Formulário: feixe de luz circulando na borda (o momento memorável) ---------- */
+@property --beam{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes beam-spin{to{--beam:360deg}}
+.form{border-color:transparent;box-shadow:var(--sh-3), 0 30px 60px -40px rgba(var(--a),.35)}
+.form::before{
+  content:"";position:absolute;inset:-1px;padding:1.5px;border-radius:inherit;pointer-events:none;
+  background:conic-gradient(from var(--beam), rgba(var(--a),.16) 0deg, rgba(var(--a),.16) 240deg, var(--accent) 300deg, #FFC3E7 330deg, rgba(var(--a),.16) 360deg);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:beam-spin 7s linear infinite;
+}
+
+/* ---------- Antes e depois: luz de palco na seção escura ---------- */
+.results{position:relative;isolation:isolate;overflow:hidden}
+.results::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(255,195,231,.14), transparent 70%),
+    radial-gradient(ellipse 60% 35% at 50% 100%, rgba(255,195,231,.06), transparent 70%);
+}
+.ba-img{box-shadow:0 0 0 1px rgba(255,195,231,.10), 0 30px 60px -30px rgba(0,0,0,.65)}
+.ba-chips button[aria-current="true"]{box-shadow:0 8px 24px -10px rgba(255,195,231,.55)}
+
+/* ---------- Dona: arco com contorno deslocado + selos flutuando ---------- */
+.owner-visual{position:relative;width:100%;max-width:min(360px, 70vw);margin-inline:auto;isolation:isolate}
+.owner-visual::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  border-radius:9999px 9999px var(--r-block) var(--r-block);
+  border:1.5px solid rgba(var(--a),.28);transform:translate(-18px,18px);
+}
+.owner .owner-visual .arch{max-width:none;background:linear-gradient(170deg, #FFC3E7 0%, #FFDAEF 100%);box-shadow:var(--sh-3)}
+.o1{top:12%;right:-14%}
+.o2{bottom:9%;left:-16%}
+
+/* ---------- Fechamento: auréola atrás da pergunta ---------- */
+.closing{position:relative;isolation:isolate}
+.closing::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 70% 55% at 50% -10%, rgba(255,195,231,.55), transparent 70%);
+}
+
+/* ---------- Rodapé: linha que dissolve nas pontas ---------- */
+.footer{position:relative}
+.footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent, rgba(255,195,231,.55), transparent)}
+
+@media (min-width:900px){
+  .plan.featured{translate:0 -12px}
+  .plan.featured:hover{translate:0 -15px}
+}
+@media (max-width:899px){
+  .o1{right:-6%}
+  .o2{left:-6%}
+}
+
 /* Acessibilidade: desliga todo movimento */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .js .reveal{animation:none;opacity:1;transform:none;filter:none}
   .rail::after,.dot::after{display:none}
+  .float{animation:none}
+  .form::before{animation:none}
 }
 </style>
 </head>
@@ -485,19 +797,35 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
     <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
     <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
     <symbol id="i-person" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.5 11.7 8.3 16.5 10l-4.8 1.7L10 16.5 8.3 11.7 3.5 10l4.8-1.7z"/><path d="M18 14.5l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></symbol>
+    <symbol id="i-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
   </defs>
 </svg>
 
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- 1. NAV: logo à esquerda, um botão à direita -->
+<!-- 1. NAV: logo à esquerda; links + telefone (desktop) e o botão de orçamento sempre visível -->
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="D'Paula Cleaning Specialist, home">
       <svg viewBox="0 0 512 594" aria-hidden="true"><use href="#mark" width="512" height="594"/></svg>
       <span><b>D’PAULA</b><small>CLEANING SPECIALIST</small></span>
     </a>
-    <a class="btn btn-primary" href="#quote" data-track="cta_nav">Get a free quote</a>
+    <div class="nav-right">
+      <nav aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#results">Before &amp; After</a></li>
+          <li><a href="#owner">Meet Nathalia</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="nav-phone sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text" aria-label="Text D'Paula at (720) 701-1667"><svg aria-hidden="true"><use href="#i-msg"/></svg>(720) 701-1667</a>
+      <a class="btn btn-primary" href="#quote" data-track="cta_nav">Get a free quote</a>
+    </div>
   </div>
 </header>
 
@@ -505,32 +833,35 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 
 <!-- 2. ABERTURA -->
 <section class="hero" id="top">
+  <!-- Ordem no celular: texto → foto → números. No desktop: texto e números à esquerda, foto à direita. -->
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-copy">
       <span class="label reveal">House cleaning · Denver &amp; South Metro</span>
       <h1 class="h1 reveal" style="--i:1">Recurring cleaning, <em>led by the owner.</em></h1>
       <p class="lead reveal" style="--i:2">Weekly, biweekly or monthly house cleaning across Denver, Castle Rock, Lone Tree, Centennial and nearby. The owner leads every job, so the standard you see on day one is the standard you keep.</p>
+      <p class="also reveal" style="--i:2">Also: deep cleaning, Airbnb turnovers, move&#8209;in/move&#8209;out and post&#8209;construction. <a href="#services">See all services</a></p>
       <div class="ctas reveal" style="--i:3">
         <a class="btn btn-primary" href="#quote" data-track="cta_hero">Get my free quote</a>
-        <a class="btn btn-ghost" href="#how">See how it works</a>
+        <a class="btn btn-ghost" href="#results">See before &amp; after</a>
       </div>
-      <p class="text-line reveal" style="--i:4">Prefer to text? <a class="sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text">(720) 701-1667</a></p>
+      <p class="text-line reveal" style="--i:4">
+        <span>Text <a class="sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text">(720) 701-1667</a></span>
+        <span>Email <a href="mailto:dpaulacleaning@outlook.com?subject=Cleaning%20quote" data-track="contact_email">dpaulacleaning@outlook.com</a></span>
+      </p>
+    </div>
 
-      <!-- Quatro números de prova: todos vêm do briefing da cliente. CONFIRMAR anos com ela. -->
-      <div class="stats reveal" style="--i:5">
-        <div class="stat"><strong class="num">5 yrs</strong><span>residential cleaning experience</span></div>
-        <div class="stat"><strong class="num">3 yrs</strong><span>Airbnb &amp; short-term rental turnovers</span></div>
-        <div class="stat"><strong class="num">9</strong><span>cities served around Denver</span></div>
-        <div class="stat"><strong class="num">1</strong><span>owner leading every job</span></div>
-      </div>
+    <!-- Quatro números de prova: todos vêm do briefing da cliente. CONFIRMAR anos com ela. -->
+    <div class="stats reveal" style="--i:5">
+      <div class="stat"><strong class="num">5 yrs</strong><span>residential cleaning experience</span></div>
+      <div class="stat"><strong class="num">3 yrs</strong><span>Airbnb &amp; short-term rental turnovers</span></div>
+      <div class="stat"><strong class="num">9</strong><span>cities served around Denver</span></div>
+      <div class="stat"><strong class="num">1</strong><span>owner leading every job</span></div>
     </div>
 
     <div class="visual reveal" style="--i:2">
-      <div class="arch">
-        <!-- TROCAR: quando houver foto real (casa limpa ou a dona trabalhando), use:
-             <img src="foto-hero.webp" alt="Freshly cleaned living room in a Castle Rock home" width="1000" height="1200">
-             e remova o <svg> abaixo. -->
-        <svg viewBox="0 0 456 426" role="img" aria-label="Illustration of a clean home with a bucket and broom"><use href="#house" width="456" height="426"/></svg>
+      <!-- Foto real enviada pela cliente (cama arrumada). Recorte 5:6 já feito para o arco. -->
+      <div class="arch has-photo">
+        <img src="img/bedroom-hero-1000.webp" srcset="img/bedroom-hero-600.webp 600w, img/bedroom-hero-1000.webp 1000w" sizes="(min-width:900px) 460px, 320px" width="1000" height="1200" alt="Bed freshly made with clean bedding and rolled towels, after a D’Paula cleaning" fetchpriority="high" decoding="async">
       </div>
       <div class="float f1">
         <span class="ico"><svg aria-hidden="true"><use href="#i-person"/></svg></span>
@@ -560,7 +891,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   <div class="wrap-wide">
     <div class="head">
       <span class="label reveal">The problem</span>
-      <h2 class="h2 reveal" style="--i:1">Keeping up with the house shouldn’t cost you your weekend.</h2>
+      <h2 class="h2 reveal" style="--i:1">Keeping up with the house <span class="soft">shouldn’t cost you your weekend.</span></h2>
     </div>
     <div class="grid-4">
       <article class="card reveal" style="--i:0">
@@ -592,7 +923,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   <div class="wrap-wide">
     <div class="head">
       <span class="label reveal">The Owner-Led Clean</span>
-      <h2 class="h2 reveal" style="--i:1">One owner, one standard, fixed for every problem above.</h2>
+      <h2 class="h2 reveal" style="--i:1">One owner, one standard, <span class="soft">fixed for every problem above.</span></h2>
     </div>
     <div class="grid-4">
       <article class="card is-on reveal" style="--i:0">
@@ -619,12 +950,90 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
+<!-- ANTES E DEPOIS: fotos reais enviadas pela cliente, pareadas por cômodo.
+     Para adicionar um par (ex.: os próximos de deep cleaning): copie um <figure class="ba-slide">,
+     troque as imagens/legenda, ajuste "X of N" e acrescente um botão em .ba-chips com o próximo data-go. -->
+<section class="section results" id="results" aria-labelledby="results-title">
+  <div class="wrap">
+    <div class="head">
+      <span class="label reveal">Before &amp; After</span>
+      <h2 class="h2 reveal" id="results-title" style="--i:1">Real homes. <span class="soft">Real results.</span></h2>
+      <p class="reveal" style="--i:2">Photos from real D’Paula cleanings, room by room. Swipe, use the arrows or tap a room to compare.</p>
+    </div>
+    <div class="ba-bar reveal" style="--i:3">
+      <div class="ba-chips" id="ba-chips" aria-label="Choose a room">
+        <button type="button" data-go="0" aria-current="true">Bathroom</button>
+        <button type="button" data-go="1">Kitchen</button>
+        <button type="button" data-go="2">Freezer</button>
+        <button type="button" data-go="3">Living room</button>
+        <button type="button" data-go="4">Dining area</button>
+        <button type="button" data-go="5">Bedroom</button>
+      </div>
+      <div class="ba-arrows">
+        <button type="button" class="ba-btn" id="ba-prev" aria-controls="ba-track" aria-label="Previous room"><svg aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
+        <span class="ba-count" aria-live="polite"><b id="ba-now">1</b> / 6</span>
+        <button type="button" class="ba-btn" id="ba-next" aria-controls="ba-track" aria-label="Next room"><svg aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ba-track reveal" id="ba-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Before and after photos" style="--i:3">
+    <figure class="ba-slide" role="group" aria-roledescription="slide" aria-label="1 of 6: Bathroom">
+      <div class="ba-pair">
+          <div class="ba-img"><img src="img/bathroom-before-600.webp" srcset="img/bathroom-before-600.webp 600w, img/bathroom-before-1000.webp 1000w" sizes="(min-width:640px) 440px, 86vw" width="600" height="800" style="object-position:50% 66%" alt="Bathtub before cleaning: a dull tub with bottles, a cup and a used bath mat around it" loading="lazy" decoding="async"><span class="ba-tag">Before</span></div>
+          <div class="ba-img"><img src="img/bathroom-after-600.webp" srcset="img/bathroom-after-600.webp 600w, img/bathroom-after-1000.webp 1000w" sizes="(min-width:640px) 440px, 86vw" width="600" height="800" style="object-position:50% 80%" alt="The same bathtub after cleaning: bright white, clear and spotless tile" loading="lazy" decoding="async"><span class="ba-tag is-after">After</span></div>
+      </div>
+      <figcaption><strong>Bathroom</strong>Tub, tile and fixtures scrubbed back to bright white.</figcaption>
+    </figure>
+    <figure class="ba-slide" role="group" aria-roledescription="slide" aria-label="2 of 6: Kitchen">
+      <div class="ba-pair">
+          <div class="ba-img"><img src="img/kitchen-before-800.webp" srcset="img/kitchen-before-800.webp 800w, img/kitchen-before-1400.webp 1400w" sizes="(min-width:640px) 730px, 86vw" width="800" height="600" style="object-position:50% 60%" alt="Kitchenette before cleaning: cluttered counter and sink, items piled on top of the fridge" loading="lazy" decoding="async"><span class="ba-tag">Before</span></div>
+          <div class="ba-img"><img src="img/kitchen-after-600.webp" srcset="img/kitchen-after-600.webp 600w, img/kitchen-after-1000.webp 1000w" sizes="(min-width:640px) 440px, 86vw" width="600" height="800" style="object-position:50% 62%" alt="The same kitchenette after cleaning: clear counter, shining sink and tidy cabinets" loading="lazy" decoding="async"><span class="ba-tag is-after">After</span></div>
+      </div>
+      <figcaption><strong>Kitchen</strong>Counters cleared and wiped, sink shined, cabinets and floor cleaned.</figcaption>
+    </figure>
+    <figure class="ba-slide" role="group" aria-roledescription="slide" aria-label="3 of 6: Freezer">
+      <div class="ba-pair">
+          <div class="ba-img"><img src="img/freezer-before-600.webp" srcset="img/freezer-before-600.webp 600w, img/freezer-before-1000.webp 1000w" sizes="(min-width:640px) 440px, 86vw" width="600" height="800" style="object-position:50% 56%" alt="Freezer before cleaning, with a yellow spill stain on the bottom" loading="lazy" decoding="async"><span class="ba-tag">Before</span></div>
+          <div class="ba-img"><img src="img/freezer-after-600.webp" srcset="img/freezer-after-600.webp 600w, img/freezer-after-1000.webp 1000w" sizes="(min-width:640px) 440px, 86vw" width="600" height="800" style="object-position:50% 56%" alt="The same freezer after cleaning, stain removed and surfaces wiped clean" loading="lazy" decoding="async"><span class="ba-tag is-after">After</span></div>
+      </div>
+      <figcaption><strong>Freezer</strong>Spills and stains removed, shelves and walls wiped down.</figcaption>
+    </figure>
+    <figure class="ba-slide" role="group" aria-roledescription="slide" aria-label="4 of 6: Living room">
+      <div class="ba-pair">
+          <div class="ba-img"><img src="img/living-room-before-800.webp" srcset="img/living-room-before-800.webp 800w, img/living-room-before-1400.webp 1400w" sizes="(min-width:640px) 730px, 86vw" width="800" height="600" style="object-position:42% 60%" alt="Living room before cleaning: scattered cushions and blankets, cords across the floor" loading="lazy" decoding="async"><span class="ba-tag">Before</span></div>
+          <div class="ba-img"><img src="img/living-room-after-800.webp" srcset="img/living-room-after-800.webp 800w, img/living-room-after-1400.webp 1400w" sizes="(min-width:640px) 730px, 86vw" width="800" height="600" style="object-position:58% 60%" alt="The same living room after cleaning: cushions arranged, table styled, floor clear" loading="lazy" decoding="async"><span class="ba-tag is-after">After</span></div>
+      </div>
+      <figcaption><strong>Living room</strong>Clutter and cords cleared, cushions reset, surfaces wiped.</figcaption>
+    </figure>
+    <figure class="ba-slide" role="group" aria-roledescription="slide" aria-label="5 of 6: Dining area">
+      <div class="ba-pair">
+          <div class="ba-img"><img src="img/dining-before-800.webp" srcset="img/dining-before-800.webp 800w, img/dining-before-1400.webp 1400w" sizes="(min-width:640px) 730px, 86vw" width="800" height="600" style="object-position:52% 60%" alt="Dining area before cleaning: stacked chairs, a crowded table and cables on the floor" loading="lazy" decoding="async"><span class="ba-tag">Before</span></div>
+          <div class="ba-img"><img src="img/dining-after-600.webp" srcset="img/dining-after-600.webp 600w, img/dining-after-1000.webp 1000w" sizes="(min-width:640px) 440px, 86vw" width="600" height="800" style="object-position:50% 72%" alt="The same dining area after cleaning: table set up with chairs and a clear floor" loading="lazy" decoding="async"><span class="ba-tag is-after">After</span></div>
+      </div>
+      <figcaption><strong>Dining area</strong>Clutter and cables cleared, table and chairs set back up.</figcaption>
+    </figure>
+    <figure class="ba-slide" role="group" aria-roledescription="slide" aria-label="6 of 6: Bedroom">
+      <div class="ba-pair">
+          <div class="ba-img"><img src="img/bedroom-before-600.webp" srcset="img/bedroom-before-600.webp 600w, img/bedroom-before-1000.webp 1000w" sizes="(min-width:640px) 440px, 86vw" width="600" height="800" style="object-position:50% 72%" alt="Bedroom before cleaning, with an unmade bed and an open drawer" loading="lazy" decoding="async"><span class="ba-tag">Before</span></div>
+          <div class="ba-img"><img src="img/bedroom-after-600.webp" srcset="img/bedroom-after-600.webp 600w, img/bedroom-after-1000.webp 1000w" sizes="(min-width:640px) 440px, 86vw" width="600" height="800" style="object-position:50% 72%" alt="The same bedroom after cleaning, bed made with fresh bedding and rolled towels" loading="lazy" decoding="async"><span class="ba-tag is-after">After</span></div>
+      </div>
+      <figcaption><strong>Bedroom</strong>Fresh bedding, bed made and towels set out.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap ba-foot">
+    <p>Want your home to look like the “after”?</p>
+    <a class="btn btn-light" href="#quote" data-track="cta_results">Get my free quote</a>
+  </div>
+</section>
+
 <!-- 6. COMO FUNCIONA: o momento memorável (barra luminosa) -->
 <section class="section" id="how">
   <div class="wrap-steps">
     <div class="head">
       <span class="label reveal">How it works</span>
-      <h2 class="h2 reveal" style="--i:1">From first message to a clean home in four steps.</h2>
+      <h2 class="h2 reveal" style="--i:1">From first message to a clean home <span class="soft">in four steps.</span></h2>
     </div>
     <div class="steps-box">
     <span class="rail" aria-hidden="true"></span>
@@ -653,42 +1062,82 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 <!-- SERVIÇOS -->
 <section class="section alt" id="services">
   <div class="wrap">
+    <!-- Feedback da cliente: recorrente continua o destaque; os outros serviços com descrição clara e objetiva,
+         sem todos os detalhes (escopo final e extras são definidos no orçamento).
+         CONFIRMAR com a Nathalia os 3 itens de cada cartão antes de publicar. -->
     <div class="head">
       <span class="label reveal">Services</span>
-      <h2 class="h2 reveal" style="--i:1">Built around recurring care for your home.</h2>
+      <h2 class="h2 reveal" style="--i:1">Built around recurring care <span class="soft">for your home.</span></h2>
+      <p class="lead reveal" style="--i:2">Recurring cleaning is what we do most. When your home needs something different, these services follow the same owner&#8209;led standard.</p>
     </div>
-    <div class="svc-grid">
-      <article class="svc-main reveal">
-        <span class="icon" style="background:rgba(176,35,108,.08)"><svg aria-hidden="true" style="color:var(--accent)"><use href="#i-home"/></svg></span>
+
+    <article class="svc-feature reveal">
+      <div>
+        <span class="tag" style="color:var(--accent)">Our core service</span>
         <h3 class="h3">Recurring house cleaning</h3>
-        <p>For families and busy professionals who want the house kept, not rescued. Priced by your home’s size, bedrooms, bathrooms, scope and frequency.</p>
+        <p>For families and busy professionals who want the house kept, not rescued. Same scope, same standard, on the schedule that fits your week.</p>
         <div class="freqs"><span>Weekly</span><span>Biweekly</span><span>Monthly</span></div>
-        <ul class="checks">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Scope agreed room by room before the first visit</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>The owner leading and checking every clean</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Changes and reschedules handled by text</li>
-        </ul>
         <a class="btn btn-primary" href="#quote" data-service="recurring" data-track="cta_service_recurring">Get my recurring quote</a>
-      </article>
-      <div class="svc-side">
-        <article class="card reveal" style="--i:1">
-          <span class="icon"><svg aria-hidden="true"><use href="#i-bed"/></svg></span>
-          <h3 class="h3">Airbnb &amp; short-term rentals</h3>
-          <p>Detailed turnovers between guests, so the property is ready for the next check-in.</p>
-        </article>
-        <article class="card reveal" style="--i:2">
-          <span class="icon"><svg aria-hidden="true"><use href="#i-box"/></svg></span>
-          <h3 class="h3">Move-in / move-out</h3>
-          <p>A full reset before you unpack or after you hand over the keys.</p>
-        </article>
-        <article class="card reveal" style="--i:3">
-          <span class="icon"><svg aria-hidden="true"><use href="#i-ruler"/></svg></span>
-          <h3 class="h3">Post-construction</h3>
-          <p>Dust and debris cleanup after a renovation, so the space is ready to live in.</p>
-        </article>
       </div>
+      <div class="svc-cover">
+        <span class="tag">Every visit covers</span>
+        <ul class="checks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Kitchen: counters, sink, stovetop and appliance exteriors</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Bathrooms: toilet, tub or shower, sink and mirrors</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Dusting of reachable surfaces in every room</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Floors vacuumed and mopped</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Scope agreed room by room, led and checked by the owner</li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="svc-cards">
+      <article class="card is-on svc-card reveal" style="--i:0">
+        <span class="icon"><svg aria-hidden="true"><use href="#i-spark"/></svg></span>
+        <h3 class="h3">Deep cleaning</h3>
+        <p>A top-to-bottom clean for homes that need more than upkeep: a first visit, a seasonal reset or catching up.</p>
+        <ul class="checks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Built-up grime in kitchens and bathrooms</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Baseboards, doors, switches and detail areas</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>A great first step before recurring visits</li>
+        </ul>
+        <a class="svc-link" href="#quote" data-service="deep" data-track="cta_service_deep">Get a deep clean quote<svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
+      </article>
+      <article class="card is-on svc-card reveal" style="--i:1">
+        <span class="icon"><svg aria-hidden="true"><use href="#i-bed"/></svg></span>
+        <h3 class="h3">Airbnb &amp; short&#8209;term rentals</h3>
+        <p>Detailed turnovers between guests, so the property is ready for the next check-in.</p>
+        <ul class="checks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Kitchen, bathrooms and living areas reset</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Beds made and towels set out for guests</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Timed around your check-out and check-in</li>
+        </ul>
+        <a class="svc-link" href="#quote" data-service="airbnb" data-track="cta_service_airbnb">Get a turnover quote<svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
+      </article>
+      <article class="card is-on svc-card reveal" style="--i:2">
+        <span class="icon"><svg aria-hidden="true"><use href="#i-box"/></svg></span>
+        <h3 class="h3">Move-in / move-out</h3>
+        <p>An empty-home clean before you unpack or after you hand over the keys.</p>
+        <ul class="checks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Inside cabinets, drawers and closets</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Kitchen and bathrooms cleaned top to bottom</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Baseboards and floors throughout</li>
+        </ul>
+        <a class="svc-link" href="#quote" data-service="move" data-track="cta_service_move">Get a move quote<svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
+      </article>
+      <article class="card is-on svc-card reveal" style="--i:3">
+        <span class="icon"><svg aria-hidden="true"><use href="#i-ruler"/></svg></span>
+        <h3 class="h3">Post-construction</h3>
+        <p>Cleanup after a renovation or build, so the space is ready to live in.</p>
+        <ul class="checks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Fine construction dust removed from surfaces</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Fixtures, windowsills and cabinets wiped</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Floors cleaned and ready for move-in</li>
+        </ul>
+        <a class="svc-link" href="#quote" data-service="construction" data-track="cta_service_construction">Get a cleanup quote<svg aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
+      </article>
     </div>
-    <p class="cap reveal" style="margin-top:24px">Commercial cleaning is available on request. Ask in the quote form.</p>
+    <p class="cap svc-note reveal">Exact scope and any add-ons (like inside the fridge or oven) are confirmed in your quote. Commercial cleaning is available on request.</p>
   </div>
 </section>
 
@@ -698,7 +1147,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   <div class="wrap-wide">
     <div class="head" style="text-align:center">
       <span class="label reveal">Choose your frequency</span>
-      <h2 class="h2 reveal" style="--i:1;margin-inline:auto">How often should your home be reset?</h2>
+      <h2 class="h2 reveal" style="--i:1;margin-inline:auto">How often should your home <span class="soft">be reset?</span></h2>
     </div>
     <div class="plans">
       <article class="card plan reveal" style="--i:0">
@@ -761,7 +1210,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   <div class="wrap host">
     <div>
       <span class="label reveal">For Airbnb &amp; STR hosts</span>
-      <h2 class="h2 reveal" style="--i:1">Ready for the next check-in, every turnover.</h2>
+      <h2 class="h2 reveal" style="--i:1">Ready for the next check-in, <span class="soft">every turnover.</span></h2>
       <p class="body reveal" style="--i:2;margin-top:20px">Around three years of short-term rental turnovers. Hosts hire us for a detailed, dependable clean between guests, so the property is ready to receive the next one.</p>
       <div class="ctas reveal" style="--i:3">
         <a class="btn btn-primary" href="#quote" data-service="airbnb" data-track="cta_airbnb">Get a turnover quote</a>
@@ -780,6 +1229,66 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
+<!-- 7. PROVA: declaração em corpo de título.
+     Sem reviews no briefing, usamos o que os clientes valorizam segundo a própria cliente.
+     TROCAR: assim que houver reviews do Google, substituir pelo bloco comentado abaixo. -->
+<section class="section">
+  <div class="wrap">
+    <span class="label reveal">Why clients stay</span>
+    <p class="statement reveal" style="--i:1">Clients keep us for the quality, the attention to detail, <span class="soft">the punctuality and the trust of knowing their home is in good hands.</span></p>
+    <p class="cap reveal" style="--i:2">Families, busy professionals and short-term rental hosts across the Denver metro.</p>
+    <!-- TROCAR: a cliente disse que enviou reviews, mas elas ainda não chegaram. Quando chegarem,
+         descomente o bloco abaixo e cole o texto EXATO de cada review (nome como o cliente autorizou).
+         Nunca inventar ou "melhorar" review.
+    <div class="grid-4" style="margin-top:48px">
+      <figure class="card" style="margin:0">
+        <blockquote style="margin:0;color:var(--ink)">“[TEXTO EXATO DA REVIEW]”</blockquote>
+        <figcaption class="cap" style="margin-top:14px">[NOME], [CIDADE] · [SERVIÇO]</figcaption>
+      </figure>
+    </div>
+    -->
+  </div>
+</section>
+
+<!-- 10. AUTORIDADE: Meet Nathalia (feedback: mais pessoal, mostrando o envolvimento direto dela).
+     Texto em primeira pessoa: PEDIR APROVAÇÃO da Nathalia antes de publicar. -->
+<section class="section alt" id="owner">
+  <div class="wrap owner">
+    <div class="owner-visual reveal">
+    <div class="arch">
+      <!-- TROCAR (prioridade): retrato real da Nathalia, vertical 4:5, de preferência trabalhando ou sorrindo. Use:
+           <img src="img/nathalia-800.webp" srcset="img/nathalia-800.webp 800w, img/nathalia-1200.webp 1200w" sizes="(min-width:900px) 360px, 90vw"
+                width="800" height="1000" alt="Nathalia, owner of D’Paula Cleaning Specialist" loading="lazy">
+           e apague o <span class="mono-mark"> abaixo. -->
+      <span class="mono-mark" aria-hidden="true">D’P</span>
+    </div>
+      <div class="float o1">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-msg"/></svg></span>
+        <span>Direct line by text<small>Nathalia, owner</small></span>
+      </div>
+      <div class="float o2">
+        <span class="ico"><svg aria-hidden="true"><use href="#i-person"/></svg></span>
+        <span>On every job<small>Even with support team</small></span>
+      </div>
+    </div>
+    <div>
+      <span class="label reveal">Meet the owner</span>
+      <h2 class="h2 reveal" style="--i:1">Hi, I’m Nathalia. <span class="soft">I’m the person behind every clean.</span></h2>
+      <p class="body reveal" style="--i:2;margin-top:20px">I built D’Paula through hands-on work: about five years cleaning homes and three years turning over short-term rentals. I still quote every home myself, lead and personally follow every job, and stay in direct control of anyone who helps me. If something isn’t right, you don’t get a call center. You text me.</p>
+      <ul class="checks reveal" style="--i:3">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>I review every quote request personally</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>I lead and follow up on every job, even with my support team</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>You can reach me directly by text or email</li>
+      </ul>
+      <p class="owner-sign reveal" style="--i:4"><b>Nathalia</b>Owner, D’Paula Cleaning Specialist</p>
+      <div class="ctas reveal" style="--i:5">
+        <a class="btn btn-primary sms-link" href="sms:+17207011667?&amp;body=Hi%20Nathalia%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text"><svg aria-hidden="true"><use href="#i-msg"/></svg>Text Nathalia</a>
+        <a class="btn btn-ghost" href="mailto:dpaulacleaning@outlook.com?subject=Cleaning%20quote" data-track="contact_email"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 9. GARANTIA: bloco próprio, com as políticas reais da cliente -->
 <section class="section" id="promise">
   <div class="wrap">
@@ -787,7 +1296,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
       <div>
         <span class="seal"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
         <span class="label" style="margin-top:28px">Our promise</span>
-        <h2 class="h2" style="font-size:clamp(1.75rem,3.5vw,2.75rem)">If it’s not right, we make it right.</h2>
+        <h2 class="h2" style="font-size:clamp(1.75rem,3.5vw,2.75rem)">If it’s not right, <span class="soft">we make it right.</span></h2>
       </div>
       <div class="promise-list">
         <div>
@@ -809,30 +1318,50 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
-<!-- FORMULÁRIO DE ORÇAMENTO -->
+<!-- FORMULÁRIO DE ORÇAMENTO
+     Feedback da cliente: ela não encontrou o formulário. Agora: título explícito "Free quote form",
+     cartões de Text/Email ao lado, destaque visual ao chegar por qualquer botão "free quote",
+     e o formulário dividido em 2 blocos curtos (casa/serviço → contato). -->
 <section class="section alt" id="quote">
   <div class="wrap quote">
     <div class="quote-side">
       <span class="label reveal">Free quote</span>
-      <h2 class="h2 reveal" style="--i:1">Get your exact price by text or email.</h2>
-      <p class="body reveal" style="--i:2;margin-top:20px">Share a few details about your home. The owner reviews every request personally and replies with a quote built for your home.</p>
+      <h2 class="h2 reveal" style="--i:1">Tell us about your home. <span class="soft">Get your price.</span></h2>
+      <p class="body reveal" style="--i:2;margin-top:20px">Fill out the short form and Nathalia will review it personally and send a quote built for your home, by text or email. Prefer to reach out directly? Use the options below.</p>
       <!-- TROCAR: se a cliente definir prazo de resposta, acrescentar "Replies within X hours". -->
-      <ul class="checks reveal" style="--i:3">
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg>No obligation to book</li>
+      <div class="contact-cards reveal" style="--i:3">
+        <a class="contact-card sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-msg"/></svg></span>
+          <span><small>Text message</small><b>(720) 701-1667</b></span>
+        </a>
+        <a class="contact-card" href="mailto:dpaulacleaning@outlook.com?subject=Cleaning%20quote" data-track="contact_email">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+          <span><small>Email</small><b>dpaulacleaning@outlook.com</b></span>
+        </a>
+      </div>
+      <ul class="checks reveal" style="--i:4">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free, with no obligation to book</li>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg>Price based on your home, not a generic package</li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Rather text? <a class="sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text">(720) 701-1667</a></span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Every request reviewed by the owner</li>
       </ul>
     </div>
 
-    <!-- TROCAR: crie um formulário grátis em formspree.io e cole a URL em FORM_ENDPOINT (no script).
-         Sem endpoint, o envio abre o e-mail do visitante já preenchido para dpaulacleaning@outlook.com. -->
-    <form class="form reveal" id="quote-form" novalidate style="--i:2">
+    <!-- TROCAR (obrigatório antes de publicar): cole em FORM_ENDPOINT (no script) a URL do Formspree
+         (formspree.io, grátis) ou de um webhook do n8n. Sem endpoint, o envio abre o e-mail do visitante
+         já preenchido para dpaulacleaning@outlook.com, e ele ainda precisa apertar "enviar". -->
+    <form class="form reveal" id="quote-form" novalidate style="--i:2" aria-labelledby="form-title">
       <div class="form-body">
+        <div class="form-head">
+          <h3 class="h3" id="form-title">Free quote form</h3>
+          <span class="cap">About 1 minute · No obligation</span>
+        </div>
         <div class="fields">
+          <p class="form-step">1 · Your home and service</p>
           <div class="field full">
             <label for="service">What do you need?</label>
             <select id="service" name="service" required>
               <option value="recurring">Recurring house cleaning</option>
+              <option value="deep">Deep cleaning</option>
               <option value="airbnb">Airbnb / short-term rental turnover</option>
               <option value="move">Move-in / move-out cleaning</option>
               <option value="construction">Post-construction cleaning</option>
@@ -855,7 +1384,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
           <div class="field">
             <label for="bedrooms">Bedrooms</label>
             <select id="bedrooms" name="bedrooms" required>
-              <option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
+              <option value="">Select</option><option>Studio</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
             </select>
           </div>
           <div class="field">
@@ -870,8 +1399,10 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
           </div>
           <div class="field">
             <label for="city">City or ZIP</label>
-            <input id="city" name="city" autocomplete="postal-code" placeholder="e.g. Castle Rock" required>
+            <input id="city" name="city" autocomplete="address-level2" placeholder="e.g. Castle Rock" required>
           </div>
+
+          <p class="form-step">2 · How to reach you</p>
           <div class="field">
             <label for="name">Your name</label>
             <input id="name" name="name" autocomplete="name" required>
@@ -879,10 +1410,6 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
           <div class="field">
             <label for="phone">Mobile phone</label>
             <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(720) 000-0000" required>
-          </div>
-          <div class="field full">
-            <label for="email">Email <span class="opt">(optional)</span></label>
-            <input id="email" name="email" type="email" autocomplete="email">
           </div>
           <div class="field full">
             <fieldset>
@@ -894,59 +1421,26 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
             </fieldset>
           </div>
           <div class="field full">
+            <label for="email">Email <span class="opt" id="email-opt">(optional)</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div class="field full">
             <label for="notes">Anything we should know? <span class="opt">(optional)</span></label>
             <textarea id="notes" name="notes" placeholder="Pets, priority rooms, preferred days, property details…"></textarea>
           </div>
         </div>
         <button class="btn btn-primary" type="submit">Send my quote request</button>
-        <p class="cap form-note">We only use your details to send your quote.</p>
+        <p class="consent">By sending, you agree to be contacted by text or email about your quote. Message and data rates may apply. We only use your details for your quote.</p>
         <p class="form-error" id="form-error" role="alert"></p>
       </div>
 
       <div class="success" role="status" aria-live="polite">
         <span class="seal"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
-        <h3 class="h3" style="font-size:1.5rem">Request received.</h3>
-        <p id="success-msg">The owner will review your home details and send your quote by text or email.</p>
+        <h3 class="h3" style="font-size:1.5rem" id="success-title">Request received.</h3>
+        <p id="success-msg">Nathalia will review your home details and send your quote by text or email.</p>
         <a class="btn btn-ghost sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%20just%20sent%20a%20quote%20request." data-track="contact_text">Text us now instead</a>
       </div>
     </form>
-  </div>
-</section>
-
-<!-- 7. PROVA: declaração em corpo de título.
-     Sem reviews no briefing, usamos o que os clientes valorizam segundo a própria cliente.
-     TROCAR: assim que houver reviews do Google, substituir pelo bloco comentado abaixo. -->
-<section class="section">
-  <div class="wrap">
-    <span class="label reveal">Why clients stay</span>
-    <p class="statement reveal" style="--i:1">Clients keep us for the quality, the attention to detail, the punctuality and the trust of knowing their home is in good hands.</p>
-    <p class="cap reveal" style="--i:2">Families, busy professionals and short-term rental hosts across the Denver metro.</p>
-    <!--
-    <blockquote class="statement">“[REVIEW REAL DO GOOGLE, CURTA E ESPECÍFICA]”</blockquote>
-    <p class="cap">[NOME], [CIDADE] · [SERVIÇO] client since [ANO]</p>
-    -->
-  </div>
-</section>
-
-<!-- 10. AUTORIDADE: quem entrega, depois do valor -->
-<section class="section alt" id="owner">
-  <div class="wrap owner">
-    <div class="arch reveal">
-      <!-- TROCAR: foto real da dona (retrato vertical 4:5), ex.:
-           <img src="dona.webp" alt="[NOME], owner of D'Paula Cleaning Specialist" width="800" height="1000"> -->
-      <span class="mono-mark" aria-hidden="true">D’P</span>
-    </div>
-    <div>
-      <span class="label reveal">Meet the owner</span>
-      <!-- TROCAR: confirmar o nome da dona e usar "Meet [NOME]" no título -->
-      <h2 class="h2 reveal" style="--i:1">The person who quotes your home is the person who stands behind it.</h2>
-      <p class="body reveal" style="--i:2">D’Paula was built on hands-on work: around five years cleaning homes and three years turning over short-term rentals. As the company grows, the owner stays at the front of every service and keeps direct control over anyone who works alongside her.</p>
-      <ul class="checks reveal" style="--i:3">
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Leads and follows up on every job personally</li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Flexible for different homes, scopes and schedules</li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Reachable directly by text or email</li>
-      </ul>
-    </div>
   </div>
 </section>
 
@@ -964,7 +1458,11 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false" aria-controls="a2" id="q2">What exactly do you offer?<span class="plus"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button>
-        <div class="faq-a" id="a2" role="region" aria-labelledby="q2"><div><p>Recurring house cleaning (weekly, biweekly or monthly), Airbnb and short-term rental turnovers, move-in/move-out and post-construction cleaning. Commercial cleaning is available on request.</p></div></div>
+        <div class="faq-a" id="a2" role="region" aria-labelledby="q2"><div><p>Recurring house cleaning (weekly, biweekly or monthly), deep cleaning, Airbnb and short-term rental turnovers, move-in/move-out and post-construction cleaning. Commercial cleaning is available on request.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" aria-controls="a8" id="q8">What’s the difference between a deep clean and recurring cleaning?<span class="plus"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button>
+        <div class="faq-a" id="a8" role="region" aria-labelledby="q8"><div><p>A deep clean is a one-time, top-to-bottom clean that reaches built-up grime and detail areas like baseboards and doors. Recurring cleaning keeps that standard on a weekly, biweekly or monthly schedule. It’s common to start with a deep clean and then move to recurring visits. Exact scope is confirmed in your quote.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false" aria-controls="a3" id="q3">What if my home is bigger or needs something specific?<span class="plus"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button>
@@ -976,7 +1474,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false" aria-controls="a5" id="q5">How do I get started?<span class="plus"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button>
-        <div class="faq-a" id="a5" role="region" aria-labelledby="q5"><div><p>Fill out the <a href="#quote">quote form</a> or text <a class="sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text">(720) 701-1667</a>. You’ll get your price by text or email, then we schedule your first clean.</p></div></div>
+        <div class="faq-a" id="a5" role="region" aria-labelledby="q5"><div><p>Fill out the <a href="#quote">free quote form</a>, text <a class="sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text">(720) 701-1667</a> or email <a href="mailto:dpaulacleaning@outlook.com?subject=Cleaning%20quote" data-track="contact_email">dpaulacleaning@outlook.com</a>. You’ll get your price by text or email, then we schedule your first clean.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false" aria-controls="a6" id="q6">Which areas do you serve?<span class="plus"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></button>
@@ -991,11 +1489,11 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 </section>
 
 <!-- 12. FECHAMENTO: futuro comparado, título em pergunta, mesmo botão -->
-<section class="section alt">
+<section class="section alt closing">
   <div class="wrap">
     <div style="text-align:center">
       <span class="label reveal">Your next weekend</span>
-      <h2 class="h2 reveal" style="--i:1;margin-inline:auto">What would your week feel like with the house already done?</h2>
+      <h2 class="h2 reveal" style="--i:1;margin-inline:auto">What would your week feel like <span class="soft">with the house already done?</span></h2>
     </div>
     <div class="close-grid">
       <div class="col without reveal">
@@ -1017,6 +1515,10 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
     </div>
     <div class="close-cta reveal">
       <a class="btn btn-primary" href="#quote" data-track="cta_close">Get my free quote</a>
+      <p class="text-line" style="justify-content:center">
+        <span>Text <a class="sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text">(720) 701-1667</a></span>
+        <span>Email <a href="mailto:dpaulacleaning@outlook.com?subject=Cleaning%20quote" data-track="contact_email">dpaulacleaning@outlook.com</a></span>
+      </p>
     </div>
   </div>
 </section>
@@ -1031,7 +1533,8 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
         <svg viewBox="0 0 512 594" aria-hidden="true"><use href="#mark" width="512" height="594"/></svg>
         <span><b>D’PAULA</b><small>CLEANING SPECIALIST</small></span>
       </a>
-      <p style="margin-top:18px;max-width:36ch">Owner-led house cleaning, Airbnb turnovers and move-in/move-out cleaning across the Denver metro.</p>
+      <p style="margin-top:18px;max-width:36ch">Owner-led recurring house cleaning, deep cleaning, Airbnb turnovers, move-in/move-out and post-construction cleaning across the Denver metro.</p>
+      <p style="margin-top:14px"><a href="#quote" data-track="cta_footer" style="color:#FFC3E7;font-weight:600">Get a free quote →</a></p>
     </div>
     <div>
       <h4>Contact</h4>
@@ -1050,23 +1553,33 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 
 <!-- Barra fixa no celular -->
 <nav class="mbar" aria-label="Quick actions">
-  <a class="btn btn-ghost sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text" aria-label="Text D'Paula">
+  <a class="btn btn-ghost sms-link" href="sms:+17207011667?&amp;body=Hi%20D%27Paula%2C%20I%27d%20like%20a%20cleaning%20quote." data-track="contact_text" aria-label="Text D'Paula at (720) 701-1667">
     <svg aria-hidden="true"><use href="#i-msg"/></svg>Text
   </a>
-  <a class="btn btn-primary" href="#quote" data-track="cta_mobile_bar">Get my free quote</a>
+  <a class="btn btn-ghost" href="mailto:dpaulacleaning@outlook.com?subject=Cleaning%20quote" data-track="contact_email" aria-label="Email D'Paula">
+    <svg aria-hidden="true"><use href="#i-mail"/></svg>Email
+  </a>
+  <a class="btn btn-primary" href="#quote" data-track="cta_mobile_bar">Free quote</a>
 </nav>
 
 <script>
 (() => {
-  /* TROCAR: URL do Formspree (ex.: "https://formspree.io/f/abcdwxyz"). Vazio = envio por e-mail do visitante. */
+  /* TROCAR (obrigatório): URL do Formspree (ex.: "https://formspree.io/f/abcdwxyz") ou de um webhook do n8n.
+     Vazio = o envio abre o e-mail do visitante já preenchido (ele ainda precisa apertar "enviar"). */
   const FORM_ENDPOINT = "";
   const OWNER_EMAIL = "dpaulacleaning@outlook.com";
+  const OWNER_TEXT = "(720) 701-1667";
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* Eventos para GA4 / GTM / Meta Pixel (só disparam se as tags estiverem instaladas) */
   function track(name, params = {}) {
     window.dataLayer && window.dataLayer.push({ event: name, ...params });
     window.gtag && window.gtag("event", name, params);
-    if (window.fbq) window.fbq("track", name === "generate_lead" ? "Lead" : name.startsWith("contact") ? "Contact" : "ViewContent", params);
+    if (window.fbq) {
+      const std = name === "generate_lead" ? "Lead"
+        : (name.startsWith("contact") || name === "quote_mailto_opened") ? "Contact" : null;
+      std ? window.fbq("track", std, params) : window.fbq("trackCustom", name, params);
+    }
   }
   document.addEventListener("click", (e) => {
     const el = e.target.closest("[data-track]");
@@ -1081,6 +1594,13 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
+  /* Nav ganha sombra quando a página sai do topo */
+  const nav = document.querySelector(".nav");
+  const topMark = document.createElement("div");
+  topMark.style.cssText = "position:absolute;top:0;left:0;width:1px;height:24px;pointer-events:none";
+  document.body.prepend(topMark);
+  new IntersectionObserver(([en]) => nav.classList.toggle("scrolled", !en.isIntersecting)).observe(topMark);
+
   /* FAQ */
   document.querySelectorAll(".faq-q").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -1090,27 +1610,126 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
     });
   });
 
-  /* Pré-seleção de serviço/frequência a partir dos botões */
+  /* Antes e depois: esteira com scroll-snap, setas, botões por cômodo e teclado */
+  const track_ = document.getElementById("ba-track");
+  if (track_) {
+    const slides = [...track_.querySelectorAll(".ba-slide")];
+    const chips = [...document.querySelectorAll("#ba-chips [data-go]")];
+    const prev = document.getElementById("ba-prev");
+    const next = document.getElementById("ba-next");
+    const now = document.getElementById("ba-now");
+    let cur = -1;
+
+    const setActive = (i) => {
+      if (i === cur) return;
+      cur = i;
+      slides.forEach((s, k) => s.classList.toggle("is-active", k === i));
+      chips.forEach((c, k) => c.setAttribute("aria-current", String(k === i)));
+      prev.disabled = i === 0;
+      next.disabled = i === slides.length - 1;
+      now.textContent = i + 1;
+      const chip = chips[i];
+      if (chip) {
+        const bar = chip.parentElement;
+        bar.scrollTo({ left: chip.offsetLeft - (bar.clientWidth - chip.offsetWidth) / 2, behavior: reduceMotion ? "auto" : "smooth" });
+      }
+    };
+    const go = (i) => {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      const s = slides[i];
+      track_.scrollTo({ left: s.offsetLeft - (track_.clientWidth - s.offsetWidth) / 2, behavior: reduceMotion ? "auto" : "smooth" });
+      setActive(i);
+    };
+
+    let raf = 0;
+    track_.addEventListener("scroll", () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const mid = track_.scrollLeft + track_.clientWidth / 2;
+        let best = 0, dist = Infinity;
+        slides.forEach((s, k) => {
+          const d = Math.abs(s.offsetLeft + s.offsetWidth / 2 - mid);
+          if (d < dist) { dist = d; best = k; }
+        });
+        setActive(best);
+      });
+    }, { passive: true });
+
+    prev.addEventListener("click", () => go(cur - 1));
+    next.addEventListener("click", () => go(cur + 1));
+    chips.forEach((c) => c.addEventListener("click", () => go(Number(c.dataset.go))));
+    slides.forEach((s, k) => s.addEventListener("click", () => { if (k !== cur) go(k); }));
+    track_.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(cur + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(cur - 1); }
+    });
+    setActive(0);
+  }
+
+  /* Formulário */
   const form = document.getElementById("quote-form");
+  const err = document.getElementById("form-error");
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  /* Destaque rápido no formulário ao chegar por um botão "free quote" */
+  document.querySelectorAll('a[href="#quote"]').forEach((a) => {
+    a.addEventListener("click", () => {
+      form.classList.remove("flash");
+      setTimeout(() => form.classList.add("flash"), reduceMotion ? 0 : 650);
+    });
+  });
+  form.addEventListener("animationend", (e) => { if (e.animationName === "ring") form.classList.remove("flash"); });
+
+  /* Serviço → frequência sugerida (limpezas pontuais = "One time") */
+  const ONE_TIME = ["deep", "move", "construction"];
+  form.service.addEventListener("change", () => {
+    const v = form.service.value;
+    const f = form.querySelector('input[name="frequency"]:checked');
+    if (ONE_TIME.includes(v) && f.value !== "one-time") document.getElementById("f-once").checked = true;
+    if (v === "recurring" && f.value === "one-time") document.getElementById("f-biweekly").checked = true;
+  });
+
+  /* Pré-seleção de serviço/frequência a partir dos botões */
   document.querySelectorAll("[data-service],[data-freq]").forEach((a) => {
     a.addEventListener("click", () => {
-      if (a.dataset.service) form.service.value = a.dataset.service;
-      if (a.dataset.freq) { const r = document.getElementById("f-" + a.dataset.freq); if (r) r.checked = true; }
+      if (a.dataset.service) { form.service.value = a.dataset.service; form.service.dispatchEvent(new Event("change")); }
+      if (a.dataset.freq) {
+        if (!a.dataset.service) form.service.value = "recurring";
+        const r = document.getElementById("f-" + a.dataset.freq); if (r) r.checked = true;
+      }
     });
   });
 
-  /* Envio do formulário */
-  const err = document.getElementById("form-error");
+  /* E-mail vira obrigatório quando a pessoa escolhe receber por e-mail */
+  const emailOpt = document.getElementById("email-opt");
+  const syncEmail = () => {
+    const byEmail = form.querySelector('input[name="contact"]:checked').value === "email";
+    form.email.required = byEmail;
+    emailOpt.textContent = byEmail ? "(required for email)" : "(optional)";
+  };
+  form.querySelectorAll('input[name="contact"]').forEach((r) => r.addEventListener("change", syncEmail));
+  syncEmail();
+
+  const fieldName = (f) => {
+    const label = form.querySelector(`label[for="${f.id}"]`);
+    return label ? label.childNodes[0].textContent.trim() : "the required fields";
+  };
+  const fail = (msg, field) => {
+    err.textContent = msg;
+    err.classList.add("show");
+    if (field) { field.setAttribute("aria-invalid", "true"); field.focus(); }
+  };
+  form.addEventListener("input", (e) => e.target.removeAttribute("aria-invalid"));
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     err.classList.remove("show");
+
     const invalid = [...form.querySelectorAll("[required]")].find((f) => !f.value.trim());
-    if (invalid) {
-      err.textContent = "Please fill in " + (form.querySelector(`label[for="${invalid.id}"]`)?.textContent.trim() || "the required fields") + ".";
-      err.classList.add("show");
-      invalid.focus();
-      return;
-    }
+    if (invalid) return fail("Please fill in " + fieldName(invalid) + ".", invalid);
+    if (form.phone.value.replace(/\D/g, "").length < 10) return fail("Please enter a 10-digit mobile number.", form.phone);
+    if (form.email.value.trim() && !form.email.checkValidity()) return fail("Please check your email address.", form.email);
+
     const data = new FormData(form);
     const svcText = form.service.options[form.service.selectedIndex].text;
     const summary =
@@ -1118,24 +1737,29 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
       `Bathrooms: ${data.get("bathrooms")}\nSize: ${data.get("sqft") || "-"} sq ft\nCity/ZIP: ${data.get("city")}\n` +
       `Name: ${data.get("name")}\nPhone: ${data.get("phone")}\nEmail: ${data.get("email") || "-"}\n` +
       `Send quote by: ${data.get("contact")}\nNotes: ${data.get("notes") || "-"}`;
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true; btn.textContent = "Sending…";
+    const params = { service: data.get("service"), frequency: data.get("frequency") };
 
+    submitBtn.disabled = true; submitBtn.textContent = "Sending…";
     try {
       if (FORM_ENDPOINT) {
         data.append("_subject", `New quote request: ${svcText} (${data.get("city")})`);
+        data.append("summary", summary);
         const res = await fetch(FORM_ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } });
         if (!res.ok) throw new Error("send failed");
+        track("generate_lead", params);
       } else {
+        /* Sem endpoint: abre o e-mail do visitante. Não é um lead confirmado, então não dispara generate_lead. */
         window.location.href = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent("Quote request: " + svcText)}&body=${encodeURIComponent(summary)}`;
-        document.getElementById("success-msg").textContent = "Your email app opened with your request ready. Hit send, or text us if that’s easier.";
+        document.getElementById("success-title").textContent = "One more step.";
+        document.getElementById("success-msg").textContent =
+          `Your email app opened with your request ready. Just hit send, or text ${OWNER_TEXT} if that’s easier.`;
+        track("quote_mailto_opened", params);
       }
-      track("generate_lead", { service: data.get("service"), frequency: data.get("frequency") });
       form.classList.add("sent");
+      form.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
     } catch (_) {
-      err.textContent = "We couldn’t send your request. Please text (720) 701-1667 or email " + OWNER_EMAIL + ".";
-      err.classList.add("show");
-      btn.disabled = false; btn.textContent = "Send my quote request";
+      fail(`We couldn’t send your request. Please text ${OWNER_TEXT} or email ${OWNER_EMAIL}.`);
+      submitBtn.disabled = false; submitBtn.textContent = "Send my quote request";
     }
   });
 })();
