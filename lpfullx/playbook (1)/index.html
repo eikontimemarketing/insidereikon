@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<!--
+══════════════════════════════════════════════════════════════════════════════════════
+  FULLX — PLAYBOOK 0 AOS 100K (isca) · v4 (sistema "41 landing pages premium")
+
+  PROJETO
+    Produto ......... Playbook 0 aos 100K, 47 páginas, PDF gratuito
+    Público ......... Gestor de tráfego R$6–10 mil e dono de agência R$10–30 mil. Chega aqui quem saiu
+                      do diagnóstico (index.html → ?from=saida) ou vem de anúncio de isca.
+    Objetivo único .. Deixar contato e baixar o PDF → depois, fazer o Diagnóstico 0 aos 100K
+    Identidade ...... modelada dos PDFs FULLX: azul #143FFF, tinta #090E2B, fundo branco.
+
+  COMO EDITAR
+    ✏️ texto   🖼️ imagem   🔗 link
+    Configure em DOIS lugares: [TRACKING] no topo (mesmo ID da página principal) e [CONFIG] no fim.
+
+  ESTRUTURA: [01] NAV  [02] ABERTURA + FORMULÁRIO  [03] FAIXA  [04] O QUE TEM DENTRO
+             [05] A ESCADA  [06] AUTORIDADE  [07] PERGUNTAS  [08] FECHAMENTO  [09] RODAPÉ + BARRA
+══════════════════════════════════════════════════════════════════════════════════════
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ═══ [TRACKING] 📊 mesmo ID da página principal. Vazio = desligado.
+     Eventos: PageView · Lead (com o webhook recebendo; event_id para a CAPI) · LeadQualificado ·
+     BaixouPlaybook · CliqueDiagnostico -->
+<script>
+window.FULLX_TRACKING = {
+  PIXEL_ID: '',   /* 📊 */
+  GTM_ID:   ''    /* 📊 */
+};
+(function(c,w,d){
+  if(c.GTM_ID){w.dataLayer=w.dataLayer||[];w.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
+    var j=d.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+c.GTM_ID;d.head.appendChild(j)}
+  if(c.PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(w,d,'script','https://connect.facebook.net/en_US/fbevents.js');
+    w.fbq('init',c.PIXEL_ID);w.fbq('track','PageView')}
+})(window.FULLX_TRACKING,window,document);
+</script>
+
+<title>Playbook 0 aos 100K — grátis | FULLX</title>
+<meta name="description" content="O framework do que faz uma agência faturar de R$20 mil a R$300 mil por mês: funis de aquisição qualificada e processo comercial completo. 47 páginas, grátis.">
+<meta property="og:title" content="Você ganhou o Playbook 0 aos 100K">
+<meta property="og:description" content="47 páginas: funis de aquisição qualificada e o processo comercial para escalar a sua agência.">
+<meta property="og:type" content="website">
+<meta property="og:image" content=""><!-- 🖼️ capa 1200x630 -->
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═════ IDENTIDADE FULLX (modelada dos PDFs: Playbook 10X, 250 Testes, Estudo e Playbook Meta Ads) ═════
+   Cor ........ azul elétrico #143FFF · tinta #090E2B · fundo branco · tom #F1F5FE
+   Tipografia . Inter Tight (sans: leve na entrada, pesada em CAIXA ALTA no impacto)
+                Instrument Serif itálico (a virada em azul + números grandes)
+                JetBrains Mono (rótulos "— ESTUDO 01 · META ADS")
+   Gráficos ... grade fina de linhas · esfera pontilhada · cards brancos com 1 card azul cheio ·
+                chips em pílula mono · rodapé com barra segmentada e paginação
+   Status (ok / falha) é separado do azul da marca e nunca decorativo. */
+:root{
+  --blue:#143FFF;--blue-d:#0F30CC;--blue-50:#F1F5FE;--blue-100:#E6ECFF;--blue-200:#CCD8FF;--blue-300:#A9BCFF;
+  --ink:#090E2B;--t2:#454B66;--t3:#646B87;
+  --bg:#FFFFFF;--bg-2:#F6F8FE;--line:#E4E9F5;--line-2:#D5DEFF;
+  --ok:#15803D;--ok-bg:#ECFDF3;--bad:#D92D20;--bad-bg:#FEF3F2;--bad-line:#FECDCA;
+  --sh-card:0 1px 2px rgba(9,14,43,.04),0 12px 32px -16px rgba(9,14,43,.12);
+  --sh-lift:0 2px 4px rgba(9,14,43,.05),0 28px 60px -28px rgba(20,63,255,.28);
+  --glow:0 10px 30px -10px rgba(20,63,255,.55);
+  --ff:"Inter Tight","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --fs:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --fm:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --e1:cubic-bezier(.4,0,.2,1);--e2:cubic-bezier(.16,1,.3,1);
+  --r-card:18px;--r-block:28px;
+  --w-cards:1320px;--w-mix:1200px;--w-steps:1000px;--w-faq:800px;
+  --sec:clamp(64px,10vw,140px);--after-head:56px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+body{font-family:var(--ff);background:var(--bg);color:var(--t2);font-size:1.0625rem;font-weight:400;line-height:1.62;letter-spacing:-.005em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+button,select{font:inherit;color:inherit}
+img,svg{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:8px}
+.wrap{width:100%;max-width:var(--w-mix);margin:0 auto;padding:0 clamp(16px,5vw,40px)}
+.wrap.cards{max-width:var(--w-cards)}.wrap.steps{max-width:var(--w-steps)}.wrap.faq-w{max-width:var(--w-faq)}
+.ic{fill:none;stroke:currentColor;stroke-width:1.7px;stroke-linecap:round;stroke-linejoin:round;width:1em;height:1em;flex:none;display:inline-block;vertical-align:middle}
+
+/* tipografia: sans pesada + virada em serifada itálica azul */
+h1,h2,h3{color:var(--ink);text-wrap:balance}
+h2{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:700;line-height:1.04;letter-spacing:-.035em}
+h3{font-size:1.2rem;font-weight:600;line-height:1.25;letter-spacing:-.02em}
+h2 .mute,h3 .mute,.sf{font-family:var(--fs);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:-.01em;font-size:1.1em;line-height:.95}
+p{text-wrap:pretty;max-width:65ch}
+b,strong{font-weight:600;color:var(--ink)}
+.label{display:inline-flex;align-items:center;gap:12px;font-family:var(--fm);font-size:11.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;line-height:1.3;color:var(--blue)}
+.label::before{content:"";width:24px;height:1px;background:currentColor;flex:none}
+.cap{font-size:.8125rem;color:var(--t3)}
+.cap a{color:inherit;text-underline-offset:2px}
+.mono{font-family:var(--fm);font-size:.72rem;letter-spacing:.06em;color:var(--t3)}
+.num,.serif-num{font-family:var(--fs);font-weight:400;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.02em}
+
+/* abertura no formato dos PDFs: frase leve · IMPACTO EM CAIXA ALTA · virada em serifada itálica */
+.h1{color:var(--ink);max-width:none}
+.h1 .pre{display:block;font-size:clamp(1.5rem,1rem + 2.4vw,2.6rem);font-weight:300;letter-spacing:-.025em;line-height:1.1;color:#3B4262}
+.h1 .big{display:block;margin-top:.12em;font-size:clamp(2.5rem,1rem + 6.6vw,6.2rem);font-weight:800;text-transform:uppercase;letter-spacing:-.045em;line-height:.9}
+.h1 .turn{display:block;font-family:var(--fs);font-style:italic;font-weight:400;font-size:clamp(2.8rem,1rem + 7.4vw,6.8rem);letter-spacing:-.02em;line-height:.95;color:var(--blue);padding-bottom:.06em}
+
+/* botões em pílula */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 30px;border-radius:9999px;border:1px solid transparent;font-size:1rem;font-weight:500;letter-spacing:-.01em;line-height:1.2;text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:box-shadow .3s var(--e1),transform .15s var(--e1),background .15s var(--e1),border-color .15s var(--e1),color .15s var(--e1)}
+.btn .ic{width:17px;height:17px;transition:transform .15s var(--e1)}
+.btn:hover .ic.arr{transform:translateX(3px)}
+.btn-p{color:#fff;background:var(--blue);border-color:var(--blue);box-shadow:var(--glow)}
+.btn-p:hover{background:var(--blue-d);border-color:var(--blue-d);transform:translateY(-2px);box-shadow:0 16px 36px -12px rgba(20,63,255,.7)}
+.btn-p[disabled]{opacity:.6;cursor:progress;transform:none}
+.btn-s{color:var(--ink);background:#fff;border-color:var(--line-2)}
+.btn-s:hover{border-color:var(--blue);color:var(--blue)}
+.btn-lg{min-height:58px;padding:16px 34px;font-size:1.0625rem}
+.btn-full{width:100%}
+.btn-link{background:none;border:0;cursor:pointer;color:var(--t3);font-size:.9rem;min-height:44px;padding:0 8px;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:639px){.btn{white-space:normal}.btn-m{width:100%}}
+
+/* chips mono em pílula */
+.tag,.chip{display:inline-flex;align-items:center;gap:9px;min-height:30px;padding:5px 13px;border-radius:9999px;font-family:var(--fm);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);background:var(--blue-50);border:1px solid var(--line-2)}
+.dot{position:relative;width:7px;height:7px;border-radius:50%;background:var(--ok);flex:none}
+.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:inherit;opacity:.5}
+@media(prefers-reduced-motion:no-preference){.dot::after{animation:sonar 2s var(--e1) infinite}}
+@keyframes sonar{to{transform:scale(3);opacity:0}}
+.dot.bad{background:var(--bad)}
+
+/* cards brancos · card azul cheio */
+.card{position:relative;border-radius:var(--r-card);background:#fff;border:1px solid var(--line);box-shadow:var(--sh-card);transition:border-color .3s var(--e1),transform .3s var(--e1),box-shadow .3s var(--e1)}
+.card.hov:hover{border-color:var(--blue-300);transform:translateY(-3px);box-shadow:var(--sh-lift)}
+.card.fill{background:var(--blue);border-color:var(--blue);color:#DCE4FF;box-shadow:0 30px 60px -30px rgba(20,63,255,.6)}
+.card.fill h3,.card.fill b{color:#fff}
+.card.fill .chip{color:#fff;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
+.ib{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none;color:#8D93AB;background:var(--bg-2);border:1px solid var(--line)}
+.ib .ic{width:19px;height:19px}
+.ib.on{color:var(--blue);background:var(--blue-50);border-color:var(--line-2)}
+
+/* gráficos de fundo: grade fina de linhas + esfera pontilhada */
+.gridbg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,rgba(20,63,255,.055) 1px,transparent 1px),linear-gradient(to bottom,rgba(20,63,255,.055) 1px,transparent 1px);background-size:72px 72px;
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)}
+.orb{position:absolute;pointer-events:none;width:min(560px,80vw);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(20,63,255,.42) 1.3px,transparent 1.6px) 0 0/13px 13px;
+  -webkit-mask-image:radial-gradient(circle at 40% 38%,#000 0,rgba(0,0,0,.65) 35%,transparent 70%);mask-image:radial-gradient(circle at 40% 38%,#000 0,rgba(0,0,0,.65) 35%,transparent 70%);opacity:.55}
+@media(prefers-reduced-motion:no-preference){.orb{animation:orbit 40s linear infinite}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+
+/* revelar ao rolar com desfoque */
+@keyframes revelar{from{opacity:0;transform:translateY(30px);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+.js .rv{animation:revelar .8s var(--e2) both;animation-play-state:paused;animation-delay:var(--d,0s)}
+.js .rv.on{animation-play-state:running}
+.stag > .rv:nth-child(2){--d:.08s}.stag > .rv:nth-child(3){--d:.16s}.stag > .rv:nth-child(4){--d:.24s}.stag > .rv:nth-child(5){--d:.32s}.stag > .rv:nth-child(6){--d:.4s}
+
+/* mídia a trocar + rascunho */
+.ph{position:relative;display:grid;place-items:center;text-align:center;overflow:hidden;background:repeating-linear-gradient(135deg,rgba(20,63,255,.04) 0 10px,transparent 10px 20px),var(--bg-2);border:1px dashed var(--line-2);color:var(--t3);font-size:.8rem;line-height:1.4;padding:16px}
+.ph span{max-width:28ch}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+html:not(.draft) [data-draft]{display:none!important}
+html:not(.draft) .ph:not(:has(img)){display:none!important}
+.draft-bar{display:none;position:relative;z-index:200;background:#FEF7E0;color:#6B4E00;font-size:.78rem;padding:8px 16px;text-align:center;border-bottom:1px solid #F5DFA0}
+html.draft .draft-bar{display:block}
+.todo{background:#FEF0C7;color:#6B4E00;border-radius:4px;padding:0 4px}
+
+/* seções */
+.sec{position:relative;padding:var(--sec) 0}
+.alt{background:var(--bg-2)}
+.head{position:relative;margin-bottom:var(--after-head);max-width:820px}
+.head .label+h2{margin-top:18px}
+.head p{margin-top:18px;font-size:1.0625rem}
+.head.c{text-align:center;margin-left:auto;margin-right:auto}
+.head.c .label{justify-content:center}
+.head.c p{margin-left:auto;margin-right:auto}
+.cta-c{margin-top:var(--after-head);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+
+/* topo fixo no formato do cabeçalho dos PDFs: "FULLX · ESTUDO META ADS" */
+.nav{position:fixed;z-index:70;top:0;left:0;right:0;background:rgba(255,255,255,.86);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4)}
+.nav-in{max-width:var(--w-mix);margin:0 auto;padding:10px clamp(16px,5vw,40px);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.nav-l{display:flex;align-items:center;gap:14px;min-width:0}
+.nav-l .mono{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-l .sep{color:var(--line-2)}
+html.draft .nav{top:34px}
+.brand{font-size:1.2rem;font-weight:800;letter-spacing:-.05em;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.brand i{font-style:normal;color:var(--blue)}
+.nav .btn{min-height:44px;padding:10px 20px;font-size:.92rem}
+@media(max-width:639px){.nav .btn,.nav-l .sep,.nav-l .mono{display:none}}
+
+/* perguntas sem JS: grid-template-rows 0fr → 1fr */
+.faq{display:grid;gap:10px}
+.qa{border-radius:var(--r-card);background:#fff;border:1px solid var(--line);transition:border-color .3s var(--e1),box-shadow .3s var(--e1)}
+.qa:has(input:checked){border-color:var(--blue-300);box-shadow:var(--sh-card)}
+.qa input{position:absolute;opacity:0;width:1px;height:1px}
+.qa label{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;padding:18px 22px;cursor:pointer;font-size:1.05rem;font-weight:600;color:var(--ink);letter-spacing:-.015em}
+.qa label .ic{width:18px;height:18px;color:var(--blue);transition:transform .3s var(--e1)}
+.qa:has(input:checked) label .ic{transform:rotate(45deg)}
+.qa:has(input:focus-visible){outline:2px solid var(--blue);outline-offset:3px}
+.ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease-out}
+.ans > div{min-height:0;overflow:hidden}
+.ans p{padding:0 22px 20px;font-size:.98rem}
+.qa:has(input:checked) .ans{grid-template-rows:1fr}
+
+/* rodapé no formato dos PDFs: marca | descrição · barra segmentada · paginação */
+.foot{padding:28px 0 36px;border-top:1px solid var(--line);font-size:.8125rem;color:var(--t3)}
+.foot-in{display:grid;gap:14px;align-items:center;grid-template-columns:1fr}
+@media(min-width:760px){.foot-in{grid-template-columns:1fr auto 1fr}}
+.foot-l{display:flex;align-items:center;gap:12px}
+.foot-l .brand{font-size:1rem;min-height:0}
+.foot-l .mono{border-left:1px solid var(--line-2);padding-left:12px}
+.segs{display:flex;gap:6px;justify-self:center}
+.segs i{width:30px;height:4px;border-radius:4px;background:var(--blue-100)}
+.segs i:first-child{width:40px;background:var(--blue)}
+.foot-r{justify-self:end;text-align:right}
+@media(max-width:759px){.foot-r{justify-self:start;text-align:left}.segs{justify-self:start}}
+.foot .disc{grid-column:1/-1;font-size:.76rem;max-width:none}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--blue)}
+
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);border-top:1px solid var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transform:translateY(110%);transition:transform .3s var(--e1)}
+.mbar.show{transform:none}
+.mbar .btn{width:100%}
+@media(min-width:640px){.mbar{display:none}}
+@media(max-width:639px){body{padding-bottom:80px}}
+
+/* ═════ PÁGINA DO PLAYBOOK ═════ */
+.hero{position:relative;overflow:clip;padding:clamp(48px,7vw,104px) 0 clamp(56px,7vw,96px)}
+.hero .orb{right:-200px;top:60px}
+.hero .wrap{position:relative}
+.hero-g{display:grid;gap:clamp(36px,5vw,64px);align-items:center}
+@media(min-width:1040px){.hero-g{grid-template-columns:1.1fr .9fr}}
+.hero .h1{margin-top:22px}
+.hero .h1 .big{font-size:clamp(2.6rem,1rem + 6vw,5.4rem)}
+.hero .h1 .turn{font-size:clamp(2.9rem,1rem + 6.8vw,6rem)}
+.hero .lead{margin-top:24px;font-size:clamp(1.0625rem,1rem + .3vw,1.2rem);max-width:50ch}
+.ticks{list-style:none;display:grid;gap:12px;margin-top:28px}
+.ticks li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--ink);font-size:.98rem;font-weight:500}
+.ticks .ic{width:17px;height:17px;margin-top:4px;color:var(--blue)}
+@media(max-width:1039px){.ticks{display:none}}
+
+/* capa do Playbook em azul cheio + formulário */
+.fwrap{position:relative;max-width:470px;width:100%;margin:0 auto}
+.cover{position:relative;overflow:hidden;aspect-ratio:16/7;margin:0 26px -44px;padding:18px 20px;border-radius:18px 18px 8px 8px;background:var(--blue);color:#fff;transform:perspective(1000px) rotateX(16deg);transform-origin:bottom;box-shadow:0 24px 50px -24px rgba(20,63,255,.7)}
+.cover .orb{right:-160px;top:-170px;width:360px;background-image:radial-gradient(circle,rgba(255,255,255,.6) 1.3px,transparent 1.6px);opacity:.5}
+.cover > :not(.orb):not(small){position:relative}
+@media(max-width:520px){.cover{aspect-ratio:auto;min-height:150px;margin:0 16px -14px;transform:perspective(1000px) rotateX(10deg)}.cover strong{font-size:2.4rem}.cover small{top:18px;bottom:auto}}
+.cover .mono{color:#C7D3FF;letter-spacing:.16em}
+.cover strong{display:flex;align-items:baseline;gap:10px;margin-top:6px;font-family:var(--fs);font-weight:400;font-size:3rem;line-height:1;color:#fff}
+.cover strong em{font-family:var(--ff);font-style:normal;font-weight:600;font-size:1rem;letter-spacing:-.01em}
+.cover small{position:absolute;right:18px;bottom:52px;font-family:var(--fm);font-size:.7rem;letter-spacing:.12em;color:#C7D3FF}
+.fcard{position:relative;z-index:1;padding:26px 22px 22px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 2px 4px rgba(9,14,43,.04),0 50px 90px -40px rgba(20,63,255,.35)}
+.fcard h2{font-size:1.45rem;font-weight:700;letter-spacing:-.03em}
+.fcard p.sub{margin-top:6px;font-size:.9rem;color:var(--t3)}
+.fld{display:grid;gap:6px;margin-top:14px}
+.fld label{font-size:.88rem;font-weight:500;color:var(--ink)}
+.fld input,.fld select{width:100%;min-height:52px;padding:0 16px;border-radius:12px;border:1px solid var(--line-2);background:#fff;font-size:1rem;color:var(--ink)}
+.fld input::placeholder{color:#9AA0B8}
+.fld select{appearance:none;-webkit-appearance:none;padding-right:40px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%23143FFF' stroke-width='1.6'/></svg>");background-repeat:no-repeat;background-position:right 16px center}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-100)}
+.fld [aria-invalid="true"]{border-color:var(--bad)}
+.err{font-size:.84rem;color:var(--bad);min-height:1.2em;margin-top:8px}
+.fcard .btn{margin-top:6px}
+.privacy{display:flex;justify-content:center;gap:8px;align-items:center;margin-top:12px;font-size:.8rem;color:var(--t3)}
+.privacy .ic{width:14px;height:14px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.ok{text-align:center;padding:6px 0 2px}
+.ok-ic{width:56px;height:56px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;color:var(--ok);background:var(--ok-bg);border:1px solid #ABEFC6}
+.ok-ic .ic{width:24px;height:24px;stroke-width:2px}
+.ok h2{font-size:1.45rem}
+.ok p{margin:10px auto 18px;font-size:.95rem}
+.ok .btn{width:100%}
+.ok .btn+.btn{margin-top:10px}
+.nxt{margin-top:16px;padding:14px;border-radius:12px;background:var(--blue-50);border:1px solid var(--line-2);text-align:left;font-size:.88rem;line-height:1.45;color:var(--ink)}
+
+/* faixa de números — numeral serifado */
+.strip{padding:clamp(28px,4vw,40px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+.strip ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:860px){.strip ul{grid-template-columns:repeat(4,1fr)}}
+.strip li{padding:18px;border-radius:var(--r-card);background:#fff;border:1px solid var(--line)}
+.strip li > span:first-child{display:block;font-family:var(--fm);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3)}
+.strip strong{display:block;margin-top:8px;font-family:var(--fs);font-size:clamp(2rem,1.4rem + 1.8vw,2.8rem);font-weight:400;line-height:1;color:var(--ink)}
+.strip small{display:block;margin-top:8px;font-size:.78rem;color:var(--t3)}
+
+/* o que tem dentro — card 01 azul cheio, como no "Três etapas" do Playbook Meta Ads */
+.grid4{display:grid;gap:16px;counter-reset:c}
+@media(min-width:760px){.grid4{grid-template-columns:1fr 1fr}}
+.ch{padding:26px 24px;counter-increment:c;display:flex;flex-direction:column}
+.ch::before{content:counter(c,decimal-leading-zero);font-family:var(--fs);font-style:italic;font-size:3.4rem;line-height:.9;color:var(--blue);margin-bottom:14px}
+.ch.fill::before{color:#fff}
+.ch h3{margin-bottom:8px}
+.ch p{font-size:.96rem;line-height:1.55}
+.ch .chip{margin-top:20px;align-self:flex-start}
+
+/* a escada — o momento memorável */
+.stairs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:end;height:440px}
+.step{position:relative;height:var(--h);display:flex;flex-direction:column;justify-content:flex-end;padding:14px 12px;border-radius:14px 14px 6px 6px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-card);transform-origin:bottom;transition:transform 1s var(--e2);transition-delay:var(--d,0s)}
+.js .stairs:not(.on) .step{transform:scaleY(.12)}
+.step strong{font-family:var(--fs);font-size:clamp(1.3rem,1rem + .9vw,1.9rem);font-weight:400;line-height:1;color:var(--ink)}
+.step span{display:block;margin-top:8px;font-size:.78rem;line-height:1.35}
+.step.top{background:var(--blue);border-color:var(--blue);box-shadow:0 30px 60px -24px rgba(20,63,255,.6)}
+.step.top strong{color:#fff}.step.top span{color:#DCE4FF}
+@media(max-width:859px){
+  .stairs{grid-template-columns:1fr;height:auto;gap:8px}
+  .step{height:auto;width:var(--wm);flex-direction:row;align-items:center;gap:14px;border-radius:12px;transform-origin:left}
+  .step strong{min-width:96px}
+  .step span{margin-top:0}
+  .js .stairs:not(.on) .step{transform:scaleX(.2)}
+}
+
+/* autoridade */
+.auth{display:grid;gap:clamp(28px,4vw,56px);align-items:center}
+@media(min-width:1040px){.auth{grid-template-columns:1.1fr .9fr}}
+.auth p{margin-top:16px}
+.facts{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.facts li{padding:18px 16px;border-radius:var(--r-card);background:#fff;border:1px solid var(--line);box-shadow:var(--sh-card)}
+.facts strong{display:block;font-family:var(--fs);font-size:2.3rem;font-weight:400;line-height:1;color:var(--ink)}
+.facts span{display:block;margin-top:6px;font-size:.8125rem;color:var(--t3)}
+
+/* fechamento — azul cheio */
+.final{position:relative;overflow:hidden;text-align:center;background:var(--blue);color:#DCE4FF}
+.final .orb{left:50%;top:-240px;margin-left:-280px;background-image:radial-gradient(circle,rgba(255,255,255,.55) 1.3px,transparent 1.6px);opacity:.45}
+.final .wrap{position:relative}
+.final .label{color:#fff;justify-content:center}
+.final h2,.final h2 .mute{color:#fff}
+.final h2{max-width:20ch;margin:18px auto 0}
+.final p{margin:18px auto 0}
+.final .btn-p{background:#fff;color:var(--blue);border-color:#fff;box-shadow:0 14px 34px -12px rgba(9,14,43,.45)}
+.final .btn-p:hover{background:var(--blue-50);border-color:var(--blue-50)}
+.final :focus-visible{outline-color:#fff}
+
+.hero-g > *,.auth > *{min-width:0}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .js .rv{animation:none;opacity:1;transform:none;filter:none}
+  .js .stairs:not(.on) .step{transform:none}
+}
+
+/* ═════ v6 · FUNDO TODO BRANCO + GRADE SAAS ═════
+   Sem esferas pontilhadas. Uma grade fina e transparente cobre a página inteira
+   (camada fixa atrás de tudo) e fica mais nítida no topo do herói. */
+.orb,.gridbg{display:none!important}
+html{background:#fff}body{background:transparent}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(to right,rgba(9,14,43,.065) 1px,transparent 1px),linear-gradient(to bottom,rgba(9,14,43,.065) 1px,transparent 1px);
+  background-size:64px 64px;background-position:center top;
+  -webkit-mask-image:radial-gradient(ellipse 90% 75% at 50% 45%,#000 40%,rgba(0,0,0,.55) 75%,rgba(0,0,0,.15) 100%);
+          mask-image:radial-gradient(ellipse 90% 75% at 50% 45%,#000 40%,rgba(0,0,0,.55) 75%,rgba(0,0,0,.15) 100%)}
+.gridbg{background-image:linear-gradient(to right,rgba(20,63,255,.11) 1px,transparent 1px),linear-gradient(to bottom,rgba(20,63,255,.11) 1px,transparent 1px);background-size:64px 64px;background-position:center top;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 0%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 0%,#000 20%,transparent 75%)}
+.alt,.strip{background:transparent}
+.strip{-webkit-backdrop-filter:none;backdrop-filter:none}
+.voice{background:#fff}
+/* fechamento do Playbook: branco, com a grade e o azul só no botão e na palavra-chave */
+.final{background:transparent;color:var(--t2);border-top:1px solid var(--line)}
+.final .label{color:var(--blue)}
+.final h2{color:var(--ink)}
+.final h2 .mute{color:var(--blue)}
+.final .btn-p{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:var(--glow)}
+.final .btn-p:hover{background:var(--blue-d);border-color:var(--blue-d)}
+.final :focus-visible{outline-color:var(--blue)}
+.final .cap,.final small{color:var(--t3)}
+
+/* ═════ v7 · DEGRADÊ EM MOVIMENTO NOS TÍTULOS ═════
+   Frase serifada azul: fluxo de azuis lento e contínuo (loop sem emenda).
+   Linha grande em tinta: brilho azul-escuro discreto, mais lento.
+   Contraste: o tom mais claro (#5B7BFF) mantém 3.9:1 no branco = AA para texto grande. */
+.h1 .turn,h2 .mute,h3 .mute,.sign .mute{
+  background-image:linear-gradient(100deg,#143FFF 0%,#5B7BFF 22%,#0B2BD6 50%,#5B7BFF 78%,#143FFF 100%);
+  background-size:200% 100%;background-repeat:repeat-x;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  padding-right:.08em;margin-right:-.08em}           /* itálico não perde a ponta da última letra */
+.h1 .big,.sign{
+  background-image:linear-gradient(100deg,#090E2B 0%,#090E2B 35%,#2A3B9E 50%,#090E2B 65%,#090E2B 100%);
+  background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.sign .mute{display:block}
+/* dentro dos blocos azuis (oferta e popup): degradê branco → azul-gelo */
+.offer h2 .mute,.ex h2 .mute{background-image:linear-gradient(100deg,#fff 0%,#C7D3FF 25%,#fff 50%,#C7D3FF 75%,#fff 100%)}
+@keyframes flow{from{background-position:0% 50%}to{background-position:-200% 50%}}
+@keyframes sheen{0%,100%{background-position:100% 50%}50%{background-position:0% 50%}}
+@media(prefers-reduced-motion:no-preference){
+  .h1 .turn,h2 .mute,h3 .mute,.sign .mute{animation:flow 9s linear infinite}
+  .h1 .big,.sign{animation:sheen 12s ease-in-out infinite}
+}
+@media print{.h1 .turn,h2 .mute,.h1 .big,.sign,.sign .mute{-webkit-text-fill-color:currentColor;background:none}}
+
+/* ═════ v8 · SEM BARRA DE TOPO ═════
+   A página começa direto no herói. A barra fixa de CTA no celular fica, mas sólida (sem vidro). */
+html.draft .hero{padding-top:calc(clamp(48px,7vw,104px) + 40px)}
+.mbar{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 -10px 30px -18px rgba(9,14,43,.25)}
+
+/* responsivo: números nunca quebram em duas linhas; capa do Playbook não esconde o título */
+.proofnums strong,.strip strong,.facts strong{white-space:nowrap}
+@media(max-width:480px){
+  .proofnums strong,.strip strong,.facts strong{font-size:clamp(1.55rem,7.2vw,2rem)}
+  .proofnums li,.strip li,.facts li{padding:16px 14px}
+}
+@media(min-width:521px){.cover{margin-bottom:-16px}}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7l10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+  <symbol id="i-stairs" viewBox="0 0 24 24"><path d="M3 21h5v-5h5v-5h5V6h3"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M3 4h18l-7 8.5V19l-4 2v-8.5z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+</svg>
+
+<!-- ═══ [01] NAV ═══ -->
+
+<main id="topo">
+<!-- ═══ [02] ✏️ ABERTURA + FORMULÁRIO ═══ -->
+<header class="hero">
+  <div class="gridbg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-g">
+      <div>
+        <span class="tag"><span class="dot" aria-hidden="true"></span>Presente liberado</span>
+        <h1 class="h1"><span class="pre">Parabéns, você ganhou o</span> <span class="big">Playbook</span> <span class="turn">0 aos 100K.</span></h1>
+        <p class="lead">O framework passo a passo do que faz uma agência faturar R$20 mil, R$50 mil, R$100 mil e até R$300 mil por mês. Os funis que trazem cliente qualificado querendo fechar, e o processo comercial para acelerar.</p>
+        <ul class="ticks">
+          <li><svg class="ic"><use href="#i-check"/></svg>O que muda na agência em cada degrau de faturamento</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>A Estrutura dos Funis de Aquisição Qualificada</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>O processo comercial completo, do lead ao contrato</li>
+        </ul>
+      </div>
+      <div class="fwrap" id="form-top">
+        <!-- 🖼️ capa desenhada em código; para a capa real troque o conteúdo de .cover por <img src="capa.webp" alt="Capa do Playbook 0 aos 100K"> -->
+        <div class="cover" aria-hidden="true"><span class="mono">FULLX · PLAYBOOK</span><strong>0 aos 100K <em>Mais clientes e receita</em></strong><small>47 PÁGINAS</small></div>
+        <div class="fcard">
+          <form id="form" novalidate>
+            <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign">
+            <input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="fbclid">
+            <div class="hp" aria-hidden="true"><label>Não preencha<input type="text" name="empresa_site" tabindex="-1" autocomplete="off"></label></div>
+            <div id="fields">
+              <h2>Para onde mandamos o seu Playbook?</h2>
+              <p class="sub">O PDF libera na hora, nesta tela.</p>
+              <div class="fld"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" autocomplete="given-name" required></div>
+              <div class="fld"><label for="f-email">Seu melhor e-mail</label><input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" required></div>
+              <div class="fld"><label for="f-wa">WhatsApp com DDD</label><input id="f-wa" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(11) 91234-5678" required></div>
+              <div class="fld"><label for="f-fat">Quanto você fatura por mês?</label>
+                <select id="f-fat" name="faturamento" required>
+                  <option value="">Escolha uma faixa</option><option value="ate-6k">Até R$6 mil</option><option value="6-10k">R$6 mil a R$10 mil</option>
+                  <option value="10-20k">R$10 mil a R$20 mil</option><option value="20-30k">R$20 mil a R$30 mil</option><option value="30k+">Acima de R$30 mil</option>
+                </select></div>
+              <p class="err" id="err" role="alert"></p>
+              <button type="submit" class="btn btn-p btn-lg btn-full" id="send">Liberar meu Playbook<svg class="ic arr"><use href="#i-arrow"/></svg></button>
+              <p class="privacy"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg>Grátis · seus dados ficam só com a FULLX</p>
+            </div>
+            <div class="ok" id="ok" hidden tabindex="-1">
+              <div class="ok-ic"><svg class="ic"><use href="#i-check"/></svg></div>
+              <h2 id="ok-t">Seu Playbook está liberado.</h2>
+              <p>Baixe agora. Uma cópia também vai para o seu e-mail e WhatsApp.</p>
+              <a class="btn btn-p btn-lg" id="dl" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-down"/></svg>Baixar o Playbook 0 aos 100K</a>
+              <p class="nxt"><b>Próximo passo:</b> descubra qual dos 4 canos vaza cliente na sua agência. São 2 minutos.</p>
+              <a class="btn btn-s" id="go-diag" href="index.html?from=playbook">Fazer o Diagnóstico 0 aos 100K<svg class="ic arr"><use href="#i-arrow"/></svg></a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ [03] ✏️ FAIXA DE PROVA ═══ -->
+<section class="strip" aria-label="Números da operação por trás do Playbook">
+  <div class="wrap"><ul>
+    <li><span>Material</span><strong>47</strong><small>páginas, em PDF</small></li>
+    <li><span>Faturamento / mês</span><strong>R$150 mil</strong><small>a agência onde o processo roda</small></li>
+    <li><span>Clientes</span><strong>+150</strong><small>em mais de 30 países</small></li>
+    <li><span>Tráfego gerenciado</span><strong>+R$10 mi</strong><small>em mídia paga</small></li>
+  </ul></div>
+</section>
+
+<!-- ═══ [04] ✏️ O QUE TEM DENTRO — alinhe ao sumário real do PDF ═══ -->
+<section class="sec" aria-labelledby="in-t">
+  <div class="wrap cards">
+    <div class="head rv">
+      <span class="label">O que tem dentro</span>
+      <h2 id="in-t">47 páginas para sua agência <span class="mute">parar de depender de indicação.</span></h2>
+    </div>
+    <div class="grid4 stag">
+      <article class="card ch fill rv"><h3>O framework para acelerar a agência</h3><p>O que construir primeiro, na ordem certa: oferta, aquisição, comercial e operação.</p><span class="chip">Parte 01</span></article>
+      <article class="card ch hov rv"><h3>A escada do faturamento</h3><p>O que uma agência faz diferente aos R$20 mil, R$50 mil, R$100 mil, R$150 mil, R$200 mil e R$300 mil por mês.</p><span class="chip">Parte 02</span></article>
+      <article class="card ch hov rv"><h3>Estrutura dos Funis de Aquisição Qualificada</h3><p>Como montar a demanda que traz dono de negócio com verba e vontade de fechar, todos os dias.</p><span class="chip">Parte 03</span></article>
+      <article class="card ch hov rv"><h3>Processo comercial completo</h3><p>Do primeiro contato ao contrato: qualificação, roteiro de call e follow-up sem depender do dono.</p><span class="chip">Parte 04</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ [05] ✏️ A ESCADA — resume o Playbook; ajuste ao conteúdo real ═══ -->
+<section class="sec alt" aria-labelledby="esc-t">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="label">A escada do faturamento</span>
+      <h2 id="esc-t">Cada degrau pede <span class="mute">uma estrutura diferente.</span></h2>
+      <p>O erro mais caro é subir o próximo degrau com a estrutura do anterior. O Playbook mostra o que muda em cada um.</p>
+    </div>
+    <div class="stairs" id="stairs">
+      <div class="step" style="--h:22%;--wm:64%;--d:0s"><strong>R$20 mil</strong><span>O dono vende e entrega. A oferta vira o gargalo.</span></div>
+      <div class="step" style="--h:36%;--wm:71%;--d:.08s"><strong>R$50 mil</strong><span>Demanda própria substitui a indicação.</span></div>
+      <div class="step" style="--h:50%;--wm:78%;--d:.16s"><strong>R$100 mil</strong><span>A venda sai da mão do dono: SDR e closer.</span></div>
+      <div class="step" style="--h:64%;--wm:85%;--d:.24s"><strong>R$150 mil</strong><span>CRM e processo seguram o volume sem a entrega cair.</span></div>
+      <div class="step" style="--h:80%;--wm:92%;--d:.32s"><strong>R$200 mil</strong><span>Time treinado, financeiro e contratação com margem.</span></div>
+      <div class="step top" style="--h:100%;--wm:100%;--d:.4s"><strong>R$300 mil+</strong><span>Gestão por número, não por esforço.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ [06] ✏️ AUTORIDADE ═══ -->
+<section class="sec" aria-labelledby="quem-t">
+  <div class="wrap auth">
+    <div class="rv">
+      <span class="label">Quem escreveu</span>
+      <h2 id="quem-t" style="margin-top:18px">Escrito por quem opera, <span class="mute">não por quem só ensina.</span></h2>
+      <p>Julio opera a Inout desde 2017, uma agência subnichada em tatuagem com mais de 150 clientes em mais de 30 países. O Playbook é o processo que roda lá, organizado em 47 páginas.</p>
+    </div>
+    <ul class="facts rv" style="--d:.08s">
+      <li><strong>R$150 mil</strong><span>faturamento mensal da Inout</span></li>
+      <li><strong>+150</strong><span>clientes em mais de 30 países</span></li>
+      <li><strong>+R$10 mi</strong><span>gerenciados em tráfego</span></li>
+      <li><strong>+R$1 mi</strong><span>vendidos em direct response</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ [07] ✏️ PERGUNTAS — para quem / o que é / caso diferente / por que você / como começo ═══ -->
+<section class="sec alt" aria-labelledby="faq-t">
+  <div class="wrap faq-w">
+    <div class="head c rv"><span class="label">Perguntas</span><h2 id="faq-t">Antes de baixar.</h2></div>
+    <div class="faq stag">
+      <div class="qa rv"><input type="checkbox" id="q1"><label for="q1">Para quem é?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></label><div class="ans"><div><p>Para gestores de tráfego e donos de agência que já têm clientes e querem parar de depender de indicação. Se você ainda não tem nenhum cliente, guarde o PDF para quando tiver.</p></div></div></div>
+      <div class="qa rv"><input type="checkbox" id="q2"><label for="q2">O que é, exatamente?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></label><div class="ans"><div><p>Um PDF de 47 páginas com o framework, a escada do faturamento, a estrutura dos funis de aquisição e o processo comercial. É gratuito.</p></div></div></div>
+      <div class="qa rv"><input type="checkbox" id="q3"><label for="q3">E se a minha agência for de outro nicho?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></label><div class="ans"><div><p>A estrutura vale para qualquer nicho: oferta, aquisição, qualificação e fechamento são iguais. Os exemplos vêm de uma agência subnichada, o que ajuda a enxergar como adaptar para a sua.</p></div></div></div>
+      <div class="qa rv"><input type="checkbox" id="q4"><label for="q4">Por que confiar neste Playbook?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></label><div class="ans"><div><p>Porque ele descreve o processo que roda numa agência de R$150 mil/mês com mais de 150 clientes, e não teoria de quem vive de vender curso.</p></div></div></div>
+      <div class="qa rv"><input type="checkbox" id="q5"><label for="q5">Como eu recebo?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></label><div class="ans"><div><p>Preencha o formulário no topo. O botão de download aparece na hora, e uma cópia vai para o seu e-mail e WhatsApp.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ [08] ✏️ FECHAMENTO — título em pergunta ═══ -->
+<section class="sec final" aria-labelledby="fim-t">
+  
+  <div class="wrap rv">
+    <span class="label">Ainda está aqui?</span>
+    <h2 id="fim-t">Vai deixar o seu Playbook <span class="mute">parado aqui?</span></h2>
+    <p>Falta só dizer para onde mandamos. Leva 20 segundos.</p>
+    <div class="cta-c" style="margin-top:36px"><a class="btn btn-p btn-lg btn-m js-form" href="#form-top">Liberar meu Playbook<svg class="ic arr"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+</main>
+
+<!-- ═══ [09] RODAPÉ + BARRA DO CELULAR ═══ -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-l"><a class="brand" href="#topo">Full<i>X</i></a><span class="mono">PLAYBOOK 0 AOS 100K</span></div>
+    <div class="segs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="foot-r"><span class="mono">© <span id="ano">2026</span> FULLX</span></div>
+    <p class="disc">Resultados variam conforme a execução e o mercado de cada agência.</p>
+  </div>
+</footer>
+<div class="mbar" id="mbar"><a class="btn btn-p js-form" href="#form-top">Liberar meu Playbook<svg class="ic arr"><use href="#i-arrow"/></svg></a></div>
+
+<script>
+/* ═══ [CONFIG] ⚙️ ═══════════════════════════════════════════════════════════════
+   WEBHOOK_URL      recebe o cadastro em JSON. Vazio = não grava e não dispara Lead.
+   PLAYBOOK_URL     🔗 link do PDF (Drive público, Hotmart, seu servidor). Vazio = esconde o botão de download.
+   DIAGNOSTICO_URL  🔗 página do diagnóstico.
+   FAIXAS_ICP       faixas que contam como lead qualificado. */
+var CONFIG={
+  WEBHOOK_URL:'',
+  PLAYBOOK_URL:'',
+  DIAGNOSTICO_URL:'index.html?from=playbook',
+  FAIXAS_ICP:['6-10k','10-20k','20-30k']
+};
+</script>
+<script>
+/* ═══ [JS] não precisa mexer: revelar ao rolar, eventos de pixel e formulário ═══ */
+(function(){
+'use strict';
+var d=document,w=window;
+function ss(){try{return w.sessionStorage}catch(e){return null}}
+function sget(k){var s=ss();try{return s?s.getItem(k):null}catch(e){return null}}
+function sset(k,v){var s=ss();try{if(s)s.setItem(k,v)}catch(e){}}
+var STD={Lead:1,PageView:1};
+function track(ev,p,id){try{if(w.fbq){var o=id?{eventID:id}:undefined;STD[ev]?w.fbq('track',ev,p||{},o):w.fbq('trackCustom',ev,p||{},o)}}catch(e){}
+  try{(w.dataLayer=w.dataLayer||[]).push(Object.assign({event:ev,event_id:id||undefined},p||{}))}catch(e){}}
+var UTM=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'],q=new URLSearchParams(location.search);
+UTM.forEach(function(k){var v=q.get(k);if(v)sset(k,v)});
+d.getElementById('ano').textContent=new Date().getFullYear();
+d.getElementById('go-diag').href=CONFIG.DIAGNOSTICO_URL;
+
+var els=d.querySelectorAll('.rv,#stairs');
+if('IntersectionObserver' in w){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting||e.boundingClientRect.top<0){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -10% 0px'});
+  els.forEach(function(el){io.observe(el)});
+  var mbar=d.getElementById('mbar');new IntersectionObserver(function(es){mbar.classList.toggle('show',!es[0].isIntersecting)}).observe(d.getElementById('form-top'));
+}else{els.forEach(function(el){el.classList.add('on')})}
+
+/* botões "Liberar meu Playbook" levam ao formulário e focam o nome */
+d.querySelectorAll('.js-form').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();d.getElementById('form-top').scrollIntoView({behavior:'smooth',block:'center'});
+  setTimeout(function(){var n=d.getElementById('f-nome');if(n&&!d.getElementById('fields').hidden)n.focus({preventScroll:true})},450)})});
+
+var form=d.getElementById('form'),send=d.getElementById('send'),errEl=d.getElementById('err');
+form.elements.whatsapp.addEventListener('input',function(e){var v=e.target.value.replace(/\D/g,'').slice(0,11);
+  e.target.value=v.length>10?'('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7):v.length>6?'('+v.slice(0,2)+') '+v.slice(2,6)+'-'+v.slice(6):v.length>2?'('+v.slice(0,2)+') '+v.slice(2):v});
+function bad(el,m){el.setAttribute('aria-invalid','true');errEl.textContent=m;el.focus();return false}
+function valid(){var f=form.elements;['nome','email','whatsapp','faturamento'].forEach(function(k){f[k].removeAttribute('aria-invalid')});errEl.textContent='';
+  if(f.nome.value.trim().length<2)return bad(f.nome,'Escreva seu nome.');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim()))return bad(f.email,'Confira o e-mail.');
+  var dg=f.whatsapp.value.replace(/\D/g,'');if(dg.length<10||dg.length>13)return bad(f.whatsapp,'Confira o WhatsApp: DDD + número.');
+  if(!f.faturamento.value)return bad(f.faturamento,'Escolha a faixa de faturamento.');return true}
+function uid(){try{return crypto.randomUUID()}catch(e){return Date.now().toString(36)+Math.random().toString(36).slice(2)}}
+function done(o){d.getElementById('fields').hidden=true;var ok=d.getElementById('ok');ok.hidden=false;
+  d.getElementById('ok-t').textContent=(o.nome?o.nome.split(' ')[0]+', s':'S')+'eu Playbook está liberado.';
+  var dl=d.getElementById('dl');if(CONFIG.PLAYBOOK_URL){dl.href=CONFIG.PLAYBOOK_URL;dl.onclick=function(){track('BaixouPlaybook',{})}}else{dl.hidden=true}
+  d.getElementById('go-diag').onclick=function(){track('CliqueDiagnostico',{origem:'playbook'})};ok.focus()}
+form.addEventListener('submit',function(e){e.preventDefault();if(!valid())return;
+  var o={};new FormData(form).forEach(function(v,k){o[k]=String(v).trim()});if(o.empresa_site){done(o);return}delete o.empresa_site;
+  UTM.forEach(function(k){if(!o[k])o[k]=sget(k)||''});
+  var id=uid(),qual=CONFIG.FAIXAS_ICP.indexOf(o.faturamento)>-1;
+  o.origem=q.get('from')||'direto';o.qualificado=qual;o.event_id=id;o.isca='playbook-0-100k';o.pagina=location.href.split('#')[0];o.data=new Date().toISOString();
+  if(!CONFIG.WEBHOOK_URL){done(o);return}
+  send.disabled=true;
+  fetch(CONFIG.WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify(o),keepalive:true})
+    .then(function(){track('Lead',{content_name:'playbook-0-100k',origem:o.origem},id);if(qual)track('LeadQualificado',{faturamento:o.faturamento,isca:'playbook'});done(o)})
+    .catch(function(){errEl.textContent='A conexão falhou. Tente de novo em alguns segundos.'})
+    .then(function(){send.disabled=false})});
+})();
+</script>
+</body>
+</html>
